@@ -145,5 +145,28 @@ def driver():
             if os.path.exists(os.getenv('localappdata') + '\\Google'):
                 Chrome_Installer() # 크롬 드라이버 설치 스크립트 실행
                 Write.print("\n크롬드라이버 실행파일 설치 완료!", Colors.blue_to_cyan, interval=0.015)
-
                 return "chromedriver.exe" # 크롬 최고!
+            else:
+                Write.print("\n오류 | 드라이버 찾기 / 설치에 오류가 생겼습니다. 다시 시도 할게요!!\n", Colors.blue_to_cyan, interval=0.035)
+                Chrome_Installer()
+                Write.Print("\n크롬 드라이버를 다운로드합니다!\n\n", Colors.blue_to_cyan, interval=0.015)
+                return "chromedriver.exe"
+
+######################### 드라이버 설치 끝 #########################
+
+def clear():
+    system = os.name
+
+    if system == "nt":
+        os.system("cls")
+    else:
+        print('\n' * 120)
+    return
+
+def LoadingAnimation():
+    loading_iconlist = ['|', '/', '-', '\\']
+
+    for i in loading_iconlist:
+        sys.stdout.write(f"""\r{ly}[{b}#{ly}]{w} 로딩중... {i}""")
+        sys.stdout.flush()
+        sleep(0.1)
