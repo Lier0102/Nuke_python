@@ -1,6 +1,6 @@
 import requests
 
-from utils.Setting.
+from utils.Setting.setup_most import *
 
 # dm테러 기능을 사용하려면, 서버에 특정 토큰, 프록시로 
 # dm을 새로 생성할 때 만들어지는 요청을 제거해야됨.
