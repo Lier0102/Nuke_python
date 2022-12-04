@@ -25,3 +25,4 @@ lr = Fore.LIGHTRED_EX
 lb = Fore.LIGHTBLUE_EX
 
 ############### 디자인 관련 상수 설정 ###############
+
