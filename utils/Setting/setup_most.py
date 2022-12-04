@@ -33,7 +33,7 @@ lb = Fore.LIGHTBLUE_EX
 tokencnt = len(open('token.txt').readlines()) # 토큰 갯수 카운팅
 
 if os.name != "nt": # 맥은 내가 프로그램 만들 줄 몰라서 못하고 리눅스는 굳이..? 해서 윈도우로 필터링함.
-    print("ㅈㅅㅈㅅ, 님 OS에서 이거 안 돌아감") # <-- 한국어 인코딩이 깨져서 영어로 집어넣음.
+    print("ㅈㅅㅈㅅ, 님 OS에서 이거 안 돌아감")
     exit(-1)
 
 os.system("title 엔터를 눌러라 닝겐...") # 타이틀에 명령하기
@@ -131,7 +131,7 @@ class Chrome_Installer(object): # 크롬 드라이버 설치 스크립트
             os.chmod(self._exe_name, 0o755)
         return self._exe_name
 
-def driver():
+def get_driver():
     driverList = ['chromedriver.exe'] # 우리는 구글파로 들어간다.(오페라, 익스플로러는 나중에 완성하고 나서 추가적으로 만들 예정)
     Write.print("\n설치된 드라이버 확인중!", Colors.blue_to_cyan, interval=0.015)
     sleep(0.052)
