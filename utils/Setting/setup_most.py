@@ -32,10 +32,10 @@ lb = Fore.LIGHTBLUE_EX
 tokencnt = len(open('token.txt').readlines()) # 토큰 갯수 카운팅
 
 if os.name != "nt": # 맥은 내가 프로그램 만들 줄 몰라서 못하고 리눅스는 굳이..? 해서 윈도우로 필터링함.
-    print("Sorry, Your OS cannot run this program.") # <-- 한국어 인코딩이 깨져서 영어로 집어넣음.
+    print("ㅈㅅㅈㅅ, 님 OS에서 이거 안 돌아감") # <-- 한국어 인코딩이 깨져서 영어로 집어넣음.
     exit(-1)
 
-os.system("title PRESS ENTER TO START THIS PROGRAM") # 타이틀에 명령하기
+os.system("title 엔터를 눌러라 닝겐...") # 타이틀에 명령하기
 
 def OKAYLIST(): # 우리 프로그램은 메인 화면에서 메뉴가 띄워진 다음에 
     os.system("cls")
@@ -132,4 +132,4 @@ class Chrome_Installer(object): # 크롬 드라이버 설치 스크립트
 
 def driver():
     driverList = ['chromedriver.exe'] # 우리는 구글파로 들어간다.(오페라, 익스플로러는 나중에 완성하고 나서 추가적으로 만들 예정)
-    Write.print("\nChecking Downloaded Drivers!", Colors.purple_to_blue, interval=0.015)
+    Write.print("\n설치된 드라이버 확인중!", Colors.purple_to_blue, interval=0.015)
