@@ -9,6 +9,7 @@ import re
 import zipfile
 from urllib.request import urlopen, urlretrieve
 from distutils.version import LooseVersion
+from time import sleep
 
 ###### 버전 지정 ######
 
@@ -132,4 +133,17 @@ class Chrome_Installer(object): # 크롬 드라이버 설치 스크립트
 
 def driver():
     driverList = ['chromedriver.exe'] # 우리는 구글파로 들어간다.(오페라, 익스플로러는 나중에 완성하고 나서 추가적으로 만들 예정)
-    Write.print("\n설치된 드라이버 확인중!", Colors.purple_to_blue, interval=0.015)
+    Write.print("\n설치된 드라이버 확인중!", Colors.blue_to_cyan, interval=0.015)
+    sleep(0.052)
+    for driver in driverList: # 드라이브 리스트에 설치 되어있는 목록들 체킹
+        if os.path.exists(os.getcwd() + os.sep + driver): # os.sep = '\\'
+            Write.print("\n크롬 드라이버가 이미 설치되어 있음!", Colors.blue_to_cyan, interval=0.015) # 만약 현재 폴더에 드라이버가 있다면
+            sleep(0.5)
+            return driver # 드라이버 이름 리턴
+        else: # 드라이버 설치...
+            Write.print("\n드라이버를 설치해 드림!\n\n", Colors.blue_to_cyan, interval=0.015) # 설치 메시지
+            if os.path.exists(os.getenv('localappdata') + '\\Google'):
+                Chrome_Installer() # 크롬 드라이버 설치 스크립트 실행
+                Write.print("\n크롬드라이버 실행파일 설치 완료!", Colors.blue_to_cyan, interval=0.015)
+
+                return "chromedriver.exe" # 크롬 최고!
