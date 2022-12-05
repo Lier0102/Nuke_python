@@ -170,3 +170,26 @@ def LoadingAnimation():
         sys.stdout.write(f"""\r{ly}[{b}#{ly}]{w} 로딩중... {i}""")
         sys.stdout.flush()
         sleep(0.1)
+    
+def PrintAnimation(letters: str): # 글자를 애니메이션화 하여 출력
+    for letter in letters:
+        sys.stdout.write(letter);sys.stdout.flush();sleep(0.25) # 0.25초씩 딜레이 주면서 추력
+
+def TokenValidator(token): # 토큰이 유효한지 검사하는 discord api
+    '''내가 제작한 코드가 아니라, discord api뒤져서 가져옴'''
+    base_url = "https://discord.com/api/v9/users/@me"
+    message = "You need to verify your account in order to perform this action."
+
+    r = requests.get(base_url, headers=getheaders(token))
+    if r.status_code != 200:
+        print(f"\n{Fore.RED}Invalid Token.{Fore.RESET}")
+        sleep(1)
+        __import__("spammer").main()
+    j = requests.get(f'{base_url}/billing/subscriptions', headers=getheaders(token)).json()
+    try:
+        if j["message"] == message:
+            print(f"\n{Fore.RED}Phone Locked Token!{Fore.RESET}")
+            sleep(1)
+            __import__("spammer").main()
+    except TypeError:
+        pass
