@@ -89,7 +89,7 @@ class Chrome_Installer(object): # 크롬 드라이버 설치 스크립트
                 self.__class__.installed = True
 
     @staticmethod
-    def random_cdc():
+    def random_cdc() -> bytes:
         cdc = random.choices('abcdefghijklmnopqrstuvwxyz', k=26)
         cdc[-6:-4] = map(str.upper, cdc[-6:-4])
         cdc[2] = cdc[0]

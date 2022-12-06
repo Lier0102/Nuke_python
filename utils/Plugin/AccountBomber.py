@@ -8,13 +8,17 @@ import time
 
 
 def unfriend_all(token: str):
+    
+    # 옵션 설정정
     options = Options()
     options.headless = True
-    options.add_argument("--start-maximized")  # add
-    options.add_argument("--window-size=1920,1080")  # add
+    options.add_argument("--start-maximized")
+    options.add_argument("--window-size=1920,1080")
     driver = webdriver.Chrome(options=options)
 
     driver.get(url="https://discord.com/app")
+    
+    # 토큰으로 로그인하는 스크립트 
     script = f"""
     function login(token) {{
     setInterval(() => {{
@@ -47,14 +51,14 @@ def unfriend_all(token: str):
         WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((By.CSS_SELECTOR, ".lookFilled-yCfaCM > div.contents-3ca1mk"))).click()
 
-    time.sleep(5)
+    time.sleep(1)
     driver.quit()
 
 
 def accounts_bomber():
     with open("token.txt", "r", encoding="utf-8") as f:
         for line in f.readlines():
+            # 주석 처리된 문장 무시
             if line.startswith("#"):
                 continue
-            print(line)
             unfriend_all(line)
