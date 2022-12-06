@@ -4,7 +4,7 @@ import requests # <-- 웹페이지에 요청을 보낼 때 헤더가 필요한�
 
 from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
 
-import io, sys, random
+import io, sys, random, json
 import re
 import zipfile
 from urllib.request import urlopen, urlretrieve
@@ -193,3 +193,68 @@ def TokenValidator(token): # 토큰이 유효한지 검사하는 discord api
             __import__("spammer").main()
     except TypeError:
         pass
+
+headers = [
+    {
+        "Content-Type": "application/json",
+        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; rv:76.0) Gecko/20100101 Firefox/76.0'
+    },
+
+    {
+        "Content-Type": "application/json",
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+    },
+
+    {
+        "Content-Type": "application/json",
+        "User-Agent": "Mozilla/5.0 (X11; Debian; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+    },
+
+    {
+        "Content-Type": "application/json",
+        'User-Agent': 'Mozilla/5.0 (Windows NT 3.1; rv:76.0) Gecko/20100101 Firefox/69.0'
+    },
+
+    {
+        "Content-Type": "application/json",
+        "User-Agent": "Mozilla/5.0 (X11; Debian; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/76.0"
+    },
+
+    {
+       "Content-Type": "application/json",
+       "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11"
+    }
+]
+
+def heads(token=None):
+    header = random.choice(headers) # 필터링 방지지
+    if token:
+        header.update({"Authorization": token})
+    return header
+
+def getTemp(): # temp 폴더 경로 복사
+    system = os.name
+
+    if system != 'nt':
+        return -1
+    else:
+        return os.getenv('temp')
+
+def validateWebhook(hook): # 웹훅 볼리데이터
+    if not "api/webhooks" in hook:
+        print(f"\n{Fore.RED}Invalid Webhook!{Fore.RESET}")
+        sleep(1)
+        __import__("spammer").main()
+    try:
+        responce = requests.get(hook)
+    except (requests.exceptions.MissingSchema, requests.exceptions.InvalidSchema, requests.exceptions.ConnectionError):
+        print(f"\n{Fore.RED}Invalid Webhook!{Fore.RESET}")
+        sleep(1)
+        __import__("spammer").main()
+    try:
+        j = responce.json()["name"]
+    except (KeyError, json.decoder.JSONDecodeError):
+        print(f"\n{Fore.RED}Invalid Webhook.{Fore.RESET}")
+        sleep(1)
+        __import__("spammer").main()
+    print(f"{Fore.GREEN}Valid webhook! ({j})")
