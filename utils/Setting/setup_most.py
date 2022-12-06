@@ -180,15 +180,15 @@ def TokenValidator(token): # 토큰이 유효한지 검사하는 discord api
     base_url = "https://discord.com/api/v9/users/@me"
     message = "You need to verify your account in order to perform this action."
 
-    r = requests.get(base_url, headers=getheaders(token))
+    r = requests.get(base_url, headers=heads(token))
     if r.status_code != 200:
         print(f"\n{Fore.RED}Invalid Token.{Fore.RESET}")
         sleep(1)
         __import__("spammer").main()
-    j = requests.get(f'{base_url}/billing/subscriptions', headers=getheaders(token)).json()
+    j = requests.get(f'{base_url}/billing/subscriptions', headers=heads(token)).json()
     try:
         if j["message"] == message:
-            print(f"\n{Fore.RED}Phone Locked Token!{Fore.RESET}")
+            print(f"\n{Fore.RED}폰 락된 토큰입니다!{Fore.RESET}")
             sleep(1)
             __import__("spammer").main()
     except TypeError:
@@ -242,19 +242,19 @@ def getTemp(): # temp 폴더 경로 복사
 
 def validateWebhook(hook): # 웹훅 볼리데이터
     if not "api/webhooks" in hook:
-        print(f"\n{Fore.RED}Invalid Webhook!{Fore.RESET}")
+        print(f"\n{Fore.RED}존재하지 않는 웹훅입니다!{Fore.RESET}")
         sleep(1)
         __import__("spammer").main()
     try:
         responce = requests.get(hook)
     except (requests.exceptions.MissingSchema, requests.exceptions.InvalidSchema, requests.exceptions.ConnectionError):
-        print(f"\n{Fore.RED}Invalid Webhook!{Fore.RESET}")
+        print(f"\n{Fore.RED}존재하지 않는 웹훅입니다!{Fore.RESET}")
         sleep(1)
         __import__("spammer").main()
     try:
         j = responce.json()["name"]
     except (KeyError, json.decoder.JSONDecodeError):
-        print(f"\n{Fore.RED}Invalid Webhook.{Fore.RESET}")
+        print(f"\n{Fore.RED}존재하지 않는 웹훅입니다!{Fore.RESET}")
         sleep(1)
         __import__("spammer").main()
-    print(f"{Fore.GREEN}Valid webhook! ({j})")
+    print(f"{Fore.GREEN}존재하는 웹훅입니다! ({j})")
