@@ -1,4 +1,5 @@
-import os # <-- 시스템 명령어를 쓸 일이 많음
+import os
+from typing import ClassVar, Final, Literal, Optional # <-- 시스템 명령어를 쓸 일이 많음
 from colorama import Fore # <-- 디자인(배경 X 글씨 O)
 import requests # <-- 웹페이지에 요청을 보낼 때 헤더가 필요한데 얘가 좀 도움이 됨
 import ctypes
@@ -48,25 +49,26 @@ def OKAYLIST(): # 우리 프로그램은 메인 화면에서 메뉴가 띄워진
 # 에 쓸 것임.
 # 이야 크롬드라이버 다운로드 스크립트 찾았다.
 
-google_target_ver = 0 # 버전을 특정짓지 않음.(계속 업뎃되니까)
+google_target_version = 0 # 버전을 특정짓지 않음.(계속 업뎃되니까)
 
 class Chrome_Installer(object): # 크롬 드라이버 설치 스크립트
-    installed = False
-    target_version = None
-    DL_BASE = "https://chromedriver.storage.googleapis.com/"
+    installed: ClassVar[bool] = False
+    DL_BASE: Final[str] = "https://chromedriver.storage.googleapis.com/"
 
-    def __init__(self, executable_path=None, target_version=None, *args, **kwargs):
+    def __init__(self, executable_path: Optional[str] = None,
+                 target_version: Optional[int] = None,
+                 *args, **kwargs):
         self.platform = sys.platform
 
-        if google_target_ver:
-            self.target_version = google_target_ver
+        if google_target_version:
+            self.target_version = google_target_version
 
         if target_version:
             self.target_version = target_version
 
         if not self.target_version:
             self.target_version = self.get_release_version_number().version[0]
-
+            
         self._base = base_ = "chromedriver{}"
 
         exe_name = self._base
@@ -83,9 +85,8 @@ class Chrome_Installer(object): # 크롬 드라이버 설치 스크립트
 
         if not os.path.exists(self.executable_path):
             self.fetch_chromedriver()
-            if not self.__class__.installed:
-                if self.patch_binary():
-                    self.__class__.installed = True
+            if not self.__class__.installed and self.patch_binary():
+                self.__class__.installed = True
 
     @staticmethod
     def random_cdc():
@@ -107,7 +108,7 @@ class Chrome_Installer(object): # 크롬 드라이버 설치 스크립트
                     linect += 1
             return linect
 
-    def get_release_version_number(self):
+    def get_release_version_number(self) -> LooseVersion:
         path = (
             "LATEST_RELEASE"
             if not self.target_version
@@ -143,7 +144,7 @@ def get_driver():
             return driver # 드라이버 이름 리턴
         else: # 드라이버 설치...
             Write.print("\n드라이버를 설치해 드림!\n\n", Colors.blue_to_cyan, interval=0.015) # 설치 메시지
-            if os.path.exists(os.getenv('localappdata') + '\\Google'):
+            if os.path.exists(os.getenv('localappdata', default="") + '\\Google'):
                 Chrome_Installer() # 크롬 드라이버 설치 스크립트 실행
                 Write.print("\n크롬드라이버 실행파일 설치 완료!", Colors.blue_to_cyan, interval=0.015)
                 return "chromedriver.exe" # 크롬 최고!
@@ -176,7 +177,7 @@ def PrintAnimation(letters: str): # 글자를 애니메이션화 하여 출력
     for letter in letters:
         sys.stdout.write(letter);sys.stdout.flush();sleep(0.25) # 0.25초씩 딜레이 주면서 추력
 
-def TokenValidator(token): # 토큰이 유효한지 검사하는 discord api
+def TokenValidator(token: str): # 토큰이 유효한지 검사하는 discord api
     '''내가 제작한 코드가 아니라, discord api뒤져서 가져옴'''
     base_url = "https://discord.com/api/v9/users/@me"
     message = "You need to verify your account in order to perform this action."
@@ -227,22 +228,22 @@ headers = [
     }
 ]
 
-def heads(token=None):
-    header = random.choice(headers) # 필터링 방지지
+def heads(token: Optional[str] = None):
+    header = random.choice(headers).copy() # 필터링 방지
     if token:
-        header.update({"Authorization": token})
+        header["Authorization"] = token
     return header
 
-def getTemp(): # temp 폴더 경로 복사
+def getTemp() -> str | Literal[-1]: # temp 폴더 경로 복사
     system = os.name
 
     if system != 'nt':
         return -1
     else:
-        return os.getenv('temp')
+        return os.getenv('temp', -1)
 
-def validateWebhook(hook): # 웹훅 볼리데이터
-    if not "api/webhooks" in hook:
+def validateWebhook(hook: str): # 웹훅 볼리데이터
+    if "api/webhooks" not in hook:
         print(f"\n{Fore.RED}존재하지 않는 웹훅입니다!{Fore.RESET}")
         sleep(1)
         __import__("spammer").main()
@@ -260,7 +261,7 @@ def validateWebhook(hook): # 웹훅 볼리데이터
         __import__("spammer").main()
     print(f"{Fore.GREEN}존재하는 웹훅입니다! ({j})")
 
-def setTitle(_str):
+def setTitle(_str: str):
     system = os.name
 
     if system != 'nt':
