@@ -1,6 +1,7 @@
 import os # <-- 시스템 명령어를 쓸 일이 많음
 from colorama import Fore # <-- 디자인(배경 X 글씨 O)
 import requests # <-- 웹페이지에 요청을 보낼 때 헤더가 필요한데 얘가 좀 도움이 됨
+import ctypes
 
 from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
 
@@ -258,3 +259,12 @@ def validateWebhook(hook): # 웹훅 볼리데이터
         sleep(1)
         __import__("spammer").main()
     print(f"{Fore.GREEN}존재하는 웹훅입니다! ({j})")
+
+def setTitle(_str):
+    system = os.name
+
+    if system != 'nt':
+        return -1 # 아직 지원 ㄴㄴ
+    else:
+        ctypes.windll.kernel32.SetConsoleTitleW(f"HYDRON_Nuker Alpha    |   Made by Lier0102 & ShinHaewon   |   토큰 수 : [{tokencnt}]")
+
