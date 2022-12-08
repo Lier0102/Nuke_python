@@ -268,3 +268,5 @@ def setTitle(_str):
     else:
         ctypes.windll.kernel32.SetConsoleTitleW(f"HYDRON_Nuker Alpha    |   Made by Lier0102 & ShinHaewon   |   토큰 수 : [{tokencnt}]")
 
+System.Size(120, 30)
+System.Clear()
