@@ -59,12 +59,17 @@ def useragent():
 
 # 아래는 로그인 해킹씬 따라해본 부분
 try:
-    with open('data/login.json') as f:
+    with open('data/login.json') as f: # 로그인 데이터 있냐?
         config = json.load(f)
-except:
-    with open('data/login.json', 'w') as f:
+except: # 없구나.. 
+    with open('data/login.json', 'w') as f: # 쓰기 모드!
         print(f"\n[{lg}#\x1b[95m\x1B[37m] Logging into Hydron...")
         login = input("[\x1b[95m#\x1b[95m\x1B[37m] Admin Password: ")
-        json.dump({"Login": login}, f, indent=4)
+        json.dump({"Login": login}, f, indent=4) # 인덴트 = tab(스페이스바 4번 간격)
     input(f"\n[\x1b[95m#\x1b[95m\x1B[37m] Successfully Logged in as: [{m}{login}{w}]\n[\x1b[95m>\x1b[95m\x1B[37m] Press ENTER to Continue: ")
-    pass
+    pass # 여기서 딱 엔터 뙇! 치면 멋있게 시작하는 거지~
+
+with open('data/login.json') as f: # 재확인 후 로드
+        config = json.load(f)
+login = config.get('Login') # 불러오기
+
