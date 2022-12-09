@@ -1,4 +1,5 @@
 import requests
+from colorama import Fore
 
 from utils.Setting.setup_most import *
 
@@ -8,5 +9,6 @@ from utils.Setting.setup_most import *
 
 def DmBomber(token: str, channels: list[str]):
     for channel in channels:
-        requests.delete(f"https://discord.com/api/v10/channels/" + channel['id']) # 헤더를 전송해야 하는데, 아직 특정되지 않음.
-    
+        requests.delete(f"https://discord.com/api/v10/channels/" + channel['id'],
+        headers=headers(token)) # 헤더를 전송해야 하는데, 아직 특정되지 않음.
+        print(f"[{Fore.LIGHTGREEN_EX}>{Fore.RESET}] 삭제된 갠디: {Fore.WHITE}"+channel['id']+Fore.RESET)
