@@ -269,5 +269,22 @@ def setTitle(_str: str):
     else:
         ctypes.windll.kernel32.SetConsoleTitleW(f"HYDRON_Nuker Alpha    |   Made by Lier0102 & ShinHaewon   |   토큰 수 : [{tokencnt}]")
 
+logo = r'''
+$$\   $$\                 $$\                               
+$$ |  $$ |                $$ |                              
+$$ |  $$ |$$\   $$\  $$$$$$$ | $$$$$$\   $$$$$$\  $$$$$$$\  
+$$$$$$$$ |$$ |  $$ |$$  __$$ |$$  __$$\ $$  __$$\ $$  __$$\ 
+$$  __$$ |$$ |  $$ |$$ /  $$ |$$ |  \__|$$ /  $$ |$$ |  $$ |
+$$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |      $$ |  $$ |$$ |  $$ |
+$$ |  $$ |\$$$$$$$ |\$$$$$$$ |$$ |      \$$$$$$  |$$ |  $$ |
+\__|  \__| \____$$ | \_______|\__|       \______/ \__|  \__|
+          $$\   $$ |                                        
+          \$$$$$$  |                                        
+           \______/             
+
+           github : Lier0102 & ShinHaewon                            
+'''
+
 System.Size(120, 30)
 System.Clear()
+Anime.Fade(Center.Center(logo), Colors.blue_to_cyan, interval=0.025, enter=True)
