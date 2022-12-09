@@ -32,7 +32,7 @@ lb = Fore.LIGHTBLUE_EX
 
 ###### 색 지정 ######
 
-tokencnt = len(open('token.txt').readlines()) # 토큰 갯수 카운팅
+tokencnt = len(open('token.txt', 'r', encoding='utf-8').readlines()) # 토큰 갯수 카운팅
 
 if os.name != "nt": # 맥은 내가 프로그램 만들 줄 몰라서 못하고 리눅스는 굳이..? 해서 윈도우로 필터링함.
     print("ㅈㅅㅈㅅ, 님 OS에서 이거 안 돌아감")
@@ -287,4 +287,4 @@ $$ |  $$ |\$$$$$$$ |\$$$$$$$ |$$ |      \$$$$$$  |$$ |  $$ |
 
 System.Size(120, 30)
 System.Clear()
-Anime.Fade(Center.Center(logo), Colors.blue_to_cyan, interval=0.025, enter=True)
+Anime.Fade(Center.Center(logo), Colors.blue_to_cyan, mode=interval=0.025, enter=True)
