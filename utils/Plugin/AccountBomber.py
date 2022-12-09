@@ -1,58 +1,17 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException
-import time
+import requests
 
-
-def unfriend_all(token: str):
+def remove_friend(token: str):
+    base_url = "https://discord.com/api/v10/users/@me/relationships"
     
-    # 옵션 설정정
-    options = Options()
-    options.headless = True
-    options.add_argument("--start-maximized")
-    options.add_argument("--window-size=1920,1080")
-    driver = webdriver.Chrome(options=options)
-
-    driver.get(url="https://discord.com/app")
+    headers = {
+        'Authorization': token
+    }
     
-    # 토큰으로 로그인하는 스크립트 
-    script = f"""
-    function login(token) {{
-    setInterval(() => {{
-    document.body.appendChild(document.createElement `iframe`).contentWindow.localStorage.token = `"${{token}}"`
-    }}, 50);
-    setTimeout(() => {{
-    location.reload();
-    }}, 2500);
-    }}
+    response: list[dict] = requests.get(url=base_url, headers=headers).json() # type: ignore
+    friend_ids: list[str] = [friend["id"] for friend in response] # type: ignore
+    for friend_id in friend_ids:
+        requests.delete(f"{base_url}/{friend_id}", headers=headers)
     
-    login({token!r})
-    """
-    driver.implicitly_wait(5)
-    driver.execute_script(script=script)
-
-    show_all_friend_nav = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.CSS_SELECTOR, "div.tabBar-ra-EuL.topPill-3DJJNV :nth-child(2)")))
-    show_all_friend_nav.click()
-
-    try:
-        extra_buttons = WebDriverWait(driver, 10).until(
-            EC.presence_of_all_elements_located((By.CSS_SELECTOR, "svg.icon-1WVg4I")))[1::2]
-    except TimeoutException:
-        return
-
-    for extra_button in extra_buttons:
-        extra_button.click()
-        WebDriverWait(driver, 10).until(
-            EC.presence_of_all_elements_located((By.CSS_SELECTOR, "div.label-2gNW3x")))[1].click()
-        WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, ".lookFilled-yCfaCM > div.contents-3ca1mk"))).click()
-
-    time.sleep(1)
-    driver.quit()
 
 
 def accounts_bomber():
@@ -61,4 +20,6 @@ def accounts_bomber():
             # 주석 처리된 문장 무시
             if line.startswith("#"):
                 continue
-            unfriend_all(line)
+            remove_friend(line)
+            
+remove_friend(token="MTA0ODg0OTQyNzE2MDM4NzY2NA.Gdkemr.D9zBGj8-bz5SQaGtIiDlo1BoFhDXBcgp1nXnEk")
