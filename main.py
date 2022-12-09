@@ -57,3 +57,14 @@ def useragent():
     useragent2.append(useragent)
     useragent1 = []
 
+# 아래는 로그인 해킹씬 따라해본 부분
+try:
+    with open('data/login.json') as f:
+        config = json.load(f)
+except:
+    with open('data/login.json', 'w') as f:
+        print(f"\n[{lg}#\x1b[95m\x1B[37m] Logging into Hydron...")
+        login = input("[\x1b[95m#\x1b[95m\x1B[37m] Admin Password: ")
+        json.dump({"Login": login}, f, indent=4)
+    input(f"\n[\x1b[95m#\x1b[95m\x1B[37m] Successfully Logged in as: [{m}{login}{w}]\n[\x1b[95m>\x1b[95m\x1B[37m] Press ENTER to Continue: ")
+    pass
