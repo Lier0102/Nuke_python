@@ -31,15 +31,14 @@ def fetch():
         guildId = input(f"[\x1b[95m>\x1b[95m\x1B[37m] 서버 ID 입력: ")
 
         response = requests.get(
-            f"https://discord.com/api/guilds/{guildId}",
+            f"https://discord.com/api/v10/guilds/{guildId}",
             headers = headers,
             params = {"with_counts" : True}
         ).json()
 
         owner = requests.get(
-            f"https://discord.com/api/guilds/{guildId}/members/{response['owner_id']}",
+            f"https://discord.com/api/v10/guilds/{guildId}/members/{response['owner_id']}",
             headers = headers,
-            params = {"with_counts" : True}
         ).json()
 
         print(f"""
@@ -53,23 +52,6 @@ def fetch():
         [{Fore.LIGHTMAGENTA_EX}아이콘{Fore.RESET}]  $:   https://cdn.discordapp.com/icons/{guildId}/{response['icon']}.webp?size=256
     """)
         sleep(6)
-
-def get_servers(token: str):
-    base_url = "https://discord.com/api/v9"
-    headers = {
-        'Authorization': token
-    }
-    servers = requests.get(f"{base_url}/users/@me/guilds", headers=headers).json()
-
-    server_infos = []
-    params = {
-        "with_counts": True
-    }
-    for server in servers:
-        server_info = requests.get(f"{base_url}/guilds/{server['id']}", headers=headers, params=params).json()
-        server_infos.append(server_info)
-
-    return server_infos
 
 if __name__ == '__main__':
     fetch()
