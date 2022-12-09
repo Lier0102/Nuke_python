@@ -186,13 +186,13 @@ def TokenValidator(token: str): # 토큰이 유효한지 검사하는 discord ap
     if r.status_code != 200:
         print(f"\n{Fore.RED}Invalid Token.{Fore.RESET}")
         sleep(1)
-        __import__("spammer").main()
+        __import__("Hydron").main()
     j = requests.get(f'{base_url}/billing/subscriptions', headers=heads(token)).json()
     try:
         if j["message"] == message:
             print(f"\n{Fore.RED}폰 락된 토큰입니다!{Fore.RESET}")
             sleep(1)
-            __import__("spammer").main()
+            __import__("Hydron").main()
     except TypeError:
         pass
 
@@ -246,19 +246,19 @@ def validateWebhook(hook: str): # 웹훅 볼리데이터
     if "api/webhooks" not in hook:
         print(f"\n{Fore.RED}존재하지 않는 웹훅입니다!{Fore.RESET}")
         sleep(1)
-        __import__("spammer").main()
+        __import__("Hydron").main()
     try:
         responce = requests.get(hook)
     except (requests.exceptions.MissingSchema, requests.exceptions.InvalidSchema, requests.exceptions.ConnectionError):
         print(f"\n{Fore.RED}존재하지 않는 웹훅입니다!{Fore.RESET}")
         sleep(1)
-        __import__("spammer").main()
+        __import__("Hydron").main()
     try:
         j = responce.json()["name"]
     except (KeyError, json.decoder.JSONDecodeError):
         print(f"\n{Fore.RED}존재하지 않는 웹훅입니다!{Fore.RESET}")
         sleep(1)
-        __import__("spammer").main()
+        __import__("Hydron").main()
     print(f"{Fore.GREEN}존재하는 웹훅입니다! ({j})")
 
 def setTitle(_str: str):
