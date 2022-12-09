@@ -37,3 +37,22 @@ except AssertionError:
     sleep(0.75)
     os._exit(0)
 
+
+def Loader():
+	l = ['|', '/', '-', '\\', ' ']
+	for i in l+l+l:
+		sys.stdout.write(f"""\r {i}""")
+		sys.stdout.flush()
+		sleep(0.1)
+
+global cls
+def cls():
+    os.system('cls')
+
+global useragent
+def useragent():
+    file = open('data/useragent.txt', 'r')
+    useragent = (random.choice(list(file))) # 파일을 리스트로 나눈 후 그 줄 중 한 줄을 선택
+    useragent2 = []
+    useragent2.append(useragent)
+    useragent1 = []
