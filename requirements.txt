@@ -11,3 +11,4 @@ re
 urllib
 distutils
 shutils
+typing
