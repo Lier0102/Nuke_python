@@ -235,6 +235,54 @@ def TokenValidator(token: str):  # 토큰이 유효한지 검사하는 discord a
         pass
 
 
+regions = [  # 국가
+    "brazil",
+    "hongkong",
+    "india",
+    "japan",
+    "rotterdam",
+    "russia",
+    "singapore",
+    "southafrica",
+    "sydney",
+    "us-central",
+    "us-east",
+    "us-south",
+    "us-west",
+]
+
+languages = {  # 디스코드 언어
+    "da": "Danish, Denmark",
+    "de": "German, Germany",
+    "en-GB": "English, United Kingdom",
+    "en-US": "English, United States",
+    "aud": "English, Austrlia",
+    "es-ES": "Spanish, Spain",
+    "fr": "French, France",
+    "hr": "Croatian, Croatia",
+    "lt": "Lithuanian, Lithuania",
+    "hu": "Hungarian, Hungary",
+    "nl": "Dutch, Netherlands",
+    "no": "Norwegian, Norway",
+    "pl": "Polish, Poland",
+    "pt-BR": "Portuguese, Brazilian, Brazil",
+    "ro": "Romanian, Romania",
+    "fi": "Finnish, Finland",
+    "sv-SE": "Swedish, Sweden",
+    "vi": "Vietnamese, Vietnam",
+    "tr": "Turkish, Turkey",
+    "cs": "Czech, Czechia, Czech Republic",
+    "el": "Greek, Greece",
+    "bg": "Bulgarian, Bulgaria",
+    "ru": "Russian, Russia",
+    "uk": "Ukranian, Ukraine",
+    "th": "Thai, Thailand",
+    "zh-CN": "Chinese, China",
+    "ja": "Japanese",
+    "zh-TW": "Chinese, Taiwan",
+    "ko": "Korean, Korea",
+}
+
 headers = [
     {
         "Content-Type": "application/json",
