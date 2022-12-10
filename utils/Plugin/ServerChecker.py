@@ -1,8 +1,8 @@
-import requests
 import os
 import sys
 import os.path
 import colorama
+import requests
 import webbrowser
 from time import sleep
 from colored import fg, attr
