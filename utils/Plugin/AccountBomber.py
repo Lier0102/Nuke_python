@@ -31,3 +31,6 @@ async def accounts_bomber():
     
     await asyncio.gather(*[remove_friend(token=token) for token in tokens])
 
+if __name__ == "__main__":
+    accounts_bomber()
+    Hydron()

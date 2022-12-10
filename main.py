@@ -117,6 +117,16 @@ def Hydron():
 
     if choice == '2':
         LoadingAnimation()
+        print(f"""
+[\x1b[95m1\x1b[95m\x1B[37m] 친삭 테러
+[\x1b[95m2\x1b[95m\x1B[37m] 나가기
+""")
+        option = int(input(f"[\x1b[95m>\x1b[95m\x1B[37m] 옵션: "))
+        if option == 1:
+            exec(open('utils/Plugin/AccountBomber.py', encoding='utf-8').read())
+        else:
+            Hydron()
+        
         pass
 
     if choice == '3':
