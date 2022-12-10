@@ -29,17 +29,6 @@ lb = Fore.LIGHTBLUE_EX
 
 ############### 디자인 관련 상수 설정 ###############
 
-try:
-    assert sys.version >= (3, 9)
-except AssertionError:
-    print(
-        f"{Fore.RED}님의 파이썬 버전 지원 안됨요 ({sys.version_info[0]}.{sys.version_info[1]}.{sys.version_info[2]}), 파이썬 3.10이상을 다운받으셔서 저희 Hydron Nuker를 사용해주세요!{Fore.RESET}"
-    )
-    sleep(5)
-    print("[\x1b[95m1\x1b[95m\x1B[37m] 비상탈출!!")
-    sleep(0.75)
-    os._exit(0)
-
 
 def Loader():
     l = ["|", "/", "-", "\\", " "]
