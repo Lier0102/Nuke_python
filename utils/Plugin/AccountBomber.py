@@ -1,5 +1,6 @@
 import aiohttp
 import asyncio
+from time import *
 
 from utils.Setting.setup_most import heads
 
@@ -33,4 +34,4 @@ async def accounts_bomber():
 
 if __name__ == "__main__":
     accounts_bomber()
-    Hydron()
+    sleep(3)
