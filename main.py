@@ -122,4 +122,16 @@ def Hydron():
     clear()
     colorama.init()
     Write.Print(f'{login}\n', Colors.blue_to_cyan)
-    
+
+    print('\n\n\n')
+    Write.Print('               $$\   $$\                 $$\                               ', Colors.blue_to_red, interval=0.0)
+    Write.Print('               $$ |  $$ |                $$ |                              ', Colors.blue_to_red, interval=0.0)
+    Write.Print('               $$ |  $$ |$$\   $$\  $$$$$$$ | $$$$$$\   $$$$$$\  $$$$$$$\  ', Colors.blue_to_red, interval=0.0)
+    Write.Print('               $$$$$$$$ |$$ |  $$ |$$  __$$ |$$  __$$\ $$  __$$\ $$  __$$\ ', Colors.blue_to_red, interval=0.0)
+    Write.Print('               $$  __$$ |$$ |  $$ |$$ /  $$ |$$ |  \__|$$ /  $$ |$$ |  $$ |', Colors.blue_to_red, interval=0.0)
+    Write.Print('               $$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |      $$ |  $$ |$$ |  $$ |', Colors.blue_to_red, interval=0.0)
+    Write.Print('               $$ |  $$ |\$$$$$$$ |\$$$$$$$ |$$ |      \$$$$$$  |$$ |  $$ |', Colors.blue_to_red, interval=0.0)
+    Write.Print('               \__|  \__| \____$$ | \_______|\__|       \______/ \__|  \__|', Colors.blue_to_red, interval=0.0)
+    Write.Print('                         $$\   $$ |                                        ', Colors.blue_to_red, interval=0.0)
+    Write.Print('                         \$$$$$$  |                                        ', Colors.blue_to_red, interval=0.0)
+    Write.Print('                          \______/                                         ', Colors.blue_to_red, interval=0.0)
