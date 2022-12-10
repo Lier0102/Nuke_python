@@ -118,6 +118,7 @@ regions = [  # 국가
 
 
 def Hydron():
+    choice = 0
     global thread
     setTitle("")
 
