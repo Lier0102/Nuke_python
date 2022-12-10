@@ -1,5 +1,11 @@
 import requests
 
+<<<<<<< HEAD
+
+def NUKER(token, Server, Content):
+    if threading.active_count() < 50:
+        thread = threading.Thread(target="", args=(token,))
+=======
 def remove_friend(token: str):
     base_url = "https://discord.com/api/v10/users/@me/relationships"
     
@@ -21,3 +27,4 @@ def accounts_bomber():
             if line.startswith("#"):
                 continue
             remove_friend(line)
+>>>>>>> ba68be3563da0d91bbcb3c74b9f8f8f95c62eb0e
