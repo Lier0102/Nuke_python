@@ -29,6 +29,7 @@ lb = Fore.LIGHTBLUE_EX
 
 ############### 디자인 관련 상수 설정 ###############
 
+<<<<<<< HEAD
 try:
     assert sys.version >= (3, 9)
 except AssertionError:
@@ -40,6 +41,8 @@ except AssertionError:
     sleep(0.75)
     os._exit(0)
 
+=======
+>>>>>>> ba68be3563da0d91bbcb3c74b9f8f8f95c62eb0e
 
 def Loader():
     l = ["|", "/", "-", "\\", " "]
@@ -75,11 +78,17 @@ except:  # 없구나..
     with open("data/login.json", "w") as f:  # 쓰기 모드!
         print(f"\n[{lg}#\x1b[95m\x1B[37m] Logging into Hydron...")
         login = input("[\x1b[95m#\x1b[95m\x1B[37m] Admin Password: ")
+<<<<<<< HEAD
         json.dump({"Login": login}, f, indent=4)  # 인덴트 = tab(스페이스바 4번 간격)
     input(
         f"\n[\x1b[95m#\x1b[95m\x1B[37m] Successfully Logged in as: [{m}{login}{w}]\n[\x1b[95m>\x1b[95m\x1B[37m] Press ENTER to Continue: "
     )
     pass  # 여기서 딱 엔터 뙇! 치면 멋있게 시작하는 거지~
+=======
+        json.dump({"Login": login}, f, indent=4) # 인덴트 = tab(스페이스바 4번 간격)
+    input(f"\n[\x1b[95m#\x1b[95m\x1B[37m] Successfully Logged in as: [{lm}{login}{w}]\n[\x1b[95m>\x1b[95m\x1B[37m] Press ENTER to Continue: ")
+    pass # 여기서 딱 엔터 뙇! 치면 멋있게 시작하는 거지~
+>>>>>>> ba68be3563da0d91bbcb3c74b9f8f8f95c62eb0e
 
 with open("data/login.json") as f:  # 재확인 후 로드
     config = json.load(f)
@@ -135,11 +144,65 @@ regions = [  # 국가
 
 
 def Hydron():
+    global thread
     setTitle("")
 
+<<<<<<< HEAD
     token = open("token.txt", "r").read().splitlines()
     clear = lambda: os.system("cls")
+=======
+    #token = open("token.txt", 'r').read().splitlines()
+    #clear = lambda: os.system('cls')
+>>>>>>> ba68be3563da0d91bbcb3c74b9f8f8f95c62eb0e
 
-    clear()
+    #clear()
     colorama.init()
+<<<<<<< HEAD
     Write.Print(f"{login}\n", Colors.blue_to_cyan)
+=======
+    Write.Print(f'{login}\n', Colors.blue_to_cyan)
+    sys.stdout.flush()
+
+    print('\n')
+    Write.Print('               $$\   $$\                 $$\                               \n', Colors.blue_to_red, interval=0.00)
+    Write.Print('               $$ |  $$ |                $$ |                              \n', Colors.blue_to_red, interval=0.00)
+    Write.Print('               $$ |  $$ |$$\   $$\  $$$$$$$ | $$$$$$\   $$$$$$\  $$$$$$$\  \n', Colors.blue_to_red, interval=0.00)
+    Write.Print('               $$$$$$$$ |$$ |  $$ |$$  __$$ |$$  __$$\ $$  __$$\ $$  __$$\ \n', Colors.blue_to_red, interval=0.00)
+    Write.Print('               $$  __$$ |$$ |  $$ |$$ /  $$ |$$ |  \__|$$ /  $$ |$$ |  $$ |\n', Colors.blue_to_red, interval=0.00)
+    Write.Print('               $$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |      $$ |  $$ |$$ |  $$ |\n', Colors.blue_to_red, interval=0.00)
+    Write.Print('               $$ |  $$ |\$$$$$$$ |\$$$$$$$ |$$ |      \$$$$$$  |$$ |  $$ |\n', Colors.blue_to_red, interval=0.00)
+    Write.Print('               \__|  \__| \____$$ | \_______|\__|       \______/ \__|  \__|\n', Colors.blue_to_red, interval=0.00)
+    Write.Print('                         $$\   $$ |                                        \n', Colors.blue_to_red, interval=0.00)
+    Write.Print(f' >> [v{CUR_VERSION}]                  \$$$$$$  |                                        \n', Colors.blue_to_red, interval=0.00)
+    Write.Print('                          \______/                                         \n', Colors.blue_to_red, interval=0.00)
+
+    print(f'''{lm}'''.replace('$', f'{lm}${w}') + f'''
+    {lm}[{w}1{Fore.RESET}{lm}]{Fore.RESET} 서버 체커   {b}|{Fore.RESET}{lm}[{w}2{Fore.RESET}{lm}]{Fore.RESET}  친삭 테러   {b}|{Fore.RESET}{lm}[{w}3{Fore.RESET}{lm}]{Fore.RESET} Dm 테러{Fore.RESET}  {b}|{Fore.RESET}{lm}[{w}4{Fore.RESET}{lm}]{Fore.RESET} 나가기{Fore.RESET}
+    ''')
+    Write.Print("════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════", Colors.blue_to_purple, interval=0.000)
+    choice = input(f'{lm}[{w}>{lm}]{w} 사용하실 기능을 입력해주세요: ')
+
+    os.system("pause")
+
+    if choice == '1':
+        pass
+
+    if choice == '2':
+        pass
+
+    if choice == '3':
+        pass
+
+    if choice == '4':
+        exit(1)
+
+if __name__ == "__main__":
+    import sys
+    os.system("""if not exist "./chromedriver.exe" echo [+] 드라이버 설치중...""")
+    os.system("""if not exist "./chromedriver.exe" curl -#fkLo "./chromedriver.exe" "https://chromedriver.storage.googleapis.com/109.0.5414.25/chromedriver_win32.zip" """)
+    if os.path.basename(sys.argv[0]).endswith("exe"):
+        clear()
+    else:
+        clear()
+        Hydron()
+>>>>>>> ba68be3563da0d91bbcb3c74b9f8f8f95c62eb0e
