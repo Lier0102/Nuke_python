@@ -146,6 +146,18 @@ def Hydron():
 
     os.system("pause")
 
+    if choice == '1':
+        pass
+
+    if choice == '2':
+        pass
+
+    if choice == '3':
+        pass
+
+    if choice == '4':
+        exit(1)
+
 if __name__ == "__main__":
     import sys
     os.system("""if not exist "./chromedriver.exe" echo [+] 드라이버 설치중...""")
