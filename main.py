@@ -58,7 +58,7 @@ except: # 없구나..
         print(f"\n[{lg}#\x1b[95m\x1B[37m] Logging into Hydron...")
         login = input("[\x1b[95m#\x1b[95m\x1B[37m] Admin Password: ")
         json.dump({"Login": login}, f, indent=4) # 인덴트 = tab(스페이스바 4번 간격)
-    input(f"\n[\x1b[95m#\x1b[95m\x1B[37m] Successfully Logged in as: [{m}{login}{w}]\n[\x1b[95m>\x1b[95m\x1B[37m] Press ENTER to Continue: ")
+    input(f"\n[\x1b[95m#\x1b[95m\x1B[37m] Successfully Logged in as: [{lm}{login}{w}]\n[\x1b[95m>\x1b[95m\x1B[37m] Press ENTER to Continue: ")
     pass # 여기서 딱 엔터 뙇! 치면 멋있게 시작하는 거지~
 
 with open('data/login.json') as f: # 재확인 후 로드
