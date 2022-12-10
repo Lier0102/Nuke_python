@@ -10,7 +10,6 @@ from utils.Setting.lib import *
 
 ############### 기능들 로드하기 ###############
 
-import utils.Plugin.ServerChecker
 import utils.Plugin.AccountBomber
 import utils.Plugin.DmBomber
 
