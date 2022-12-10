@@ -73,7 +73,7 @@ except FileNotFoundError:  # 없구나..
         login = input("[\x1b[95m#\x1b[95m\x1B[37m] Admin Password: ")
         json.dump({"Login": login}, f, indent=4)  # 인덴트 = tab(스페이스바 4번 간격)
     input(
-        f"\n[\x1b[95m#\x1b[95m\x1B[37m] Successfully Logged in as: [{m}{login}{w}]\n[\x1b[95m>\x1b[95m\x1B[37m] Press ENTER to Continue: "
+        f"\n[\x1b[95m#\x1b[95m\x1B[37m] Successfully Logged in as: [{lm}{login}{w}]\n[\x1b[95m>\x1b[95m\x1B[37m] Press ENTER to Continue: "
     )
     pass  # 여기서 딱 엔터 뙇! 치면 멋있게 시작하는 거지~
 
