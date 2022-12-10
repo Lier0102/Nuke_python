@@ -9,6 +9,8 @@ from colored import fg, attr
 from requests.api import options
 from colorama import Fore, Back, Style, init
 
+from utils.Setting.setup_most import *
+
 colorama.init(autoreset=True)
 
 
@@ -19,6 +21,7 @@ def menu():  # UI
         [\x1b[95m2\x1b[95m\x1B[37m] 나가기
         """)
 menu()
+
 option = int(input(f"[\x1b[95m>\x1b[95m\x1B[37m] 선택 ㄱ: "))
 
 
@@ -58,6 +61,7 @@ if option == 1:
     """
     )
     sleep(6)
+    Hydron()
 
 elif option == 2:
     Hydron()
