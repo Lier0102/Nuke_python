@@ -29,7 +29,6 @@ lb = Fore.LIGHTBLUE_EX
 
 ############### 디자인 관련 상수 설정 ###############
 
-<<<<<<< HEAD
 try:
     assert sys.version >= (3, 9)
 except AssertionError:
@@ -41,8 +40,6 @@ except AssertionError:
     sleep(0.75)
     os._exit(0)
 
-=======
->>>>>>> ba68be3563da0d91bbcb3c74b9f8f8f95c62eb0e
 
 def Loader():
     l = ["|", "/", "-", "\\", " "]
@@ -78,17 +75,9 @@ except:  # 없구나..
     with open("data/login.json", "w") as f:  # 쓰기 모드!
         print(f"\n[{lg}#\x1b[95m\x1B[37m] Logging into Hydron...")
         login = input("[\x1b[95m#\x1b[95m\x1B[37m] Admin Password: ")
-<<<<<<< HEAD
-        json.dump({"Login": login}, f, indent=4)  # 인덴트 = tab(스페이스바 4번 간격)
-    input(
-        f"\n[\x1b[95m#\x1b[95m\x1B[37m] Successfully Logged in as: [{m}{login}{w}]\n[\x1b[95m>\x1b[95m\x1B[37m] Press ENTER to Continue: "
-    )
-    pass  # 여기서 딱 엔터 뙇! 치면 멋있게 시작하는 거지~
-=======
         json.dump({"Login": login}, f, indent=4) # 인덴트 = tab(스페이스바 4번 간격)
     input(f"\n[\x1b[95m#\x1b[95m\x1B[37m] Successfully Logged in as: [{lm}{login}{w}]\n[\x1b[95m>\x1b[95m\x1B[37m] Press ENTER to Continue: ")
     pass # 여기서 딱 엔터 뙇! 치면 멋있게 시작하는 거지~
->>>>>>> ba68be3563da0d91bbcb3c74b9f8f8f95c62eb0e
 
 with open("data/login.json") as f:  # 재확인 후 로드
     config = json.load(f)
@@ -147,19 +136,11 @@ def Hydron():
     global thread
     setTitle("")
 
-<<<<<<< HEAD
     token = open("token.txt", "r").read().splitlines()
     clear = lambda: os.system("cls")
-=======
-    #token = open("token.txt", 'r').read().splitlines()
-    #clear = lambda: os.system('cls')
->>>>>>> ba68be3563da0d91bbcb3c74b9f8f8f95c62eb0e
 
     #clear()
     colorama.init()
-<<<<<<< HEAD
-    Write.Print(f"{login}\n", Colors.blue_to_cyan)
-=======
     Write.Print(f'{login}\n', Colors.blue_to_cyan)
     sys.stdout.flush()
 
@@ -208,4 +189,3 @@ if __name__ == "__main__":
     else:
         clear()
         Hydron()
->>>>>>> ba68be3563da0d91bbcb3c74b9f8f8f95c62eb0e
