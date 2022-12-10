@@ -74,7 +74,7 @@ with open('data/login.json') as f: # 재확인 후 로드
         config = json.load(f)
 login = config.get('Login') # 불러오기
 
-languages = [ # 디스코드 언어
+languages = { # 디스코드 언어
     'da'    : 'Danish, Denmark',
     'de'    : 'German, Germany',
     'en-GB' : 'English, United Kingdom',
@@ -104,7 +104,7 @@ languages = [ # 디스코드 언어
     'ja'    : 'Japanese',
     'zh-TW' : 'Chinese, Taiwan',
     'ko'    : 'Korean, Korea'
-]
+}
 
 regions = [ # 국가
     'brazil',
@@ -130,4 +130,4 @@ def Hydron():
 
     clear()
     colorama.init()
-    
+    Write.Print(f'{login}\n', Colors.blue_to_cyan)
