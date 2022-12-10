@@ -123,7 +123,7 @@ def Hydron():
     colorama.init()
     Write.Print(f'{login}\n', Colors.blue_to_cyan)
 
-    print('\n\n\n')
+    print('\n')
     Write.Print('               $$\   $$\                 $$\                               ', Colors.blue_to_red, interval=0.0)
     Write.Print('               $$ |  $$ |                $$ |                              ', Colors.blue_to_red, interval=0.0)
     Write.Print('               $$ |  $$ |$$\   $$\  $$$$$$$ | $$$$$$\   $$$$$$\  $$$$$$$\  ', Colors.blue_to_red, interval=0.0)
