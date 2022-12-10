@@ -48,13 +48,13 @@ if option == 1:
 
         print(f"""
 {Fore.RESET}{Fore.GREEN}####### 서버 정보 #######{Fore.RESET}
-[{Fore.LIGHTMAGENTA_EX}서버이름{Fore.RESET}]      $:   {response['name']} 
-[{Fore.LIGHTMAGENTA_EX}서버ID{Fore.RESET}]        $:   {response['id']}
-[{Fore.LIGHTMAGENTA_EX}서버주인{Fore.RESET}]     $:   {owner['user']['username']}#{owner['user']['discriminator']} 
-[{Fore.LIGHTMAGENTA_EX}서버주인ID{Fore.RESET}]  $:   {response['owner_id']}
-[{Fore.LIGHTMAGENTA_EX}멤버수{Fore.RESET}]   $:   {response['approximate_member_count']}
-[{Fore.LIGHTMAGENTA_EX}지역{Fore.RESET}]    $:   {response['region']}
-[{Fore.LIGHTMAGENTA_EX}서버 아이콘{Fore.RESET}]  $:   https://cdn.discordapp.com/icons/{guildId}/{response['icon']}.webp?size=256
+[{Fore.LIGHTMAGENTA_EX}서버이름{Fore.RESET}]       $:   {response['name']} 
+[{Fore.LIGHTMAGENTA_EX}서버ID{Fore.RESET}]         $:   {response['id']}
+[{Fore.LIGHTMAGENTA_EX}서버 주인{Fore.RESET}]      $:   {owner['user']['username']}#{owner['user']['discriminator']} 
+[{Fore.LIGHTMAGENTA_EX}서버 주인 ID{Fore.RESET}]   $:   {response['owner_id']}
+[{Fore.LIGHTMAGENTA_EX}멤버수{Fore.RESET}]         $:   {response['approximate_member_count']}
+[{Fore.LIGHTMAGENTA_EX}지역{Fore.RESET}]           $:   {response['region']}
+[{Fore.LIGHTMAGENTA_EX}아이콘{Fore.RESET}]         $:   https://cdn.discordapp.com/icons/{guildId}/{response['icon']}.webp?size=128
 """)
         sleep(6)
         Hydron()

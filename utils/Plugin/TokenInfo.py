@@ -37,16 +37,16 @@ async def get_token_info(token: str):
     created_at = get_user_created_at(response["id"])    
     print(
             f"""
-        {Fore.RESET}{Fore.GREEN}####### 토큰 정보 #######{Fore.RESET}
-        [{Fore.LIGHTMAGENTA_EX}이름{Fore.RESET}]             $:   {response['username']}#{response['discriminator']} 
-        [{Fore.LIGHTMAGENTA_EX}ID{Fore.RESET}]               $:   {response['id']}
-        [{Fore.LIGHTMAGENTA_EX}토큰{Fore.RESET}]             $:   {token}
-        [{Fore.LIGHTMAGENTA_EX}이메일{Fore.RESET}]           $:   {response["email"]}
-        [{Fore.LIGHTMAGENTA_EX}전화번호{Fore.RESET}]         $:   {response["phone"]}
-        [{Fore.LIGHTMAGENTA_EX}계정 생성일{Fore.RESET}]      $:   {created_at}
-        [{Fore.LIGHTMAGENTA_EX}지역 및 언어{Fore.RESET}      $:   {languages[response['locale']]}
-        [{Fore.LIGHTMAGENTA_EX}니트로 구매 여부{Fore.RESET}] $:   {user_nitro_type}
-        [{Fore.LIGHTMAGENTA_EX}이차인증 여부{Fore.RESET}]    $:   {response["mfa_enabled"]}
-        [{Fore.LIGHTMAGENTA_EX}아바타 주소{Fore.RESET}]      $:   {user_avatar_link}
+{Fore.RESET}{Fore.GREEN}####### 토큰 정보 #######{Fore.RESET}
+[{Fore.LIGHTMAGENTA_EX}이름{Fore.RESET}]             $:   {response['username']}#{response['discriminator']} 
+[{Fore.LIGHTMAGENTA_EX}ID{Fore.RESET}]               $:   {response['id']}
+[{Fore.LIGHTMAGENTA_EX}토큰{Fore.RESET}]             $:   {token}
+[{Fore.LIGHTMAGENTA_EX}이메일{Fore.RESET}]           $:   {response["email"]}
+[{Fore.LIGHTMAGENTA_EX}전화번호{Fore.RESET}]         $:   {response["phone"]}
+[{Fore.LIGHTMAGENTA_EX}계정 생성일{Fore.RESET}]      $:   {created_at}
+[{Fore.LIGHTMAGENTA_EX}지역 및 언어{Fore.RESET}      $:   {languages[response['locale']]}
+[{Fore.LIGHTMAGENTA_EX}니트로 구매 여부{Fore.RESET}] $:   {user_nitro_type}
+[{Fore.LIGHTMAGENTA_EX}이차인증 여부{Fore.RESET}]    $:   {response["mfa_enabled"]}
+[{Fore.LIGHTMAGENTA_EX}아바타 주소{Fore.RESET}]      $:   {user_avatar_link}
     """
     )
