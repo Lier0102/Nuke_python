@@ -262,12 +262,8 @@ def validateWebhook(hook: str): # 웹훅 볼리데이터
     print(f"{Fore.GREEN}존재하는 웹훅입니다! ({j})")
 
 def setTitle(_str: str):
-    system = os.name
+    ctypes.windll.kernel32.SetConsoleTitleW(f"HYDRON_Nuker Alpha    |   Made by Lier0102 & ShinHaewon   |   토큰 수 : [{tokencnt}]")
 
-    if system != 'nt':
-        return -1 # 아직 지원 ㄴㄴ
-    else:
-        ctypes.windll.kernel32.SetConsoleTitleW(f"HYDRON_Nuker Alpha    |   Made by Lier0102 & ShinHaewon   |   토큰 수 : [{tokencnt}]")
 
 logo = r'''
 $$\   $$\                 $$\                               

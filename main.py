@@ -116,25 +116,26 @@ regions = [ # 국가
 def Hydron():
     setTitle("")
 
-    token = open("token.txt", 'r').read().splitlines()
-    clear = lambda: os.system('cls')
+    #token = open("token.txt", 'r').read().splitlines()
+    #clear = lambda: os.system('cls')
 
-    clear()
+    #clear()
     colorama.init()
     Write.Print(f'{login}\n', Colors.blue_to_cyan)
+    sys.stdout.flush()
 
     print('\n')
-    Write.Print('               $$\   $$\                 $$\                               ', Colors.blue_to_red, interval=0.0)
-    Write.Print('               $$ |  $$ |                $$ |                              ', Colors.blue_to_red, interval=0.0)
-    Write.Print('               $$ |  $$ |$$\   $$\  $$$$$$$ | $$$$$$\   $$$$$$\  $$$$$$$\  ', Colors.blue_to_red, interval=0.0)
-    Write.Print('               $$$$$$$$ |$$ |  $$ |$$  __$$ |$$  __$$\ $$  __$$\ $$  __$$\ ', Colors.blue_to_red, interval=0.0)
-    Write.Print('               $$  __$$ |$$ |  $$ |$$ /  $$ |$$ |  \__|$$ /  $$ |$$ |  $$ |', Colors.blue_to_red, interval=0.0)
-    Write.Print('               $$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |      $$ |  $$ |$$ |  $$ |', Colors.blue_to_red, interval=0.0)
-    Write.Print('               $$ |  $$ |\$$$$$$$ |\$$$$$$$ |$$ |      \$$$$$$  |$$ |  $$ |', Colors.blue_to_red, interval=0.0)
-    Write.Print('               \__|  \__| \____$$ | \_______|\__|       \______/ \__|  \__|', Colors.blue_to_red, interval=0.0)
-    Write.Print('                         $$\   $$ |                                        ', Colors.blue_to_red, interval=0.0)
-    Write.Print(f' >> [v{CUR_VERSION}]                        \$$$$$$  |                                        ', Colors.blue_to_red, interval=0.0)
-    Write.Print('                          \______/                                         ', Colors.blue_to_red, interval=0.0)
+    Write.Print('               $$\   $$\                 $$\                               ', Colors.blue_to_red, interval=0.05)
+    Write.Print('               $$ |  $$ |                $$ |                              ', Colors.blue_to_red, interval=0.05)
+    Write.Print('               $$ |  $$ |$$\   $$\  $$$$$$$ | $$$$$$\   $$$$$$\  $$$$$$$\  ', Colors.blue_to_red, interval=0.05)
+    Write.Print('               $$$$$$$$ |$$ |  $$ |$$  __$$ |$$  __$$\ $$  __$$\ $$  __$$\ ', Colors.blue_to_red, interval=0.05)
+    Write.Print('               $$  __$$ |$$ |  $$ |$$ /  $$ |$$ |  \__|$$ /  $$ |$$ |  $$ |', Colors.blue_to_red, interval=0.05)
+    Write.Print('               $$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |      $$ |  $$ |$$ |  $$ |', Colors.blue_to_red, interval=0.05)
+    Write.Print('               $$ |  $$ |\$$$$$$$ |\$$$$$$$ |$$ |      \$$$$$$  |$$ |  $$ |', Colors.blue_to_red, interval=0.05)
+    Write.Print('               \__|  \__| \____$$ | \_______|\__|       \______/ \__|  \__|', Colors.blue_to_red, interval=0.05)
+    Write.Print('                         $$\   $$ |                                        ', Colors.blue_to_red, interval=0.05)
+    Write.Print(f' >> [v{CUR_VERSION}]                        \$$$$$$  |                                        ', Colors.blue_to_red, interval=0.05)
+    Write.Print('                          \______/                                         ', Colors.blue_to_red, interval=0.05)
 
     print(f'''{lm}'''.replace('$', f'{lm}${w}') + f'''
     {lm}[{w}1{Fore.RESET}{lm}]{Fore.RESET} 서버 체커   {b}|{Fore.RESET}{lm}[{w}9{Fore.RESET}{lm}]{Fore.RESET}  친삭 테러   {b}|{Fore.RESET}{lm}[{w}17{Fore.RESET}{lm}]{Fore.RESET} Dm 테러{Fore.RESET}  
