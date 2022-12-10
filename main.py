@@ -147,12 +147,15 @@ def Hydron():
     os.system("pause")
 
     if choice == '1':
-        pass
+        LoadingAnimation()
+        exec(open('utils/Plugin/ServerChecker.py').read())
 
     if choice == '2':
+        LoadingAnimation()
         pass
 
     if choice == '3':
+        LoadingAnimation()
         pass
 
     if choice == '4':
