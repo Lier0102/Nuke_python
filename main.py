@@ -5,8 +5,8 @@
 
 # 프사 링크 : https://cdn.discordapp.com/attachments/1048422297385574430/1048453524268257330/images.jpeg
 
-from utils.Setting.setup_most import *  # 기본적인 설정들 로드
 from utils.Setting.lib import *
+from utils.Setting.setup_most import *  # 기본적인 설정들 로드
 
 
 ############### 기능들 로드하기 ###############
@@ -86,9 +86,9 @@ login = config.get("Login")  # 불러오기
 
 
 def Hydron():
-    choice = 0
     global thread
     setTitle("")
+    show_logo()
 
     # token = open("token.txt", 'r', encoding="utf-8").read().splitlines()
     # clear = lambda: os.system('cls')
@@ -173,6 +173,16 @@ def Hydron():
 
     if choice == "2":
         LoadingAnimation()
+        print(f"""
+[\x1b[95m1\x1b[95m\x1B[37m] 친삭 테러
+[\x1b[95m2\x1b[95m\x1B[37m] 나가기
+""")
+        option = int(input(f"[\x1b[95m>\x1b[95m\x1B[37m] 옵션: "))
+        if option == 1:
+            exec(open('utils/Plugin/AccountBomber.py', encoding='utf-8').read())
+        else:
+            Hydron()
+        
         pass
 
     if choice == "3":
