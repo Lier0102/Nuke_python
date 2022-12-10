@@ -125,8 +125,8 @@ def Hydron():
     global thread
     setTitle("")
 
-    token = open("token.txt", "r").read().splitlines()
-    clear = lambda: os.system("cls")
+    #token = open("token.txt", "r").read().splitlines()
+    #clear = lambda: os.system("cls")
 
     #clear()
     colorama.init()
