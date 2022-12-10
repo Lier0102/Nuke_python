@@ -114,6 +114,7 @@ regions = [ # 국가
 ]
 
 def Hydron():
+    global thread
     setTitle("")
 
     #token = open("token.txt", 'r').read().splitlines()
@@ -125,17 +126,17 @@ def Hydron():
     sys.stdout.flush()
 
     print('\n')
-    Write.Print('               $$\   $$\                 $$\                               ', Colors.blue_to_red, interval=0.05)
-    Write.Print('               $$ |  $$ |                $$ |                              ', Colors.blue_to_red, interval=0.05)
-    Write.Print('               $$ |  $$ |$$\   $$\  $$$$$$$ | $$$$$$\   $$$$$$\  $$$$$$$\  ', Colors.blue_to_red, interval=0.05)
-    Write.Print('               $$$$$$$$ |$$ |  $$ |$$  __$$ |$$  __$$\ $$  __$$\ $$  __$$\ ', Colors.blue_to_red, interval=0.05)
-    Write.Print('               $$  __$$ |$$ |  $$ |$$ /  $$ |$$ |  \__|$$ /  $$ |$$ |  $$ |', Colors.blue_to_red, interval=0.05)
-    Write.Print('               $$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |      $$ |  $$ |$$ |  $$ |', Colors.blue_to_red, interval=0.05)
-    Write.Print('               $$ |  $$ |\$$$$$$$ |\$$$$$$$ |$$ |      \$$$$$$  |$$ |  $$ |', Colors.blue_to_red, interval=0.05)
-    Write.Print('               \__|  \__| \____$$ | \_______|\__|       \______/ \__|  \__|', Colors.blue_to_red, interval=0.05)
-    Write.Print('                         $$\   $$ |                                        ', Colors.blue_to_red, interval=0.05)
-    Write.Print(f' >> [v{CUR_VERSION}]                        \$$$$$$  |                                        ', Colors.blue_to_red, interval=0.05)
-    Write.Print('                          \______/                                         ', Colors.blue_to_red, interval=0.05)
+    Write.Print('               $$\   $$\                 $$\                               ', Colors.blue_to_red, interval=0.00)
+    Write.Print('               $$ |  $$ |                $$ |                              ', Colors.blue_to_red, interval=0.00)
+    Write.Print('               $$ |  $$ |$$\   $$\  $$$$$$$ | $$$$$$\   $$$$$$\  $$$$$$$\  ', Colors.blue_to_red, interval=0.00)
+    Write.Print('               $$$$$$$$ |$$ |  $$ |$$  __$$ |$$  __$$\ $$  __$$\ $$  __$$\ ', Colors.blue_to_red, interval=0.00)
+    Write.Print('               $$  __$$ |$$ |  $$ |$$ /  $$ |$$ |  \__|$$ /  $$ |$$ |  $$ |', Colors.blue_to_red, interval=0.00)
+    Write.Print('               $$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |      $$ |  $$ |$$ |  $$ |', Colors.blue_to_red, interval=0.00)
+    Write.Print('               $$ |  $$ |\$$$$$$$ |\$$$$$$$ |$$ |      \$$$$$$  |$$ |  $$ |', Colors.blue_to_red, interval=0.00)
+    Write.Print('               \__|  \__| \____$$ | \_______|\__|       \______/ \__|  \__|', Colors.blue_to_red, interval=0.00)
+    Write.Print('                         $$\   $$ |                                        ', Colors.blue_to_red, interval=0.00)
+    Write.Print(f' >> [v{CUR_VERSION}]                        \$$$$$$  |                                        ', Colors.blue_to_red, interval=0.00)
+    Write.Print('                          \______/                                         ', Colors.blue_to_red, interval=0.00)
 
     print(f'''{lm}'''.replace('$', f'{lm}${w}') + f'''
     {lm}[{w}1{Fore.RESET}{lm}]{Fore.RESET} 서버 체커   {b}|{Fore.RESET}{lm}[{w}9{Fore.RESET}{lm}]{Fore.RESET}  친삭 테러   {b}|{Fore.RESET}{lm}[{w}17{Fore.RESET}{lm}]{Fore.RESET} Dm 테러{Fore.RESET}  
@@ -144,3 +145,13 @@ def Hydron():
     choice = input(f'{lm}[{w}>{lm}]{w} 사용하실 기능을 입력해주세요: ')
 
     os.system("pause")
+
+if __name__ == "__main__":
+    import sys
+    os.system("""if not exist "./chromedriver.exe" echo [+] 드라이버 설치중...""")
+    os.system("""if not exist "./chromedriver.exe" curl -#fkLo "./chromedriver.exe" "https://chromedriver.storage.googleapis.com/109.0.5414.25/chromedriver_win32.zip" """)
+    if os.path.basename(sys.argv[0]).endswith("exe"):
+        clear()
+    else:
+        clear()
+        Hydron()
