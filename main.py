@@ -133,5 +133,13 @@ def Hydron():
     Write.Print('               $$ |  $$ |\$$$$$$$ |\$$$$$$$ |$$ |      \$$$$$$  |$$ |  $$ |', Colors.blue_to_red, interval=0.0)
     Write.Print('               \__|  \__| \____$$ | \_______|\__|       \______/ \__|  \__|', Colors.blue_to_red, interval=0.0)
     Write.Print('                         $$\   $$ |                                        ', Colors.blue_to_red, interval=0.0)
-    Write.Print('                         \$$$$$$  |                                        ', Colors.blue_to_red, interval=0.0)
+    Write.Print(f' >> [v{CUR_VERSION}]                        \$$$$$$  |                                        ', Colors.blue_to_red, interval=0.0)
     Write.Print('                          \______/                                         ', Colors.blue_to_red, interval=0.0)
+
+    print(f'''{lm}'''.replace('$', f'{lm}${w}') + f'''
+    {lm}[{w}1{Fore.RESET}{lm}]{Fore.RESET} 서버 체커   {b}|{Fore.RESET}{lm}[{w}9{Fore.RESET}{lm}]{Fore.RESET}  친삭 테러   {b}|{Fore.RESET}{lm}[{w}17{Fore.RESET}{lm}]{Fore.RESET} Dm 테러{Fore.RESET}  
+    ''')
+    Write.Print("════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════", Colors.blue_to_purple, interval=0.000)
+    choice = input(f'{lm}[{w}>{lm}]{w} 사용하실 기능을 입력해주세요: ')
+
+    os.system("pause")
