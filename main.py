@@ -39,15 +39,11 @@ def Loader():
 
 
 global cls
-
-
 def cls():
     os.system("cls")
 
 
 global useragent
-
-
 def useragent():
     file = open("data/useragent.txt", "r")
     useragent = random.choice(list(file))  # 파일을 리스트로 나눈 후 그 줄 중 한 줄을 선택
