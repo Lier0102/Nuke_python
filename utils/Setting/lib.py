@@ -65,8 +65,7 @@ os.system('mode 120,30')
 
 url = 'https://discord.com/api/v9/channels/messages'
 
-with open('token.txt', 'r', encoding='UTF-8') as f:
-    token = f.read().splitlines()
+open('token.txt', 'r', encoding='utf-8').splitlines()
 
 def Rstr(len):
     alpha = "abcdefghijklmnopqrstuvwxyz0123456789"

@@ -184,7 +184,7 @@ def TokenValidator(token: str): # 토큰이 유효한지 검사하는 discord ap
 
     r = requests.get(base_url, headers=heads(token))
     if r.status_code != 200:
-        print(f"\n{Fore.RED}Invalid Token.{Fore.RESET}")
+        print(f"\n{Fore.RED}존재하지 않는 토큰입니다!{Fore.RESET}")
         sleep(1)
         __import__("Hydron").main()
     j = requests.get(f'{base_url}/billing/subscriptions', headers=heads(token)).json()
