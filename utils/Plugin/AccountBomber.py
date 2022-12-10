@@ -21,5 +21,3 @@ def accounts_bomber():
             if line.startswith("#"):
                 continue
             remove_friend(line)
-            
-remove_friend(token="MTA0ODg0OTQyNzE2MDM4NzY2NA.Gdkemr.D9zBGj8-bz5SQaGtIiDlo1BoFhDXBcgp1nXnEk")

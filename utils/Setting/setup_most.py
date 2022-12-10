@@ -287,8 +287,4 @@ $$ |  $$ |\$$$$$$$ |\$$$$$$$ |$$ |      \$$$$$$  |$$ |  $$ |
 
 System.Size(120, 30)
 System.Clear()
-<<<<<<< HEAD
 Anime.Fade(Center.Center(logo), Colors.blue_to_cyan, Colorate.Vertical, interval=0.025, enter=True)
-=======
-Anime.Fade(Center.Center(logo), Colors.blue_to_cyan, Colorate.Vertical, interval=0.025, enter=True)
->>>>>>> ec22962d7a30313dc4811455e6fc38387cf3c782
