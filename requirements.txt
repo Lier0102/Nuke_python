@@ -3,3 +3,11 @@ requests
 selenium
 webbrowser
 colored
+ctypes
+pystyle
+json
+zipfile
+re
+urllib
+distutils
+shutils
