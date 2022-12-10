@@ -50,15 +50,11 @@ def Loader():
 
 
 global cls
-
-
 def cls():
     os.system("cls")
 
 
 global useragent
-
-
 def useragent():
     file = open("data/useragent.txt", "r")
     useragent = random.choice(list(file))  # 파일을 리스트로 나눈 후 그 줄 중 한 줄을 선택
@@ -135,16 +131,16 @@ regions = [  # 국가
 
 
 def Hydron():
+    choice = 0
     global thread
     setTitle("")
 
-    #token = open("token.txt", 'r').read().splitlines()
+    #token = open("token.txt", 'r', encoding="utf-8").read().splitlines()
     #clear = lambda: os.system('cls')
 
     #clear()
     colorama.init()
     Write.Print(f'{login}\n', Colors.blue_to_cyan)
-    sys.stdout.flush()
 
     print('\n')
     Write.Print('               $$\   $$\                 $$\                               \n', Colors.blue_to_red, interval=0.00)
@@ -165,15 +161,16 @@ def Hydron():
     Write.Print("════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════\n", Colors.blue_to_purple, interval=0.000)
     choice = input(f'{lm}[{w}>{lm}]{w} 사용하실 기능을 입력해주세요: ')
 
-    os.system("pause")
-
     if choice == '1':
-        pass
+        LoadingAnimation()
+        exec(open('utils/Plugin/ServerChecker.py', encoding='utf-8').read())
 
     if choice == '2':
+        LoadingAnimation()
         pass
 
     if choice == '3':
+        LoadingAnimation()
         pass
 
     if choice == '4':
