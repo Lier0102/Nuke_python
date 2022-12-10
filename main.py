@@ -81,9 +81,9 @@ with open("data/login.json") as f:  # 재확인 후 로드
 login = config.get("Login")  # 불러오기
 
 def Hydron():
-    choice = 0
     global thread
     setTitle("")
+    show_logo()
 
     #token = open("token.txt", 'r', encoding="utf-8").read().splitlines()
     #clear = lambda: os.system('cls')
