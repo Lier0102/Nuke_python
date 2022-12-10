@@ -6,6 +6,7 @@
 # 프사 링크 : https://cdn.discordapp.com/attachments/1048422297385574430/1048453524268257330/images.jpeg
 
 from utils.Setting.setup_most import * # 기본적인 설정들 로드
+from utils.Setting.lib import *
 
 ############### 기능들 로드하기 ###############
 
@@ -121,3 +122,12 @@ regions = [ # 국가
     'us-west'
 ]
 
+def Hydron():
+    setTitle("")
+
+    token = open("token.txt", 'r').read().splitlines()
+    clear = lambda: os.system('cls')
+
+    clear()
+    colorama.init()
+    
