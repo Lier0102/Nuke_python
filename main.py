@@ -152,11 +152,9 @@ def Hydron():
     Write.Print("════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════", Colors.blue_to_purple, interval=0.000)
     choice = input(f'{lm}[{w}>{lm}]{w} 사용하실 기능을 입력해주세요: ')
 
-    os.system("pause")
-
     if choice == '1':
         LoadingAnimation()
-        exec(open('utils/Plugin/ServerChecker.py').read())
+        exec(open('utils/Plugin/ServerChecker.py', encoding='utf-8').read())
 
     if choice == '2':
         LoadingAnimation()
