@@ -32,38 +32,13 @@ except:
     os.system("pip install colorama")
     import colorama
 
-try:
-    import json
-except:
-    os.system("pip install json")
-    import json
 
-try:
-    import json
-except:
-    os.system("pip install json")
-    import json
-
-try:
-    import json
-except:
-    os.system("pip install json")
-    import json
-
-try:
-    import json
-except:
-    os.system("pip install json")
-    import json
-try:
-    import random
-except:
-    os.system("pip install random")
-    import random
+import json
+import random
 
 os.system("mode 120,30")
 
-url = "https://discord.com/api/v9/channels/messages"
+url = "https://discord.com/api/v10/channels/messages"
 
 token = open("token.txt", "r", encoding="utf-8").read().splitlines()
 
@@ -84,7 +59,7 @@ def mainHeader(token: str):
         "accept-language": "en-GB",
         "content-length": "90",
         "content-type": "application/json",
-        "cookie": f"__cfuid={random.randstr(43)}; __dcfduid={random.randstr(32)}; locale=en-US",
+        "cookie": f"__cfuid={Rstr(43)}; __dcfduid={Rstr(32)}; locale=en-US",
         "origin": "https://discord.com",
         "sec-fetch-dest": "empty",
         "sec-fetch-mode": "cors",
@@ -107,7 +82,7 @@ def secondHeader(token: str):
         "authorization": token,
         "content-length": "124",
         "content-type": "application/json",
-        "Cookie": f"__cfuid={random.randstr(43)}; __dcfduid={random.randstr(32)}; locale=en-US",
+        "Cookie": f"__cfuid={Rstr(43)}; __dcfduid={Rstr(32)}; locale=en-US",
         "origin": "https://canary.discord.com",
         "sec-fetch-dest": "empty",
         "sec-fetch-mode": "cors",

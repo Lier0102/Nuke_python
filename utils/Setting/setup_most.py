@@ -156,25 +156,25 @@ def get_driver():
     driverList = [
         "chromedriver.exe"
     ]  # 우리는 구글파로 들어간다.(오페라, 익스플로러는 나중에 완성하고 나서 추가적으로 만들 예정)
-    Write.print("\n설치된 드라이버 확인중!", Colors.blue_to_cyan, interval=0.015)
+    Write.Print("\n설치된 드라이버 확인중!", Colors.blue_to_cyan, interval=0.015)
     sleep(0.052)
     for driver in driverList:  # 드라이브 리스트에 설치 되어있는 목록들 체킹
         if os.path.exists(os.getcwd() + os.sep + driver):  # os.sep = '\\'
-            Write.print(
+            Write.Print(
                 "\n크롬 드라이버가 이미 설치되어 있음!", Colors.blue_to_cyan, interval=0.015
             )  # 만약 현재 폴더에 드라이버가 있다면
             sleep(0.5)
             return driver  # 드라이버 이름 리턴
         else:  # 드라이버 설치...
-            Write.print(
+            Write.Print(
                 "\n드라이버를 설치해 드림!\n\n", Colors.blue_to_cyan, interval=0.015
             )  # 설치 메시지
             if os.path.exists(os.getenv("localappdata", default="") + "\\Google"):
                 Chrome_Installer()  # 크롬 드라이버 설치 스크립트 실행
-                Write.print("\n크롬드라이버 실행파일 설치 완료!", Colors.blue_to_cyan, interval=0.015)
+                Write.Print("\n크롬드라이버 실행파일 설치 완료!", Colors.blue_to_cyan, interval=0.015)
                 return "chromedriver.exe"  # 크롬 최고!
             else:
-                Write.print(
+                Write.Print(
                     "\n오류 | 드라이버 찾기 / 설치에 오류가 생겼습니다. 다시 시도 할게요!!\n",
                     Colors.blue_to_cyan,
                     interval=0.035,
@@ -352,7 +352,9 @@ def validateWebhook(hook: str):  # 웹훅 볼리데이터
 
 
 def setTitle(_str: str):
-    ctypes.windll.kernel32.SetConsoleTitleW(f"HYDRON_Nuker Alpha    |   Made by Lier0102 & ShinHaewon   |   토큰 수 : [{tokencnt}]")
+    ctypes.windll.kernel32.SetConsoleTitleW(
+        f"HYDRON_Nuker Alpha    |   Made by Lier0102 & ShinHaewon   |   토큰 수 : [{tokencnt}]"
+    )
 
     if os.name != "nt":
         return -1  # 아직 지원 ㄴㄴ
@@ -360,6 +362,7 @@ def setTitle(_str: str):
         ctypes.windll.kernel32.SetConsoleTitleW(
             f"HYDRON_Nuker Alpha    |   Made by Lier0102 & ShinHaewon   |   토큰 수 : [{tokencnt}]"
         )
+
 
 def show_logo():
     logo = r"""
