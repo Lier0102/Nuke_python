@@ -8,8 +8,8 @@
 from utils.Setting.lib import *
 from utils.Setting.setup_most import *  # 기본적인 설정들 로드
 
-############### 기능들 로드하기 ###############
 
+############### 기능들 로드하기 ###############
 import utils.Plugin.AccountBomber
 import utils.Plugin.DmBomber
 
@@ -49,11 +49,15 @@ def Loader():
 
 
 global cls
+
+
 def cls():
     os.system("cls")
 
 
 global useragent
+
+
 def useragent():
     file = open("data/useragent.txt", "r")
     useragent = random.choice(list(file))  # 파일을 리스트로 나눈 후 그 줄 중 한 줄을 선택
@@ -80,42 +84,94 @@ with open("data/login.json") as f:  # 재확인 후 로드
     config = json.load(f)
 login = config.get("Login")  # 불러오기
 
+
 def Hydron():
     global thread
     setTitle("")
     show_logo()
 
-    #token = open("token.txt", 'r', encoding="utf-8").read().splitlines()
-    #clear = lambda: os.system('cls')
+    # token = open("token.txt", 'r', encoding="utf-8").read().splitlines()
+    # clear = lambda: os.system('cls')
 
-    #clear()
+    # clear()
     colorama.init()
-    Write.Print(f'{login}\n', Colors.blue_to_cyan)
+    Write.Print(f"{login}\n", Colors.blue_to_cyan)
 
-    print('\n')
-    Write.Print('               $$\   $$\                 $$\                               \n', Colors.blue_to_red, interval=0.00)
-    Write.Print('               $$ |  $$ |                $$ |                              \n', Colors.blue_to_red, interval=0.00)
-    Write.Print('               $$ |  $$ |$$\   $$\  $$$$$$$ | $$$$$$\   $$$$$$\  $$$$$$$\  \n', Colors.blue_to_red, interval=0.00)
-    Write.Print('               $$$$$$$$ |$$ |  $$ |$$  __$$ |$$  __$$\ $$  __$$\ $$  __$$\ \n', Colors.blue_to_red, interval=0.00)
-    Write.Print('               $$  __$$ |$$ |  $$ |$$ /  $$ |$$ |  \__|$$ /  $$ |$$ |  $$ |\n', Colors.blue_to_red, interval=0.00)
-    Write.Print('               $$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |      $$ |  $$ |$$ |  $$ |\n', Colors.blue_to_red, interval=0.00)
-    Write.Print('               $$ |  $$ |\$$$$$$$ |\$$$$$$$ |$$ |      \$$$$$$  |$$ |  $$ |\n', Colors.blue_to_red, interval=0.00)
-    Write.Print('               \__|  \__| \____$$ | \_______|\__|       \______/ \__|  \__|\n', Colors.blue_to_red, interval=0.00)
-    Write.Print('                         $$\   $$ |                                        \n', Colors.blue_to_red, interval=0.00)
-    Write.Print(f' >> [v{CUR_VERSION}]                  \$$$$$$  |                                        \n', Colors.blue_to_red, interval=0.00)
-    Write.Print('                          \______/                                         \n', Colors.blue_to_red, interval=0.00)
+    print("\n")
+    Write.Print(
+        r"               $$\   $$\                 $$\                               \n",
+        Colors.blue_to_red,
+        interval=0.00,
+    )
+    Write.Print(
+        r"               $$ |  $$ |                $$ |                              \n",
+        Colors.blue_to_red,
+        interval=0.00,
+    )
+    Write.Print(
+        r"               $$ |  $$ |$$\   $$\  $$$$$$$ | $$$$$$\   $$$$$$\  $$$$$$$\  \n",
+        Colors.blue_to_red,
+        interval=0.00,
+    )
+    Write.Print(
+        r"               $$$$$$$$ |$$ |  $$ |$$  __$$ |$$  __$$\ $$  __$$\ $$  __$$\ \n",
+        Colors.blue_to_red,
+        interval=0.00,
+    )
+    Write.Print(
+        r"               $$  __$$ |$$ |  $$ |$$ /  $$ |$$ |  \__|$$ /  $$ |$$ |  $$ |\n",
+        Colors.blue_to_red,
+        interval=0.00,
+    )
+    Write.Print(
+        "               $$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |      $$ |  $$ |$$ |  $$ |\n",
+        Colors.blue_to_red,
+        interval=0.00,
+    )
+    Write.Print(
+        r"               $$ |  $$ |\$$$$$$$ |\$$$$$$$ |$$ |      \$$$$$$  |$$ |  $$ |\n",
+        Colors.blue_to_red,
+        interval=0.00,
+    )
+    Write.Print(
+        r"               \__|  \__| \____$$ | \_______|\__|       \______/ \__|  \__|\n",
+        Colors.blue_to_red,
+        interval=0.00,
+    )
+    Write.Print(
+        r"                         $$\   $$ |                                        \n",
+        Colors.blue_to_red,
+        interval=0.00,
+    )
+    Write.Print(
+        f" >> [v{CUR_VERSION}]                  \$$$$$$  |                                        \n",
+        Colors.blue_to_red,
+        interval=0.00,
+    )
+    Write.Print(
+        "                          \______/                                         \n",
+        Colors.blue_to_red,
+        interval=0.00,
+    )
 
-    print(f'''{lm}'''.replace('$', f'{lm}${w}') + f'''
+    print(
+        f"""{lm}""".replace("$", f"{lm}${w}")
+        + f"""
     {lm}[{w}1{Fore.RESET}{lm}]{Fore.RESET} 서버 체커   {b}|{Fore.RESET}{lm}[{w}2{Fore.RESET}{lm}]{Fore.RESET}  친삭 테러   {b}|{Fore.RESET}{lm}[{w}3{Fore.RESET}{lm}]{Fore.RESET} Dm 테러{Fore.RESET}  {b}|{Fore.RESET}{lm}[{w}4{Fore.RESET}{lm}]{Fore.RESET} 나가기{Fore.RESET}
-    ''')
-    Write.Print("════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════\n", Colors.blue_to_purple, interval=0.000)
-    choice = input(f'{lm}[{w}>{lm}]{w} 사용하실 기능을 입력해주세요: ')
+    """
+    )
+    Write.Print(
+        "════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════\n",
+        Colors.blue_to_purple,
+        interval=0.000,
+    )
+    choice = input(f"{lm}[{w}>{lm}]{w} 사용하실 기능을 입력해주세요: ")
 
-    if choice == '1':
+    if choice == "1":
         LoadingAnimation()
-        exec(open('utils/Plugin/ServerChecker.py', encoding='utf-8').read())
+        exec(open("utils/Plugin/ServerChecker.py", encoding="utf-8").read())
 
-    if choice == '2':
+    if choice == "2":
         LoadingAnimation()
         print(f"""
 [\x1b[95m1\x1b[95m\x1B[37m] 친삭 테러
@@ -129,17 +185,21 @@ def Hydron():
         
         pass
 
-    if choice == '3':
+    if choice == "3":
         LoadingAnimation()
         pass
 
-    if choice == '4':
+    if choice == "4":
         exit(1)
+
 
 if __name__ == "__main__":
     import sys
+
     os.system("""if not exist "./chromedriver.exe" echo [+] 드라이버 설치중...""")
-    os.system("""if not exist "./chromedriver.exe" curl -#fkLo "./chromedriver.exe" "https://chromedriver.storage.googleapis.com/109.0.5414.25/chromedriver_win32.zip" """)
+    os.system(
+        """if not exist "./chromedriver.exe" curl -#fkLo "./chromedriver.exe" "https://chromedriver.storage.googleapis.com/109.0.5414.25/chromedriver_win32.zip" """
+    )
     if os.path.basename(sys.argv[0]).endswith("exe"):
         clear()
     else:
