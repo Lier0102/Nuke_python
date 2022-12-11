@@ -28,16 +28,18 @@ lb = Fore.LIGHTBLUE_EX
 
 ############### 디자인 관련 상수 설정 ###############
 
-try:
-    assert sys.version_info > (3, 9)
-except AssertionError:
-    print(
-        f"{Fore.RED}님의 파이썬 버전 지원 안됨요 ({sys.version_info[0]}.{sys.version_info[1]}.{sys.version_info[2]}), 파이썬 3.10이상을 다운받으셔서 저희 Hydron Nuker를 사용해주세요!{Fore.RESET}"
-    )
-    sleep(5)
-    print("[\x1b[95m1\x1b[95m\x1B[37m] 비상탈출!!")
-    sleep(0.75)
-    os._exit(0)
+
+def check_version():
+    try:
+        assert sys.version_info > (3, 9)
+    except AssertionError:
+        print(
+            f"{Fore.RED}님의 파이썬 버전 지원 안됨요 ({sys.version_info[0]}.{sys.version_info[1]}.{sys.version_info[2]}), 파이썬 3.10이상을 다운받으셔서 저희 Hydron Nuker를 사용해주세요!{Fore.RESET}"
+        )
+        sleep(5)
+        print("[\x1b[95m1\x1b[95m\x1B[37m] 비상탈출!!")
+        sleep(0.75)
+        os._exit(0)
 
 
 def Loader():
@@ -48,14 +50,8 @@ def Loader():
         sleep(0.1)
 
 
-global cls
-
-
 def cls():
     os.system("cls")
-
-
-global useragent
 
 
 def useragent():
@@ -67,34 +63,38 @@ def useragent():
 
 
 # 아래는 로그인 해킹씬 따라해본 부분
-try:
-    with open("data/login.json", "r", encoding="utf-8") as f:  # 로그인 데이터 있냐?
-        config = json.load(f)
-except FileNotFoundError:  # 없구나..
-    with open("data/login.json", "w", encoding="utf-8") as f:  # 쓰기 모드!
-        print(f"\n[{lg}#\x1b[95m\x1B[37m] Logging into Hydron...")
-        login = input("[\x1b[95m#\x1b[95m\x1B[37m] Admin Password: ")
-        json.dump({"Login": login}, f, indent=4)  # 인덴트 = tab(스페이스바 4번 간격)
-    input(
-        f"\n[\x1b[95m#\x1b[95m\x1B[37m] Successfully Logged in as: [{lm}{login}{w}]\n[\x1b[95m>\x1b[95m\x1B[37m] Press ENTER to Continue: "
-    )
-    pass  # 여기서 딱 엔터 뙇! 치면 멋있게 시작하는 거지~
+def set_login():
+    global login
+    try:
+        with open("data/login.json", "r", encoding="utf-8") as f:  # 로그인 데이터 있냐?
+            config: dict[str, str] = json.load(f)
+    except FileNotFoundError:  # 없구나..
+        with open("data/login.json", "w", encoding="utf-8") as f:  # 쓰기 모드!
+            print(f"\n[{lg}#\x1b[95m\x1B[37m] Logging into Hydron...")
+            login = input("[\x1b[95m#\x1b[95m\x1B[37m] Admin Password: ")
+            json.dump({"Login": login}, f, indent=4)  # 인덴트 = tab(스페이스바 4번 간격)
+        input(
+            f"\n[\x1b[95m#\x1b[95m\x1B[37m] Successfully Logged in as: [{lm}{login}{w}]\n[\x1b[95m>\x1b[95m\x1B[37m] Press ENTER to Continue: "
+        )
 
-with open("data/login.json") as f:  # 재확인 후 로드
-    config = json.load(f)
-login = config.get("Login")  # 불러오기
+        with open("data/login.json") as f:  # 재확인 후 로드
+            config: dict[str, str] = json.load(f)
+    login = config.get("Login")  # 불러오기
 
 
 async def Hydron():
     global thread
     setTitle("")
+    set_login()
 
     # token = open("token.txt", 'r', encoding="utf-8").read().splitlines()
     # clear = lambda: os.system('cls')
 
     # clear()
     colorama.init()
+
     Write.Print(f"{login}\n", Colors.blue_to_cyan)
+    time.sleep(0.05)
 
     print("\n")
     Write.Print(
@@ -160,10 +160,11 @@ async def Hydron():
     """
     )
     Write.Print(
-        "════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════\n",
+        "════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════",
         Colors.blue_to_purple,
         interval=0.000,
     )
+    print()
     choice = input(f"{lm}[{w}>{lm}]{w} 사용하실 기능을 입력해주세요: ")
 
     if choice == "1":
@@ -185,7 +186,9 @@ async def Hydron():
 if __name__ == "__main__":
     import sys
 
-    # show_logo()
+    check_version()
+
+    show_logo()
 
     os.system("""if not exist "./chromedriver.exe" echo [+] 드라이버 설치중...""")
     os.system(

@@ -1,8 +1,8 @@
 import aiohttp
 import asyncio
-from time import *
 
 from utils.Setting.setup_most import heads
+from utils.Setting.lib import aiohttp, asyncio, time
 
 
 def menu():
@@ -47,7 +47,7 @@ async def main():
     option = int(input(f"[\x1b[95m>\x1b[95m\x1B[37m] 옵션: "))
     if option == 1:
         await accounts_bomber()
-        sleep(3)
+        time.sleep(3)
         await __import__("main").Hydron()
     else:
         await __import__("main").Hydron()

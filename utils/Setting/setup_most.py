@@ -378,7 +378,7 @@ def show_logo():
             \$$$$$$  |                                        
             \______/             
 
-            github : Lier0102 & ShinHaewon                            
+            github : Lier0102 & ShinHaewon                         
     """
 
     System.Size(120, 30)

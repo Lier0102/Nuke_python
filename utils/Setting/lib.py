@@ -2,40 +2,15 @@
 
 import os
 
-try:
-    from selenium import webdriver
-except:
-    os.system("pip install selenium")
-    from selenium import webdriver
-
-try:
-    from PIL import Image
-except:
-    os.system("pip install pillow")
-    from PIL import Image
-
-try:
-    import base64
-except:
-    os.system("pip install base64")
-    import base64
-
-try:
-    import json
-except:
-    os.system("pip install json")
-    import json
-
-try:
-    import colorama
-except:
-    os.system("pip install colorama")
-    import colorama
-
-
+from selenium import webdriver
+from PIL import Image
+import base64
 import json
+import colorama
 import random
 import asyncio
+import time
+import aiohttp
 
 asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 os.system("mode 120,30")

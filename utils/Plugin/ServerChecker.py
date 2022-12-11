@@ -1,26 +1,17 @@
-import os
-import sys
-import os.path
 import colorama
-import requests
-import webbrowser
 from time import sleep
-from colored import fg, attr
-from requests.api import options
-from colorama import Fore, Back, Style, init
+from colorama import Fore
 
 from utils.Setting.setup_most import *
+from utils.Setting.lib import colorama, time, aiohttp
 
 colorama.init(autoreset=True)
 
 
 def menu():
-    print(
-        f"""
-[\x1b[95m1\x1b[95m\x1B[37m] 서버 체커
-[\x1b[95m2\x1b[95m\x1B[37m] 나가기
-"""
-    )
+    print()
+    print("[\x1b[95m1\x1b[95m\x1B[37m] 서버 체커")
+    print("[\x1b[95m2\x1b[95m\x1B[37m] 나가기")
 
 
 async def main():
@@ -36,17 +27,19 @@ async def main():
 
         guildId = input(f"[\x1b[95m>\x1b[95m\x1B[37m] 서버 ID: ")
 
-        response = requests.get(
-            f"https://discord.com/api/guilds/{guildId}",
-            headers=headers,
-            params={"with_counts": True},
-        ).json()
-
-        owner = requests.get(
-            f"https://discord.com/api/guilds/{guildId}/members/{response['owner_id']}",
-            headers=headers,
-            params={"with_counts": True},
-        ).json()
+        base_url = f"https://discord.com/api/guilds/{guildId}"
+        params = {"with_counts": "True"}
+        async with (
+            aiohttp.ClientSession() as session,
+            session.get(url=base_url, headers=headers, params=params) as response,
+        ):
+            response = await response.json()
+            owner_id = response["owner_id"]
+            owner_url = f"{base_url}/members/{owner_id}"
+            async with session.get(
+                url=owner_url, headers=headers, params=params
+            ) as owner:
+                owner = await owner.json()
 
         print(
             f"""
