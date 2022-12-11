@@ -35,3 +35,4 @@ async def accounts_bomber():
 if __name__ == "__main__":
     accounts_bomber()
     sleep(3)
+    Hydron()
