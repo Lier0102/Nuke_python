@@ -97,75 +97,24 @@ def Hydron():
     colorama.init()
     Write.Print(f"{login}\n", Colors.blue_to_cyan)
 
-    print("\n")
-    Write.Print(
-        r"               $$\   $$\                 $$\                               \n",
-        Colors.blue_to_red,
-        interval=0.00,
-    )
-    Write.Print(
-        r"               $$ |  $$ |                $$ |                              \n",
-        Colors.blue_to_red,
-        interval=0.00,
-    )
-    Write.Print(
-        r"               $$ |  $$ |$$\   $$\  $$$$$$$ | $$$$$$\   $$$$$$\  $$$$$$$\  \n",
-        Colors.blue_to_red,
-        interval=0.00,
-    )
-    Write.Print(
-        r"               $$$$$$$$ |$$ |  $$ |$$  __$$ |$$  __$$\ $$  __$$\ $$  __$$\ \n",
-        Colors.blue_to_red,
-        interval=0.00,
-    )
-    Write.Print(
-        r"               $$  __$$ |$$ |  $$ |$$ /  $$ |$$ |  \__|$$ /  $$ |$$ |  $$ |\n",
-        Colors.blue_to_red,
-        interval=0.00,
-    )
-    Write.Print(
-        "               $$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |      $$ |  $$ |$$ |  $$ |\n",
-        Colors.blue_to_red,
-        interval=0.00,
-    )
-    Write.Print(
-        r"               $$ |  $$ |\$$$$$$$ |\$$$$$$$ |$$ |      \$$$$$$  |$$ |  $$ |\n",
-        Colors.blue_to_red,
-        interval=0.00,
-    )
-    Write.Print(
-        r"               \__|  \__| \____$$ | \_______|\__|       \______/ \__|  \__|\n",
-        Colors.blue_to_red,
-        interval=0.00,
-    )
-    Write.Print(
-        r"                         $$\   $$ |                                        \n",
-        Colors.blue_to_red,
-        interval=0.00,
-    )
-    Write.Print(
-        f" >> [v{CUR_VERSION}]                  \$$$$$$  |                                        \n",
-        Colors.blue_to_red,
-        interval=0.00,
-    )
-    Write.Print(
-        "                          \______/                                         \n",
-        Colors.blue_to_red,
-        interval=0.00,
-    )
+    print('\n')
+    Write.Print('               $$\   $$\                 $$\                               \n', Colors.blue_to_red, interval=0.00)
+    Write.Print('               $$ |  $$ |                $$ |                              \n', Colors.blue_to_red, interval=0.00)
+    Write.Print('               $$ |  $$ |$$\   $$\  $$$$$$$ | $$$$$$\   $$$$$$\  $$$$$$$\  \n', Colors.blue_to_red, interval=0.00)
+    Write.Print('               $$$$$$$$ |$$ |  $$ |$$  __$$ |$$  __$$\ $$  __$$\ $$  __$$\ \n', Colors.blue_to_red, interval=0.00)
+    Write.Print('               $$  __$$ |$$ |  $$ |$$ /  $$ |$$ |  \__|$$ /  $$ |$$ |  $$ |\n', Colors.blue_to_red, interval=0.00)
+    Write.Print('               $$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |      $$ |  $$ |$$ |  $$ |\n', Colors.blue_to_red, interval=0.00)
+    Write.Print('               $$ |  $$ |\$$$$$$$ |\$$$$$$$ |$$ |      \$$$$$$  |$$ |  $$ |\n', Colors.blue_to_red, interval=0.00)
+    Write.Print('               \__|  \__| \____$$ | \_______|\__|       \______/ \__|  \__|\n', Colors.blue_to_red, interval=0.00)
+    Write.Print('                         $$\   $$ |                                        \n', Colors.blue_to_red, interval=0.00)
+    Write.Print(f' >> [v{CUR_VERSION}]                  \$$$$$$  |                                        \n', Colors.blue_to_red, interval=0.00)
+    Write.Print('                          \______/                                         \n', Colors.blue_to_red, interval=0.00)
 
-    print(
-        f"""{lm}""".replace("$", f"{lm}${w}")
-        + f"""
+    print(f'''{lm}'''.replace('$', f'{lm}${w}') + f'''
     {lm}[{w}1{Fore.RESET}{lm}]{Fore.RESET} 서버 체커   {b}|{Fore.RESET}{lm}[{w}2{Fore.RESET}{lm}]{Fore.RESET}  친삭 테러   {b}|{Fore.RESET}{lm}[{w}3{Fore.RESET}{lm}]{Fore.RESET} Dm 테러{Fore.RESET}  {b}|{Fore.RESET}{lm}[{w}4{Fore.RESET}{lm}]{Fore.RESET} 나가기{Fore.RESET}
-    """
-    )
-    Write.Print(
-        "════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════\n",
-        Colors.blue_to_purple,
-        interval=0.000,
-    )
-    choice = input(f"{lm}[{w}>{lm}]{w} 사용하실 기능을 입력해주세요: ")
+    ''')
+    Write.Print("════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════\n", Colors.blue_to_purple, interval=0.000)
+    choice = input(f'{lm}[{w}>{lm}]{w} 사용하실 기능을 입력해주세요: ')
 
     if choice == "1":
         LoadingAnimation()
