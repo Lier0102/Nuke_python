@@ -96,66 +96,20 @@ async def Hydron():
     Write.Print(f"{login}\n", Colors.blue_to_cyan)
     time.sleep(0.05)
 
-    print("\n")
-    Write.Print(
-        "               $$\   $$\                 $$\                               \n",
-        Colors.blue_to_red,
-        interval=0.00,
-    )
-    Write.Print(
-        "               $$ |  $$ |                $$ |                              \n",
-        Colors.blue_to_red,
-        interval=0.00,
-    )
-    Write.Print(
-        "               $$ |  $$ |$$\   $$\  $$$$$$$ | $$$$$$\   $$$$$$\  $$$$$$$\  \n",
-        Colors.blue_to_red,
-        interval=0.00,
-    )
-    Write.Print(
-        "               $$$$$$$$ |$$ |  $$ |$$  __$$ |$$  __$$\ $$  __$$\ $$  __$$\ \n",
-        Colors.blue_to_red,
-        interval=0.00,
-    )
-    Write.Print(
-        "               $$  __$$ |$$ |  $$ |$$ /  $$ |$$ |  \__|$$ /  $$ |$$ |  $$ |\n",
-        Colors.blue_to_red,
-        interval=0.00,
-    )
-    Write.Print(
-        "               $$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |      $$ |  $$ |$$ |  $$ |\n",
-        Colors.blue_to_red,
-        interval=0.00,
-    )
-    Write.Print(
-        "               $$ |  $$ |\$$$$$$$ |\$$$$$$$ |$$ |      \$$$$$$  |$$ |  $$ |\n",
-        Colors.blue_to_red,
-        interval=0.00,
-    )
-    Write.Print(
-        "               \__|  \__| \____$$ | \_______|\__|       \______/ \__|  \__|\n",
-        Colors.blue_to_red,
-        interval=0.00,
-    )
-    Write.Print(
-        "                         $$\   $$ |                                        \n",
-        Colors.blue_to_red,
-        interval=0.00,
-    )
-    Write.Print(
-        f" >> [v{CUR_VERSION}]                  \$$$$$$  |                                        \n",
-        Colors.blue_to_red,
-        interval=0.00,
-    )
-    Write.Print(
-        "                          \______/                                         \n",
-        Colors.blue_to_red,
-        interval=0.00,
-    )
+    print('\n')
+    Write.Print('               $$\   $$\                 $$\                               \n', Colors.blue_to_red, interval=0.00)
+    Write.Print('               $$ |  $$ |                $$ |                              \n', Colors.blue_to_red, interval=0.00)
+    Write.Print('               $$ |  $$ |$$\   $$\  $$$$$$$ | $$$$$$\   $$$$$$\  $$$$$$$\  \n', Colors.blue_to_red, interval=0.00)
+    Write.Print('               $$$$$$$$ |$$ |  $$ |$$  __$$ |$$  __$$\ $$  __$$\ $$  __$$\ \n', Colors.blue_to_red, interval=0.00)
+    Write.Print('               $$  __$$ |$$ |  $$ |$$ /  $$ |$$ |  \__|$$ /  $$ |$$ |  $$ |\n', Colors.blue_to_red, interval=0.00)
+    Write.Print('               $$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |      $$ |  $$ |$$ |  $$ |\n', Colors.blue_to_red, interval=0.00)
+    Write.Print('               $$ |  $$ |\$$$$$$$ |\$$$$$$$ |$$ |      \$$$$$$  |$$ |  $$ |\n', Colors.blue_to_red, interval=0.00)
+    Write.Print('               \__|  \__| \____$$ | \_______|\__|       \______/ \__|  \__|\n', Colors.blue_to_red, interval=0.00)
+    Write.Print('                         $$\   $$ |                                        \n', Colors.blue_to_red, interval=0.00)
+    Write.Print(f' >> [v{CUR_VERSION}]                  \$$$$$$  |                                        \n', Colors.blue_to_red, interval=0.00)
+    Write.Print('                          \______/                                         \n', Colors.blue_to_red, interval=0.00)
 
-    print(
-        f"""{lm}""".replace("$", f"{lm}${w}")
-        + f"""
+    print(f'''{lm}'''.replace('$', f'{lm}${w}') + f"""
     {lm}[{w}1{Fore.RESET}{lm}]{Fore.RESET} 서버 체커   {b}|{Fore.RESET}{lm}[{w}2{Fore.RESET}{lm}]{Fore.RESET}  친삭 테러   {b}|{Fore.RESET}{lm}[{w}3{Fore.RESET}{lm}]{Fore.RESET} Dm 테러{Fore.RESET}  {b}|{Fore.RESET}{lm}[{w}4{Fore.RESET}{lm}]{Fore.RESET} 나가기{Fore.RESET}
     """
     )
