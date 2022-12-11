@@ -6,6 +6,8 @@ from utils.Setting.lib import aiohttp, asyncio, time
 
 
 def menu():
+    print('')
+    print('')
     print(
         f"""
 [\x1b[95m1\x1b[95m\x1B[37m] 친삭 테러
@@ -47,6 +49,7 @@ async def main():
     option = int(input(f"[\x1b[95m>\x1b[95m\x1B[37m] 옵션: "))
     if option == 1:
         await accounts_bomber()
+        print(f"[\x1b[95m>\x1b[95m\x1B[37m] token.txt에 있는 토큰을 조회하고 해당 토큰의 친구들을 삭제하는 중입니다.\n")
         time.sleep(3)
         await __import__("main").Hydron()
     else:

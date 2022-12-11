@@ -88,9 +88,9 @@ async def Hydron():
     set_login()
 
     # token = open("token.txt", 'r', encoding="utf-8").read().splitlines()
-    # clear = lambda: os.system('cls')
+    clear = lambda: os.system('cls')
 
-    # clear()
+    clear()
     colorama.init()
 
     Write.Print(f"{login}\n", Colors.blue_to_cyan)

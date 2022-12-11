@@ -9,7 +9,8 @@ colorama.init(autoreset=True)
 
 
 def menu():
-    print()
+    print('')
+    print('')
     print("[\x1b[95m1\x1b[95m\x1B[37m] 서버 체커")
     print("[\x1b[95m2\x1b[95m\x1B[37m] 나가기")
 
