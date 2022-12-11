@@ -35,7 +35,9 @@ except:
 
 import json
 import random
+import asyncio
 
+asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 os.system("mode 120,30")
 
 url = "https://discord.com/api/v10/channels/messages"
