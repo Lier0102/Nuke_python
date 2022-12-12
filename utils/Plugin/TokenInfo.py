@@ -1,12 +1,19 @@
 import aiohttp
 import asyncio
 import datetime
+from time import *
 
 from colorama import Fore
 
 from utils.Setting.setup_most import heads, languages
 
 asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+
+def menu():
+    print('')
+    print('')
+    print("[\x1b[95m1\x1b[95m\x1B[37m] 토큰 체커")
+    print("[\x1b[95m2\x1b[95m\x1B[37m] 나가기")
 
 def get_user_created_at(id: str) -> str:
     KST = datetime.timezone(datetime.timedelta(hours=9))
@@ -50,3 +57,15 @@ async def get_token_info(token: str):
 [{Fore.LIGHTMAGENTA_EX}아바타 주소{Fore.RESET}]      $:   {user_avatar_link}
     """
     )
+
+async def main():
+    menu()
+    option = int(input(f"[\x1b[95m>\x1b[95m\x1B[37m] 옵션: "))
+    if option == 1:
+        sleep(1)
+        token = input(f"\n[\x1b[95m>\x1b[95m\x1B[37m] 토큰: ")
+        get_token_info(token)
+        sleep(6)
+        await __import__("main").Hydron()
+    elif option == 2:
+        await __import__("main").Hydron()

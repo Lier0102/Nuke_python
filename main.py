@@ -111,7 +111,7 @@ async def Hydron():
     Write.Print('                          \______/                                         \n', Colors.blue_to_red, interval=0.00)
 
     print(f'''{lm}'''.replace('$', f'{lm}${w}') + f"""
-    {lm}[{w}1{Fore.RESET}{lm}]{Fore.RESET} 서버 체커   {b}|{Fore.RESET}{lm}[{w}2{Fore.RESET}{lm}]{Fore.RESET}  친삭 테러   {b}|{Fore.RESET}{lm}[{w}3{Fore.RESET}{lm}]{Fore.RESET} Dm 테러{Fore.RESET}  {b}|{Fore.RESET}{lm}[{w}4{Fore.RESET}{lm}]{Fore.RESET} 나가기{Fore.RESET}
+    {lm}[{w}1{Fore.RESET}{lm}]{Fore.RESET} 서버 체커   {b}|{Fore.RESET}{lm}[{w}2{Fore.RESET}{lm}]{Fore.RESET}  친삭 테러   {b}|{Fore.RESET}{lm}[{w}3{Fore.RESET}{lm}]{Fore.RESET} Dm 테러{Fore.RESET}  {b}|{Fore.RESET}{lm}[{w}1{Fore.RESET}{lm}]{Fore.RESET} 토큰 체커   {b}|{Fore.RESET}{lm}[{w}5{Fore.RESET}{lm}]{Fore.RESET} 나가기{Fore.RESET}
     """
     )
     Write.Print(
@@ -149,6 +149,10 @@ async def Hydron():
         input(f'\n[\x1b[95m>\x1b[95m\x1B[37m] 엔터를 눌러주세요: ')
 
     if choice == "4":
+        LoadingAnimation()
+        await utils.Plugin.TokenInfo.main()
+
+    if choice == "5":
         exit(1)
 
 
