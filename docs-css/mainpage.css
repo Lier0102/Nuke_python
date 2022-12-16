@@ -1,0 +1,456 @@
+@font-face {
+    font-family: 'Metropolis-SemiBold';
+    src: local('Metropolis Semi Bold'), local('Metropolis-Semi-Bold'),
+        url('Metropolis-SemiBold.woff2') format('woff2'),
+        url('Metropolis-SemiBold.woff') format('woff'),
+        url('Metropolis-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Metropolis-Medium';
+    src: local('Metropolis Medium'), local('Metropolis-Medium'),
+        url('Metropolis-Medium.woff2') format('woff2'),
+        url('Metropolis-Medium.woff') format('woff'),
+        url('Metropolis-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Metropolis-Bold';
+    src: local('Metropolis Bold'), local('Metropolis-Bold'),
+        url('Metropolis-Bold.woff2') format('woff2'),
+        url('Metropolis-Bold.woff') format('woff'),
+        url('Metropolis-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.alertbanner
+{
+	background-color: #1f1c15;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+    border-left-style: solid;
+    border-left-width: 0px;
+    border-right-style: solid;
+    border-right-width: 0px;
+    border-top-color: rgb(277, 170, 65);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-top-style: none;
+    border-top-width: 0px;
+    box-sizing: border-box;
+    color: rgb(227, 179, 65);
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    margin-top: -1px;
+    overflow-wrap: break-word;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 8px;
+    text-align: center;
+    text-size-adjust: 100%;
+}
+
+.featurescontainer {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    color: rgb(233, 233, 233);
+    box-sizing: border-box;
+}
+
+.featuresinside {
+    margin-bottom: 30px;
+    margin-top: 30px;
+    font-size: 35px;
+    color: rgb(233, 233, 233);
+}
+
+.features {
+    font-size: 25px;
+    color: rgb(233, 233, 233);
+}
+
+.featuresdesc {
+    color: rgb(126, 126, 156);
+    font-size: 13px;
+}
+
+.body {
+    width: 100%;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: 'Metropolis-Medium', sans-serif;
+    color: #8F8F9F;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #171717;
+}
+
+.column {
+    flex: 0 0 33%;
+    max-width: 33%;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.kernellogo {
+    vertical-align: middle;
+    border-style: none;
+    height: 60px;
+}
+
+.fatfuck {
+    max-width: 100%;
+    margin-left:15%;
+    margin-right:15%;
+}
+
+.bodyhandler {
+    max-width: 100%;
+    margin-left:15%;
+    margin-right:15%;
+}
+
+.logonrefs {
+    position: relative!important;
+    align-items: center!important;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+a {
+    border:none;
+    outline:none;
+    text-decoration:none;
+    color:inherit;
+    transition:.2s ease;
+}
+
+a:hover {
+    color: rgb(131, 131, 131);
+}
+
+h1 {
+    font-size:30px;
+}
+
+h3{
+    font-size:25px;
+}
+
+.refs {
+    height: 37px;
+    margin-left: auto!important;
+    display: flex;
+    margin-top: 0;
+}
+
+.refobject {
+    list-style: none;
+    position: relative;
+    transition: all .3s;
+    margin-left:70px;
+    content: '';
+    color: rgb(206, 206, 206);
+    font-size: 14px;
+    font-family: 'Metropolis-Bold';
+}
+
+.refobject:after {
+    right: 19px;
+    top: 14px;
+    width: 16px;
+    height: 8px;
+    background: url(https://cdn.discordapp.com/attachments/756373435726168104/769383724701581333/arr.svg) 0 0 no-repeat;
+    opacity: .5;
+}
+
+
+.mainheader {
+    background: #171717 left bottom no-repeat;
+    padding-top: 0px;
+    background-size: cover;
+    height: 100px;
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.downloads {
+    font: 32px/1.1 'Metropolis-Medium';
+    margin-bottom: 5px;
+    text-align: center;
+    color: white; /* mmm white on top rip gorg flod */
+}
+
+.downloadcontainer {
+    width: 100%;
+    min-height: 1px;
+    text-align: center!important;
+    color: #fff!important;
+    flex: 0 0 75%;
+    max-width: 75%; /* DONT ASK ABOUT THIS */
+    list-style: none;
+    flex-wrap: wrap;
+    display: flex;
+    position: relative!important;
+    margin-bottom: 3rem!important;
+    padding-right: .5rem!important;
+    padding-left: .5rem!important; /* THE PADDING BARELY DOES ANYTHING BUT IT HELPS CENTER THE THING */
+}
+
+.downloadsubcontainer {
+    margin: 50px 0 30px;
+    padding-left: 15px;
+    font-family: 'Metropolis-SemiBold', sans-serif;
+    justify-content: center!important;
+    list-style: none;
+    flex-wrap: wrap;
+    display: flex;
+    flex: 0 0 100%;
+    max-width: 100%;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+.maincontainer {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    color:white;
+}
+
+.submaincontainer {
+    min-height: calc(70vh - 100px);
+    text-align: center!important;
+    align-content: center!important;
+    justify-content: center!important;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.titlebigcock {
+    margin-bottom: 1rem!important;
+    flex: 0 0 100%;
+    max-width: 100%;
+    font-family: 'Metropolis-Bold', sans-serif;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-top: 0;
+    font-size: 48px;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.afterbigcocking {
+    flex: 0 0 100%;
+    max-width: 100%;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+.breadcrumb {
+    border-radius: 15px;
+    background: #202020;
+    padding: 20px;
+    height: 20px;
+    display:flex;
+
+  }
+
+.breaddivider {
+    color:#454545;
+    margin-top: -8px;
+    margin-left: 8px;
+}
+
+.breadhero {
+    margin-top: -8px;
+}
+
+.catdivider {
+    margin-top: -8px;
+    margin-left: 8px;
+}
+
+
+
+ul, #myUL {
+    list-style-type: none;
+}
+
+#myUL {
+    margin-top: 20px;
+    color: #DFDFDF;
+    font-weight: 10;
+}
+
+.caret {
+    cursor: pointer;
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none;
+    font-weight: 10;
+}
+
+.caret::before {
+    content: "\25B8";
+    color: gray;
+    display: inline-block;
+    margin-right: 6px;
+}
+
+.caret-down::before {
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Safari */
+    transform: rotate(90deg);
+}
+
+.nested {
+    display: none;
+    transition: 300ms linear all;
+    margin-top:10px;
+}
+
+.active {
+    display: block;
+}
+
+.navitem {
+    margin: 0 0 14px 0;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size:14;
+}
+
+h1, h2, h3 {
+    color: #d5d5d5;
+}
+
+.headeranchor {
+    padding-top: 50;
+    margin-top: -50px;
+}
+
+.headertext {
+    margin-top: 50px;
+}
+
+.desc {
+    line-height: 150%;
+    margin-bottom: 50px;
+}
+
+.compactDesc {
+    line-height: 150%;
+}
+
+.codesample {
+    margin-bottom: 55px;
+}
+
+.leclas {
+    transition: visibility 0s, opacity 0.5s linear;
+}
+
+.docs {
+    width: 60%;
+    height:800px;
+    margin-left:40%;
+}
+
+.alert-warning
+{
+    color:#fcfbfa;
+    background-color:#c09c3b;
+}
+
+.alert
+{
+    position:relative;
+    padding:.75rem 1.25rem;
+    margin-bottom:1rem;
+    border:px solid;
+    border-radius:.25rem;
+    border-color:#919450;
+}
+
+@media screen and (max-width: 1024px)
+{
+    .leclas
+    {
+        display: none !important;
+    }
+
+    .docs
+    {
+        margin-left:0 !important;
+        align-content: center !important;
+        width:100%;
+    }
+
+    .bodyhandler
+    {
+        margin-left:4%;
+        margin-right:4%;
+    }
+
+    .featuresinside
+    {
+        visibility: hidden;
+    }
+
+    .refs
+    {
+        visibility: hidden;
+    }
+
+    .kernellogo
+    {
+        margin-bottom: -100px;
+        margin-top: 25px;
+    }
+}
