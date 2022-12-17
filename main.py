@@ -36,9 +36,9 @@ def check_version():
         print(
             f"{Fore.RED}님의 파이썬 버전 지원 안됨요 ({sys.version_info[0]}.{sys.version_info[1]}.{sys.version_info[2]}), 파이썬 3.10이상을 다운받으셔서 저희 Hydron Nuker를 사용해주세요!{Fore.RESET}"
         )
-        sleep(5)
+        time.sleep(5)
         print("[\x1b[95m1\x1b[95m\x1B[37m] 비상탈출!!")
-        sleep(0.75)
+        time.sleep(0.75)
         os._exit(0) # type: ignore
 
 
@@ -47,7 +47,7 @@ def Loader():
     for i in l + l + l:
         sys.stdout.write(f"""\r {i}""")
         sys.stdout.flush()
-        sleep(0.1)
+        time.sleep(0.1)
 
 
 def cls():

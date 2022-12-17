@@ -65,7 +65,7 @@ class TokenInfo(PluginABC):
         if option == 1:
             time.sleep(1)
             token = input(f"\n[\x1b[95m>\x1b[95m\x1B[37m] 토큰: ")
-            TokenValidator(token)
+            await TokenValidator(token)
             await cls.get_token_info(token)
             
             input(f'\n[\x1b[95m>\x1b[95m\x1B[37m] 엔터를 눌러주세요: ')

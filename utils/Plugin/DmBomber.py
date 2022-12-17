@@ -48,7 +48,7 @@ class DmBomber(PluginABC):
         
         if option == 1:
             token = input(f'\n[\x1b[95m>\x1b[95m\x1B[37m] 토큰: ')
-            TokenValidator(token)
+            await TokenValidator(token)
             cls.dm_bomber(token=token)
             
             input(f'\n[\x1b[95m>\x1b[95m\x1B[37m] 엔터를 눌러주세요: ')
