@@ -22,7 +22,7 @@ CUR_VERSION = '0.3'
 ###### 색 지정 ######
 
 w = Fore.WHITE
-b = Fore.BLACK
+lbl = Fore.LIGHTBLACK_EX
 lg = Fore.LIGHTGREEN_EX
 ly = Fore.LIGHTYELLOW_EX
 lm = Fore.LIGHTMAGENTA_EX
@@ -32,8 +32,12 @@ lb = Fore.LIGHTBLUE_EX
 
 ###### 색 지정 ######
 
-tokencnt = len(open("token.txt", "r", encoding="utf-8").readlines())  # 토큰 갯수 카운팅
-
+tokencnt = 0 # 토큰 갯수 카운팅
+with open("token.txt", "r", encoding="utf-8") as f:
+    for line in f.readlines():
+        if not line.startswith("#"):
+            tokencnt += 1
+            
 if os.name != "nt":  # 맥은 내가 프로그램 만들 줄 몰라서 못하고 리눅스는 굳이..? 해서 윈도우로 필터링함.
     print("ㅈㅅㅈㅅ, 님 OS에서 이거 안 돌아감")
     exit(-1)
@@ -203,7 +207,7 @@ def LoadingAnimation():
     loading_iconlist = ["|", "/", "-", "\\"]
 
     for i in loading_iconlist:
-        sys.stdout.write(f"""\r{ly}[{b}#{ly}]{w} 로딩중... {i}""")
+        sys.stdout.write(f"""\r{ly}[{lbl}#{ly}]{w} 로딩중... {i}""")
         sys.stdout.flush()
         sleep(0.1)
 
