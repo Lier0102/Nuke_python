@@ -17,7 +17,7 @@ from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
 
 ###### 버전 지정 ######
 
-CUR_VERSION = '0.3_refactor'
+CUR_VERSION = 'v3_refactor'
 
 ###### 버전 지정 ######
 
