@@ -15,7 +15,7 @@ from time import sleep
 
 ###### 버전 지정 ######
 
-CUR_VERSION = 'v2'
+CUR_VERSION = '0.2'
 
 ###### 버전 지정 ######
 
