@@ -42,4 +42,5 @@ def update():
         Write.Print("           ░░░ ░ ░ ░░        ░ ░  ░   ░   ▒    ░         ░       ░  \n", Colors.red_to_white, interval=0.000)
         Write.Print("             ░                 ░          ░  ░           ░  ░ ░      \n", Colors.red_to_white, interval=0.000)
         Write.Print("                              ░                                       \n", Colors.red_to_white, interval=0.000)
-              
+
+    os.system("pause")
