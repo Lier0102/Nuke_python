@@ -22,7 +22,7 @@ lb = Fore.LIGHTBLUE_EX
 def update():
     clear()
 
-    setTitle()
+    setTitle("")
 
     r = requests.get("https://github.com/Lier0102/Nuke_python/releases/latest")
 
