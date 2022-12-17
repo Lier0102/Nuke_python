@@ -4,3 +4,4 @@ selenium
 colored
 pystyle
 aiohttp
+beautifulsoup4

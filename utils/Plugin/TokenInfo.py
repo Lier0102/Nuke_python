@@ -1,7 +1,7 @@
 import aiohttp
 import asyncio
 import datetime
-from time import *
+import time
 
 from colorama import Fore
 
@@ -36,7 +36,7 @@ async def get_token_info(token: str):
     ):
         response = await response.json()
         
-    user_nitro_type = premium_types[response["premium_type"]]
+    user_nitro_type = premium_types[response.get("premium_type", 0)]
     if response["avatar"] is not None:
         user_avatar_link = avatar_base_url.format(id=response["id"], hash=response["avatar"]) 
     else:
@@ -59,13 +59,14 @@ async def get_token_info(token: str):
     )
 
 async def main():
+    from main import Hydron
     menu()
     option = int(input(f"[\x1b[95m>\x1b[95m\x1B[37m] 옵션: "))
     if option == 1:
-        sleep(1)
+        time.sleep(1)
         token = input(f"\n[\x1b[95m>\x1b[95m\x1B[37m] 토큰: ")
-        get_token_info(token)
-        sleep(6)
-        await __import__("main").Hydron()
+        await get_token_info(token)
+        time.sleep(6)
+        await Hydron()
     elif option == 2:
-        await __import__("main").Hydron()
+        await Hydron()

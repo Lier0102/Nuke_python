@@ -46,7 +46,6 @@ async def accounts_bomber():
 
 
 async def main():
-    from main import Hydron
     menu()
     option = int(input(f"[\x1b[95m>\x1b[95m\x1B[37m] 옵션: "))
     print("\n" * 7)
@@ -55,7 +54,9 @@ async def main():
         await accounts_bomber()
         print()
         time.sleep(6)
+        from main import Hydron
         await Hydron()
     else:
         print("\n" * 6)
+        from main import Hydron
         await Hydron()

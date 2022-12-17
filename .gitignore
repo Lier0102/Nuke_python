@@ -124,4 +124,7 @@ venv.bak/
 .mypy_cache/
 .dmypy.json
 dmypy.json
+
 pyrightconfig.json
+chromedriver.exe
+data/login.json
