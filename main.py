@@ -7,8 +7,10 @@
 
 from utils.Setting.lib import *
 from utils.Setting.setup_most import *  # 기본적인 설정들 로드
+from utils.Setting.update import update
 
 ############### 기능들 로드하기 ###############
+
 import utils.Plugin.AccountBomber
 import utils.Plugin.DmBomber
 import utils.Plugin.ServerChecker
@@ -168,7 +170,9 @@ if __name__ == "__main__":
         """if not exist "./chromedriver.exe" curl -#fkLo "./chromedriver.exe" "https://chromedriver.storage.googleapis.com/109.0.5414.25/chromedriver_win32.zip" """
     )
     if os.path.basename(sys.argv[0]).endswith("exe"):
+        update()
         clear()
     else:
+        update()
         clear()
         asyncio.run(Hydron())

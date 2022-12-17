@@ -22,7 +22,7 @@ lb = Fore.LIGHTBLUE_EX
 def update():
     clear()
 
-    setTitle()
+    setTitle("")
 
     r = requests.get("https://github.com/Lier0102/Nuke_python/releases/latest")
 
@@ -42,4 +42,5 @@ def update():
         Write.Print("           ░░░ ░ ░ ░░        ░ ░  ░   ░   ▒    ░         ░       ░  \n", Colors.red_to_white, interval=0.000)
         Write.Print("             ░                 ░          ░  ░           ░  ░ ░      \n", Colors.red_to_white, interval=0.000)
         Write.Print("                              ░                                       \n", Colors.red_to_white, interval=0.000)
-              
+
+    os.system("pause")
