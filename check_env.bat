@@ -12,3 +12,4 @@ cls
 Title MODULE CHECKING...
 echo python main.py is about to run!
 start main_start.bat
+exit

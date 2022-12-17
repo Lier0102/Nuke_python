@@ -224,13 +224,13 @@ def TokenValidator(token: str):  # 토큰이 유효한지 검사하는 discord a
     if r.status_code != 200:
         print(f"\n{Fore.RED}존재하지 않는 토큰입니다!{Fore.RESET}")
         sleep(1)
-        __import__("Hydron").main()
+        __import__("main").Hydron()
     j = requests.get(f"{base_url}/billing/subscriptions", headers=heads(token)).json()
     try:
         if j["message"] == message:
             print(f"\n{Fore.RED}폰 락된 토큰입니다!{Fore.RESET}")
             sleep(1)
-            __import__("Hydron").main()
+            __import__("main").Hydron()
     except TypeError:
         pass
 
