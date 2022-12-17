@@ -1,20 +1,18 @@
-import colorama
-from time import sleep
-from colorama import Fore
-
 from utils.Setting.setup_most import *
 from utils.Setting.lib import colorama, time, aiohttp
+from colorama import Fore
 
 colorama.init(autoreset=True)
 
 
 def menu():
-    print()
+    print("\n")
     print("[\x1b[95m1\x1b[95m\x1B[37m] 서버 체커")
     print("[\x1b[95m2\x1b[95m\x1B[37m] 나가기")
 
 
 async def main():
+    from main import Hydron
     menu()
     option = int(input(f"[\x1b[95m>\x1b[95m\x1B[37m] 옵션: "))
     if option == 1:
@@ -54,7 +52,7 @@ async def main():
     """
         )
 
-        sleep(6)
-        await __import__("main").Hydron()
+        time.sleep(6)
+        await Hydron()
     elif option == 2:
-        await __import__("main").Hydron()
+        await Hydron()
