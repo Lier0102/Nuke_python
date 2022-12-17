@@ -72,7 +72,7 @@ def update():
                     zipfile.write(new_version_source.content)
                 with ZipFile("Nuke_Python-main.zip", 'r') as filezip:
                     filezip.extractall()
-                os.remove("GANG-Nuker-main.zip")
+                os.remove("Nuke_Python-main.zip")
                 cwd = os.getcwd()+'\\Nuke_Python-main'
                 shutil.copytree(cwd, os.getcwd(), dirs_exist_ok=True)
                 shutil.rmtree(cwd)
