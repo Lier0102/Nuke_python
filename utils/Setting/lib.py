@@ -11,6 +11,7 @@ import random
 import asyncio
 import time
 import aiohttp
+import threading
 
 asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 os.system("mode 120,30")
