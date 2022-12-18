@@ -56,7 +56,7 @@ class HypeChanger(PluginABC):
         option = super().get_option()
         if option == 1:
             time.sleep(1)
-            token = open('tokens.txt', 'r').read().splitlines()
+            token = open('token.txt', 'r').read().splitlines()
             await TokenValidator(token[0])
             await cls.change(token[0]) # 아직은 완전한 버전이 아니라서 첫번째 토큰만 바꾸기
             
