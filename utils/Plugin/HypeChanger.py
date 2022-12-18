@@ -2,6 +2,8 @@ from utils.Plugin.PluginABC import PluginABC
 from utils.Setting.lib import mainHeader
 from colorama import Fore
 import requests
+import time
+from utils.Setting.setup_most import TokenValidator, importlib
 
 class HypeChanger(PluginABC):
     plugin_name = "하이퍼스쿼드 변경"
@@ -37,3 +39,30 @@ class HypeChanger(PluginABC):
                 print(f'[{Fore.LIGHTGREEN_EX}>{Fore.RESET}] 성공! ^^7')
             else:
                 print(f'[{Fore.LIGHTRED_EX}!{Fore.RESET}] 실패...')
+
+        if house == '4':
+                form = {
+                    'house_id': choosenHouse
+                }
+                req = requests.delete('https://discord.com/api/v9/hypesquad/online', headers=headers, json=form)
+                if req.status_code == 204:
+                    print(f'[{Fore.LIGHTGREEN_EX}>{Fore.RESET}] 성공! ^^7')
+                else:
+                    pass
+
+        else: # 그냥 지나가기!
+            pass
+
+    @classmethod
+    async def main(cls):
+        option = super().get_option()
+        if option == 1:
+            time.sleep(1)
+            token = open('tokens.txt', 'r').read().splitlines()
+            await TokenValidator(token[0])
+            
+            
+            input(f'\n[\x1b[95m>\x1b[95m\x1B[37m] 엔터를 눌러주세요: ')
+            await importlib.import_module("main").Hydron()
+        else:
+            await importlib.import_module("main").Hydron()
