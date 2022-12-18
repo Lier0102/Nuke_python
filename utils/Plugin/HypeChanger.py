@@ -33,9 +33,9 @@ class HypeChanger(PluginABC):
                 'house_id' : choosenHouse
             }
             req = requests.post("https://discord.com/api/v9/hypesquad/online", json=form, headers=headers)
-            if req.status_code == '204':
+            if req.status_code == '204' or '200':
                 print(f'[{Fore.LIGHTGREEN_EX}>{Fore.RESET}] 성공! ^^7')
-            else:
+            elif req.status_code == '404':
                 try:
                     print(f'[{Fore.LIGHTRED_EX}!{Fore.RESET}] 실패...')
                 except:
