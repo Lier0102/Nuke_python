@@ -9,7 +9,7 @@ class HypeChanger(PluginABC):
     plugin_name = "하이퍼스쿼드 변경"
 
     @classmethod
-    def change(token: str):
+    def change(self, token):
 
         print(f'''\n[\x1b[95m1\x1b[95m\x1B[37m] {Fore.MAGENTA}용맹(Bravery){Fore.RESET}
 [\x1b[95m2\x1b[95m\x1B[37m] {Fore.LIGHTRED_EX}찬란함(Brilliance){Fore.RESET}
@@ -36,7 +36,10 @@ class HypeChanger(PluginABC):
             if req.status_code == '204':
                 print(f'[{Fore.LIGHTGREEN_EX}>{Fore.RESET}] 성공! ^^7')
             else:
-                print(f'[{Fore.LIGHTRED_EX}!{Fore.RESET}] 실패...')
+                try:
+                    print(f'[{Fore.LIGHTRED_EX}!{Fore.RESET}] 실패...')
+                except:
+                    pass
 
         if house == '4':
                 form = {
@@ -57,9 +60,9 @@ class HypeChanger(PluginABC):
         if option == 1:
             time.sleep(1)
             token = open('token.txt', 'r').read().splitlines()
-            await TokenValidator(token[0])
+            await TokenValidator(token=token[0])
             time.sleep(3)
-            await cls.change(token[0]) # 아직은 완전한 버전이 아니라서 첫번째 토큰만 바꾸기
+            cls.change(token=token[0]) # 아직은 완전한 버전이 아니라서 첫번째 토큰만 바꾸기
             
             input(f'\n[\x1b[95m>\x1b[95m\x1B[37m] 엔터를 눌러주세요: ')
             await importlib.import_module("main").Hydron()
