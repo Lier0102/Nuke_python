@@ -1,5 +1,5 @@
 from utils.Plugin.PluginABC import PluginABC
-
+from utils.Setting.setup_most import heads
 
 
 class HypeChanger(PluginABC):
