@@ -58,6 +58,7 @@ class HypeChanger(PluginABC):
             time.sleep(1)
             token = open('token.txt', 'r').read().splitlines()
             await TokenValidator(token[0])
+            time.sleep(3)
             await cls.change(token[0]) # 아직은 완전한 버전이 아니라서 첫번째 토큰만 바꾸기
             
             input(f'\n[\x1b[95m>\x1b[95m\x1B[37m] 엔터를 눌러주세요: ')
