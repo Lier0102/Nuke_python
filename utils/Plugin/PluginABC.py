@@ -1,5 +1,4 @@
 from abc import ABC, abstractmethod
-from colorama import Fore
 
 class PluginABC(ABC):
     plugin_name: str
