@@ -24,13 +24,18 @@ class FR_Terror(PluginABC): # token.txt에 있는 모든 토큰으로 특정 유
     @classmethod
     async def main(cls):
         option = super().get_option()
+        if option == 1:
 
-        user = input(f"\n[\x1b[95m>\x1b[95m\x1B[37m] 유저이름 + 유저태그: ")
-        tokens = open("token.txt", "r").read().splitlines()
-        delay = float(input(f'\n[\x1b[95m>\x1b[95m\x1B[37m] 지연시간: '))
+            user = input(f"\n[\x1b[95m>\x1b[95m\x1B[37m] 유저이름 + 유저태그: ")
+            tokens = open("token.txt", "r").read().splitlines()
+            delay = float(input(f'\n[\x1b[95m>\x1b[95m\x1B[37m] 지연시간: '))
 
-        for token in tokens:
-            time.sleep(delay)
-            cls.be_friend(token, delay)
-        
-        time.sleep(3)
+            for token in tokens:
+                time.sleep(delay)
+                cls.be_friend(token, delay)
+            
+            time.sleep(3)
+            input(f'\n[\x1b[95m>\x1b[95m\x1B[37m] 엔터를 눌러주세요: ')
+            await importlib.import_module("main").Hydron()
+        else:
+            await importlib.import_module("main").Hydron() # 비동기가 아니여서 await 없앰 ㅠ
