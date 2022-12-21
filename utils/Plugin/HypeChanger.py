@@ -19,18 +19,18 @@ class HypeChanger(PluginABC):
         headers = mainHeader(token)
 
         if house == "1":
-            choosenHouse = '1'
+            chosenHouse = '1'
         elif house == "2":
-            choosenHouse = '2'
+            chosenHouse = '2'
         elif house == "3":
-            choosenHouse = '3'
+            chosenHouse = '3'
         elif house == "4": # 나가기
-            choosenHouse = None
+            chosenHouse = None
 
         # 하이퍼스쿼드 하우스 검토
-        if choosenHouse == '1' or '2' or '3':
+        if chosenHouse == '1' or '2' or '3':
             form = {
-                'house_id' : choosenHouse
+                'house_id' : chosenHouse
             }
             req = requests.post("https://discord.com/api/v9/hypesquad/online", json=form, headers=headers)
             if req.status_code == '204' or '200':
@@ -43,7 +43,7 @@ class HypeChanger(PluginABC):
 
         if house == '4':
                 form = {
-                    'house_id': choosenHouse
+                    'house_id': chosenHouse
                 }
                 req = requests.delete('https://discord.com/api/v9/hypesquad/online', headers=headers, json=form)
                 if req.status_code == 204:
