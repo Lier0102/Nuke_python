@@ -67,4 +67,4 @@ class HypeChanger(PluginABC):
             input(f'\n[\x1b[95m>\x1b[95m\x1B[37m] 엔터를 눌러주세요: ')
             await importlib.import_module("main").Hydron()
         else:
-            await importlib.import_module("main").Hydron()
+            await importlib.import_module("main").Hydron() # 비동기가 아니여서 await 없앰 ㅠ
