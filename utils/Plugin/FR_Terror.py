@@ -27,7 +27,7 @@ class FR_Terror(PluginABC): # token.txt에 있는 모든 토큰으로 특정 유
         if option == 1:
 
             user = input(f"\n[\x1b[95m>\x1b[95m\x1B[37m] 유저이름 + 유저태그: ")
-            tokens = open("token.txt", "r").read().splitlines()
+            tokens = open("token.txt", "r", encoding='utf-8').read().splitlines()
             delay = float(input(f'\n[\x1b[95m>\x1b[95m\x1B[37m] 지연시간: '))
 
             for token in tokens:
