@@ -1,70 +1,57 @@
-from utils.Plugin.PluginABC import PluginABC
-from utils.Setting.lib import mainHeader
 from colorama import Fore
 import requests
-import time
+from requests import HTTPError
+
+from utils.Plugin.PluginABC import PluginABC
+from utils.Setting.lib import mainHeader
 from utils.Setting.setup_most import TokenValidator, importlib
 
 class HypeChanger(PluginABC):
     plugin_name = "하이퍼스쿼드 변경"
 
     @classmethod
-    def change(self, token):
-
-        print(f'''\n[\x1b[95m1\x1b[95m\x1B[37m] {Fore.MAGENTA}용맹(Bravery){Fore.RESET}
-[\x1b[95m2\x1b[95m\x1B[37m] {Fore.LIGHTRED_EX}찬란함(Brilliance){Fore.RESET}
-[\x1b[95m3\x1b[95m\x1B[37m] {Fore.LIGHTCYAN_EX}균형(Balance){Fore.RESET}
-[\x1b[95m4\x1b[95m\x1B[37m] 하이퍼스쿼드 나가기''')
-        house = input("\n[\x1b[95m>\x1b[95m\x1B[37m] 하이퍼스쿼드 선택: ")
+    def change(cls, token: str):
+        url = "https://discord.com/api/v9/hypesquad/online"
+        message = (f"\n[\x1b[95m1\x1b[95m\x1B[37m] {Fore.MAGENTA}용맹(Bravery){Fore.RESET}\n"
+                   f"[\x1b[95m2\x1b[95m\x1B[37m] {Fore.LIGHTRED_EX}찬란함(Brilliance){Fore.RESET}\n"
+                   f"[\x1b[95m3\x1b[95m\x1B[37m] {Fore.LIGHTCYAN_EX}균형(Balance){Fore.RESET}\n"
+                   f"[\x1b[95m4\x1b[95m\x1B[37m] 하이퍼스쿼드 나가기")
+        print(message)
+        
+        house = int(input("\n[\x1b[95m>\x1b[95m\x1B[37m] 하이퍼스쿼드 선택: "))
         headers = mainHeader(token)
 
-        if house == "1":
-            chosenHouse = '1'
-        elif house == "2":
-            chosenHouse = '2'
-        elif house == "3":
-            chosenHouse = '3'
-        elif house == "4": # 나가기
-            chosenHouse = None
+        if house < 0 or house > 4:
+            print("1 ~ 4 사이를 입력해주세요.")
+            return
+        
+        chosenHouse = house if house in [1, 2, 3] else None
 
-        # 하이퍼스쿼드 하우스 검토
-        if chosenHouse == '1' or '2' or '3':
-            form = {
-                'house_id' : chosenHouse
-            }
-            req = requests.post("https://discord.com/api/v9/hypesquad/online", json=form, headers=headers)
-            if req.status_code == '204' or '200':
-                print(f'[{Fore.LIGHTGREEN_EX}>{Fore.RESET}] 성공! ^^7')
-            elif req.status_code == '404':
-                try:
-                    print(f'[{Fore.LIGHTRED_EX}!{Fore.RESET}] 실패...')
-                except:
-                    pass
+        form = {'house_id' : chosenHouse}
 
-        if house == '4':
-                form = {
-                    'house_id': chosenHouse
-                }
-                req = requests.delete('https://discord.com/api/v9/hypesquad/online', headers=headers, json=form)
-                if req.status_code == 204:
-                    print(f'[{Fore.LIGHTGREEN_EX}>{Fore.RESET}] 성공! ^^7')
-                else:
-                    pass
-
-        else: # 그냥 지나가기!
-            pass
+        if chosenHouse:
+            response = requests.post(url=url, json=form, headers=headers)
+        else:
+            response = requests.delete(url=url, json=form, headers=headers)
+            
+        try:
+            response.raise_for_status()
+            print(f'[{Fore.LIGHTGREEN_EX}>{Fore.RESET}] 성공! ^^7')
+        except HTTPError:
+            print(f"[{Fore.LIGHTRED_EX}!{Fore.RESET}] 실패...")
 
     @classmethod
     async def main(cls):
         option = super().get_option()
+        
         if option == 1:
-            time.sleep(1)
-            token = open('token.txt', 'r').read().splitlines()
-            await TokenValidator(token=token[0])
-            time.sleep(3)
-            cls.change(token=token[0]) # 아직은 완전한 버전이 아니라서 첫번째 토큰만 바꾸기
+            token = input(f"\n[\x1b[95m>\x1b[95m\x1B[37m] 토큰: ")
+            
+            await TokenValidator(token=token)
+            
+            cls.change(token=token)
             
             input(f'\n[\x1b[95m>\x1b[95m\x1B[37m] 엔터를 눌러주세요: ')
             await importlib.import_module("main").Hydron()
         else:
-            await importlib.import_module("main").Hydron() # 비동기가 아니여서 await 없앰 ㅠ
+            await importlib.import_module("main").Hydron()

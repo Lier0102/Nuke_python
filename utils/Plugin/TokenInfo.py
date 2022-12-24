@@ -42,26 +42,26 @@ class TokenInfo(PluginABC):
             user_avatar_link = avatar_base_url.format(id=response["id"], hash=response["avatar"]) 
         else:
             user_avatar_link = None
-        created_at = cls.get_user_created_at(response["id"])    
-        print(
-                f"""
-{Fore.RESET}{Fore.GREEN}####### 토큰 정보 #######{Fore.RESET}
-[{Fore.LIGHTMAGENTA_EX}이름{Fore.RESET}]             $:   {response['username']}#{response['discriminator']} 
-[{Fore.LIGHTMAGENTA_EX}ID{Fore.RESET}]               $:   {response['id']}
-[{Fore.LIGHTMAGENTA_EX}토큰{Fore.RESET}]             $:   {token}
-[{Fore.LIGHTMAGENTA_EX}이메일{Fore.RESET}]           $:   {response.get("email")}
-[{Fore.LIGHTMAGENTA_EX}전화번호{Fore.RESET}]         $:   {response.get("phone")}
-[{Fore.LIGHTMAGENTA_EX}계정 생성일{Fore.RESET}]      $:   {created_at}
-[{Fore.LIGHTMAGENTA_EX}지역 및 언어{Fore.RESET}      $:   {languages.get(response.get("locale"))}
-[{Fore.LIGHTMAGENTA_EX}니트로 구매 여부{Fore.RESET}] $:   {user_nitro_type}
-[{Fore.LIGHTMAGENTA_EX}이차인증 여부{Fore.RESET}]    $:   {response.get("mfa_enabled")}
-[{Fore.LIGHTMAGENTA_EX}아바타 주소{Fore.RESET}]      $:   {user_avatar_link}
-"""
-    )
+        created_at = cls.get_user_created_at(response["id"])   
+        
+        message = (f"\n{Fore.RESET}{Fore.GREEN}####### 토큰 정보 #######{Fore.RESET}\n"
+                   f"[{Fore.LIGHTMAGENTA_EX}ID{Fore.RESET}]               $:   {response['id']}\n"
+                   f"[{Fore.LIGHTMAGENTA_EX}토큰{Fore.RESET}]             $:   {token}\n"
+                   f"[{Fore.LIGHTMAGENTA_EX}이메일{Fore.RESET}]           $:   {response.get('email')}\n"
+                   f"[{Fore.LIGHTMAGENTA_EX}전화번호{Fore.RESET}]         $:   {response.get('phone')}\n"
+                   f"[{Fore.LIGHTMAGENTA_EX}계정 생성일{Fore.RESET}]      $:   {created_at}\n"
+                   f"[{Fore.LIGHTMAGENTA_EX}지역 및 언어{Fore.RESET}      $:   {languages.get(response.get('locale'))}\n"
+                   f"[{Fore.LIGHTMAGENTA_EX}니트로 구매 여부{Fore.RESET}] $:   {user_nitro_type}\n"
+                   f"[{Fore.LIGHTMAGENTA_EX}이차인증 여부{Fore.RESET}]    $:   {response.get('mfa_enabled')}\n"
+                   f"[{Fore.LIGHTMAGENTA_EX}아바타 주소{Fore.RESET}]      $:   {user_avatar_link}\n")
+         
+        print(message)
+    
         
     @classmethod
     async def main(cls):
         option = super().get_option()
+        
         if option == 1:
             time.sleep(1)
             token = input(f"\n[\x1b[95m>\x1b[95m\x1B[37m] 토큰: ")

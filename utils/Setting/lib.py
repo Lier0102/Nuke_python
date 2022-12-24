@@ -18,8 +18,14 @@ os.system("mode 120,30")
 
 url = "https://discord.com/api/v10/channels/messages"
 
-token = open("token.txt", "r", encoding="utf-8").read().splitlines()
 
+tokens: list[str] = []
+with open("token.txt", "r", encoding="utf-8") as f:
+    for line in f.readlines():
+        # 주석 처리된 문장 무시
+        if line.startswith("#"):
+            continue
+        tokens.append(line)
 
 def Rstr(length: int):
     alpha = "abcdefghijklmnopqrstuvwxyz0123456789"
