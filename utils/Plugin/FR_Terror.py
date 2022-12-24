@@ -8,7 +8,6 @@ class FR_Terror(PluginABC): # token.txt에 있는 모든 토큰으로 특정 유
     @classmethod
     def be_friend(self, token, user):
         try:
-            user = str(user)
             user = user.split('#')
             headers = mainHeader(token)
             form = {
