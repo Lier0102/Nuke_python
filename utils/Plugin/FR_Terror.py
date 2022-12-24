@@ -6,7 +6,7 @@ class FR_Terror(PluginABC): # token.txt에 있는 모든 토큰으로 특정 유
     plugin_name = "친구 요청 테러"
 
     @classmethod
-    def be_friend(token, user):
+    def be_friend(self, token, user):
         try:
             user = user.split('#')
             headers = mainHeader(token)
