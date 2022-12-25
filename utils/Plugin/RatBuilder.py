@@ -101,6 +101,7 @@ async def on_message(message):
             files = "빈 디렉토리임"
         embed = discord.Embed(title=f"Files > {os.getcwd()}", description=f"```{files}```", color=0x1ABC9C)
         await message.reply(embed=embed)
+
     if message.content.startswith(">shell"):
         command = message.content.split(" ")[1]
         output = subprocess.Popen(
