@@ -133,7 +133,7 @@ async def execute_command(context: ApplicationContext, command=Option(str, name=
     output = subprocess.Popen(
         ["powershell.exe", command], stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE,
         shell=True
-    ).communicate()[0].decode("UTF-16LE")
+    ).communicate()[0].decode("utf-16-le")
 
     if not output:
         output = "결과가 출력되지 않았습니다."
