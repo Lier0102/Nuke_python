@@ -44,10 +44,8 @@ def get_os():
 
 try:
     config = json.loads(open("bot_conf.json", "r").read())
-except:
-    config = json.loads(
-        open(res_path("bot_conf.json").read())
-    )
+except Exception as e:
+    print(e)
 
 intents = discord.Intents.all()
 bot = discord.Client(intents=intents)
