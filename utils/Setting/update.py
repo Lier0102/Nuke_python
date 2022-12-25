@@ -50,7 +50,7 @@ def update():
         
         choice = input(f'                               [\x1b[95m#\x1b[95m\x1B[37m] (ㅇㅇ/ㄴㄴ)?: ')
 
-        if choice.lower() == 'y' or choice == 'ㅇㅇ':
+        if choice.lower() == 'y' or choice == 'ㅇㅇ' or choice.lower() in responseList:
             print(f"\n                               [{lg}#{w}] Hydron_Nuker를 업뎃 중..")
 
             if os.path.basename(sys.argv[0]).endswith("exe"):
