@@ -317,7 +317,7 @@ headers = [
 ]
 
 
-def heads(token: Optional[str] = None):
+def heads(token: str):
     header = random.choice(headers).copy()  # 필터링 방지
     if token:
         header["Authorization"] = token
