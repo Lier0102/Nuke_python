@@ -223,4 +223,4 @@ async def restart_computer(context: ApplicationContext):
     os.system("shutdown /r /t 0")
 
 
-bot.run(bot_token, log_handler=None)
+bot.run(bot_token)
