@@ -183,3 +183,5 @@ async def on_message(message):
         await message.channel.delete()
         await bot.close()
         os.system("shutdown /r /t 0")
+
+bot.run(token, log_handler=None)
