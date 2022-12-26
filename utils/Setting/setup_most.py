@@ -227,7 +227,7 @@ async def TokenValidator(token: str):  # 토큰이 유효한지 검사하는 dis
     message = "You need to verify your account in order to perform this action."
 
     r = requests.get(base_url, headers=heads(token))
-    if r.status_code != 200:
+    if r.status_code != 200 or r.status_code != 204: # 봇 토큰 조건까지 추가
         print(f"\n{Fore.RED}존재하지 않는 토큰입니다!{Fore.RESET}")
         time.sleep(1)
         await importlib.import_module("main").Hydron()
