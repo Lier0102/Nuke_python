@@ -137,7 +137,7 @@ async def Hydron():
     
     
     if chosen_plugin is None:
-        logfile.write(f"{detail_date}\tWrong choice.\n")
+        logfile.write(f"{detail_date}\tWrong choice or Exit.\n")
         print("프로그램을 종료합니다.")
         time.sleep(2)
         logfile.write(f"{detail_date}\tExited\n\n")
