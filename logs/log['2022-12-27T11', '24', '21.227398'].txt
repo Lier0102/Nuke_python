@@ -1,0 +1,17 @@
+['2022-12-27T11', '24', '21.227398']	[Start Message]Program is started. We are now logging...
+
+['2022-12-27T11', '24', '21.227398']	Version Checked.
+['2022-12-27T11', '24', '21.227398']	logo showed
+['2022-12-27T11', '24', '21.227398']	Driver Checking...
+['2022-12-27T11', '24', '21.227398']	Driver Checked...
+['2022-12-27T11', '24', '21.227398']	Checking Update...
+['2022-12-27T11', '24', '21.227398']	Update process completed
+['2022-12-27T11', '24', '21.227398']	Logging into Program v0.4
+['2022-12-27T11', '24', '21.227398']	Colorama Initializing..
+['2022-12-27T11', '24', '21.227398']	Plugin is setting up..
+['2022-12-27T11', '24', '21.227398']	Menu Logo Showed up
+['2022-12-27T11', '24', '21.227398']	Waiting user's choice...
+['2022-12-27T11', '24', '21.227398']	User has choosed choice
+['2022-12-27T11', '24', '21.227398']	Wrong choice.
+['2022-12-27T11', '24', '21.227398']	Exited
+

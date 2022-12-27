@@ -135,8 +135,9 @@ async def Hydron():
     logfile.write(f"{detail_date}\tUser has choosed choice\n")
     chosen_plugin = choices.get(choice)
     
-    logfile.write(f"{detail_date}\tWrong choice.\n")
+    
     if chosen_plugin is None:
+        logfile.write(f"{detail_date}\tWrong choice.\n")
         print("프로그램을 종료합니다.")
         time.sleep(2)
         logfile.write(f"{detail_date}\tExited\n\n")
@@ -150,12 +151,15 @@ async def Hydron():
 
 if __name__ == "__main__":
     import sys
-    day = datetime.today().isoformat()
-    detail_date = datetime.now().isoformat()
+    day = datetime.today().isoformat().split(":")
+    detail_date = datetime.now().isoformat().split(":")
 
     timezone_korea = timezone(timedelta(hours=9))
 
-    logfile = open(f"logs/log{day}.txt", "a") # 로그 파일을 연다
+    try:
+        logfile = open(f"logs/log{day}.txt", "a") # 로그 파일을 연다
+    except FileNotFoundError:
+        logfile = open(f"logs/log{day}.txt", "w") # 로그 파일을 연다
     
     logfile.write(f"{detail_date}\t[Start Message]Program is started. We are now logging...\n\n")
     check_version()
