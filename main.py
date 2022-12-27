@@ -86,14 +86,19 @@ def set_login():
 async def Hydron():
     global thread
     setTitle("")
+    logfile.write(f"{detail_date}\tLogging into Program v{CUR_VERSION}\n")
     set_login()
+    
     
     # token = open("token.txt", 'r', encoding="utf-8").read().splitlines()
     clear = lambda: os.system('cls')
 
     clear()
+    
+    logfile.write(f"{detail_date}\tColorama Initializing..\n")
     colorama.init()
     
+    logfile.write(f"{detail_date}\tPlugin is setting up..\n")
     names = [plugin.plugin_name for plugin in plugins] + ["나가기"]
     choices = {i: plugin for i, plugin in enumerate(plugins, 1)}
         
@@ -101,7 +106,7 @@ async def Hydron():
 
     Write.Print(f"{login}\n", Colors.blue_to_cyan)
     time.sleep(0.05)
-
+    logfile.write(f"{detail_date}\tMenu Logo Showed up\n")
     print('\n')
     Write.Print('               $$\   $$\                 $$\                               \n', Colors.blue_to_red, interval=0.00)
     Write.Print('               $$ |  $$ |                $$ |                              \n', Colors.blue_to_red, interval=0.00)
@@ -124,39 +129,55 @@ async def Hydron():
         interval=0.000,
     )
     print()
+    logfile.write(f"{detail_date}\tWaiting user's choice...\n")
     choice = int(input(f"{lm}[{w}>{lm}]{w} 사용하실 기능을 입력해주세요: "))
 
+    logfile.write(f"{detail_date}\tUser has choosed choice\n")
     chosen_plugin = choices.get(choice)
     
+    logfile.write(f"{detail_date}\tWrong choice.\n")
     if chosen_plugin is None:
         print("프로그램을 종료합니다.")
         time.sleep(2)
+        logfile.write(f"{detail_date}\tExited\n\n")
         exit(1)
     
+    logfile.write(f"{detail_date}\tLoading...\n")
     LoadingAnimation()
+    logfile.write(f"{detail_date}\tExecuting Features...\n")
     await chosen_plugin.main()
 
 
 if __name__ == "__main__":
     import sys
     day = datetime.today().isoformat()
+    detail_date = datetime.now().isoformat()
+
     timezone_korea = timezone(timedelta(hours=9))
 
     logfile = open(f"logs/log{day}.txt", "a") # 로그 파일을 연다
     
+    logfile.write(f"{detail_date}\t[Start Message]Program is started. We are now logging...\n\n")
     check_version()
-    logfile.write(f"{}\n")
+    logfile.write(f"{detail_date}\tVersion Checked.\n")
 
 
     show_logo()
+    logfile.write(f"{detail_date}\tlogo showed\n")
 
     os.system("""if not exist "./chromedriver.exe" echo [+] 드라이버 설치중...""")
+    logfile.write(f"{detail_date}\tDriver Checking...\n")
     os.system(
         """if not exist "./chromedriver.exe" curl -#fkLo "./chromedriver.exe" "https://chromedriver.storage.googleapis.com/109.0.5414.25/chromedriver_win32.zip" """
     )
+    logfile.write(f"{detail_date}\tDriver Checked...\n")
     if os.path.basename(sys.argv[0]).endswith("exe"):
+        logfile.write(f"{detail_date}\tChecking Update...\n")
         update()
+        logfile.write(f"{detail_date}\tUpdate process completed\n")
         clear()
     else:
+        logfile.write(f"{detail_date}\tChecking Update...\n")
         update()
+        logfile.write(f"{detail_date}\tUpdate process completed\n")
         asyncio.run(Hydron())
