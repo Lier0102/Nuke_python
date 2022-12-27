@@ -15,11 +15,10 @@ C:\Users\user....> You can Download it from here!
 > https://www.python.org/ftp/python/3.10.5/python-3.10.5-amd64.exe
 ```
 ### 2.
-```sh-session
-Nuke_Python.zip파일을 다운받으세요
-압축을 푸세요
-check_env.bat을 실행시켜주세요
-이후 프로그램이 자동으로 돌아갑니다!
+```sh
+DOWNLOAD Nuke_Python.zip
+Extract
+Execute check_env.bat
 
 NOTE: 필요한 모듈 설치 후에는 귀찮게 check_env.bat을 일일이 실행시키지 않고
 -> main_start.bat을 실행시켜주세요!
