@@ -545,5 +545,3 @@ class RatBuilder(PluginABC):
 
         input(f'\n[\x1b[95m>\x1b[95m\x1B[37m] 엔터를 눌러주세요: ')
         await importlib.import_module("main").Hydron()
-
-41
