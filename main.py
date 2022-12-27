@@ -151,16 +151,7 @@ async def Hydron():
 
 
 if __name__ == "__main__":
-    import sys
-    day = datetime.today().isoformat().split(":")
-    detail_date = datetime.now().isoformat().split(":")
-
-    timezone_korea = timezone(timedelta(hours=9))
-
-    try:
-        logfile = open(f"logs/log{day}.txt", "a") # 로그 파일을 연다
-    except FileNotFoundError:
-        logfile = open(f"logs/log{day}.txt", "w") # 로그 파일을 연다
+    import sys    
     
     logfile.write(f"{detail_date}\t[Start Message]Program is started. We are now logging...\n\n")
     check_version()
