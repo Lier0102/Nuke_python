@@ -14,6 +14,7 @@ import requests  # <-- 웹페이지에 요청을 보낼 때 헤더가 필요한�
 
 from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
 
+from datetime import timedelta, timezone, datetime
 
 ###### 버전 지정 ######
 
