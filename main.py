@@ -145,8 +145,9 @@ async def Hydron():
     
     logfile.write(f"{detail_date}\tLoading...\n")
     LoadingAnimation()
-    logfile.write(f"{detail_date}\tExecuting Features...\n")
+    logfile.write(f"{detail_date}\tExecuting {chosen_plugin}Features...\n")
     await chosen_plugin.main()
+    logfile.write(f"{detail_date}\tFeature process completed\n")
 
 
 if __name__ == "__main__":
