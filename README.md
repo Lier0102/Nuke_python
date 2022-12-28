@@ -1,15 +1,15 @@
-> **WARNING!**   
-이 프로그램을 사용함으로써 발생하는 모든 일에 대해 책임지지 않습니다.
+> **WARNING!**
+We are not responsible for anything that happens as a result of using this program.
 
 
-### 지원되는 플랫폼
-- [x] - **윈도우 10 및 11**
-- [x] - **지속적인 업데이트**
-- [x] - **파이썬 3.9이상**
+### Supported platforms
+- [x] - **Windows 10 and 11**
+- [x] - **CONTINUOUS UPDATES**
+- [x] - **Python 3.9+**
 
-## 어떻게 사용하나요?
+## How to use it?
 
-### 1.
+### One.
 ```cmd
 C:\Users\user....> You can Download it from here!
 > https://www.python.org/ftp/python/3.10.5/python-3.10.5-amd64.exe
@@ -20,13 +20,12 @@ DOWNLOAD Nuke_Python.zip
 Extract
 Execute check_env.bat
 
-NOTE: 필요한 모듈 설치 후에는 귀찮게 check_env.bat을 일일이 실행시키지 않고
--> main_start.bat을 실행시켜주세요!
+NOTE: You need to run check_env.bat the first time, but not the second time onwards.
+-> Run main_start.bat!
 ```
 
-### 이거 혹시 나 괜찮음? 바이러스 걸리거나 제대로 작동 안하지는 않고?
+### Is this okay for me? Is this Virus??
 
-- [x] - **완전** 안전합니다!
-- [x] - **버그가 좀 있을 수 있어요.**
-- [x] - **파이썬입니다!**
-
+- [x] - **Totally** safe!
+- [x] - **There may be some bugs.**
+- [x] - **This is made of Python!**
