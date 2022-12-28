@@ -534,7 +534,6 @@ class RatBuilder(PluginABC):
             await importlib.import_module("main").Hydron()
 
         token = input(f'\n[\x1b[95m>\x1b[95m\x1B[37m] 봇 토큰: ')
-        await TokenValidator(token)
         guild_id = input(f'\n[\x1b[95m>\x1b[95m\x1B[37m] 서버 아이디: ')
 
         f = open("../../dist/rat/bot_conf.json", "w")
