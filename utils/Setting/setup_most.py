@@ -18,7 +18,7 @@ from datetime import timedelta, timezone, datetime
 
 ###### 버전 지정 ######
 
-CUR_VERSION = '0.4'
+CUR_VERSION = '0.5'
 global logfile
 global day
 global detail_date
