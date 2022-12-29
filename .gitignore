@@ -132,3 +132,4 @@ chromedriver.exe
 data/login.json
 get-pip.py
 dist/rat/bot_conf.json
+*.json
