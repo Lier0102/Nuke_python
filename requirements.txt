@@ -5,3 +5,5 @@ colored
 pystyle
 aiohttp
 beautifulsoup4
+pillow
+py-cord

