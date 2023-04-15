@@ -1,6 +1,9 @@
 > **WARNING!**
 We are not responsible for anything that happens as a result of using this program.
 
+### FIRST
+YOU HAVE TO DOWNLOAD V5 RELEASE AND CHANGE var, named 'CURRENT_VERSION' to '0.5'.(in setup_most.py)
+
 
 ### Supported platforms
 - [x] - **Windows 10 and 11**
